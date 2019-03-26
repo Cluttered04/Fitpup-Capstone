@@ -13,6 +13,15 @@
       "userId": 1,
       "name": "Doodles",
       "breed": "Schoodle"
+    },
+    {
+      "name": "Captain",
+      "breed": "Shepherd",
+      "neutered": "true",
+      "active": "true",
+      "age": 2,
+      "userId": 1,
+      "id": 4
     }
   ],
   "exercises": [

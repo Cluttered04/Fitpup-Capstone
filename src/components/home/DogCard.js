@@ -1,6 +1,5 @@
 import React, {Component} from "react"
-import PropTypes from "prop-types"
-import Home from "./Home"
+
 
 class DogCard extends Component {
 
@@ -21,16 +20,5 @@ class DogCard extends Component {
         )}}
 
 
-DogCard.propTypes = {
-    dogs: PropTypes.shape ({
-        id: PropTypes.number,
-        name: PropTypes.string,
-        breed: PropTypes.string,
-        active: PropTypes.bool,
-        neutered: PropTypes.bool,
-        age: PropTypes.number,
-        userId: PropTypes.number
-    })
-}
 
 export default DogCard;
