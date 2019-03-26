@@ -14,7 +14,7 @@ class DogCard extends Component {
                 {this.props.dog.breed}
               </h5>
             </div>
-            <button onClick={()=> {this.props.history.push(`/edit`)}}>Edit</button><button onClick={() => this.props.deleteDog(this.props.dog.id)}>Delete</button>
+            <button onClick={()=> {this.props.history.push(`/${this.props.dog.id}/edit`)}}>Edit</button><button onClick={() => this.props.deleteDog(this.props.dog.id)}>Delete</button>
           </div>
           </div>
         )}}
