@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "genericUser",
+      "email": "me@me.com",
+      "password": "password"
+    }
+  ],
+  "dogs": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Doodles",
+      "breed": "Schoodle"
+    }
+  ],
+  "exercises": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "fetch"
+    }
+  ],
+  "foods": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "True Chews",
+      "brand": "Tyson Pet Producst",
+      "serving": "one piece",
+      "calories": 47
+    }
+  ],
+  "exerciseEntries": [],
+  "foodEntries": [],
+  "weight": [],
+  "behavior": []
+}

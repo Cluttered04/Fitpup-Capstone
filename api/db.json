@@ -1,0 +1,87 @@
+{
+    "users": [
+        {
+        "id": 1,
+        "name" : "genericUser",
+        "email": "me@me.com",
+        "password": "password"
+        }
+    ],
+
+    "dogs": [
+        {
+            "id": 1,
+            "userId": 1,
+            "name": "Doodles",
+            "breed": "Schoodle",
+            "neutered": true,
+            "active": true,
+            "age": 3
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "name": "Rufus",
+            "breed": "Terrier",
+            "neutered": false,
+            "active": false,
+            "age": 0
+        }
+    ],
+
+    "exercises": [
+        {
+        "id": 1,
+        "userId": 1,
+        "name": "fetch"
+        }
+    ],
+
+    "foods": [
+        {
+            "id": 1,
+            "userId": 1,
+            "name": "True Chews",
+            "brand": "Tyson Pet Producst",
+            "serving": "one piece",
+            "calories": 47
+        }
+    ],
+
+    "exerciseEntries": [
+        {
+            "id": 1,
+            "date": "2019/03/25",
+            "timeInMinutes": 24,
+            "dogId": 1 ,
+            "exerciseId": 1
+        }
+    ],
+
+    "foodEntries": [
+        {
+            "id": 1,
+            "date": "2019/03/25",
+            "foodId": 1,
+            "dogId": 1,
+            "serving": 2
+        }
+    ],
+
+    "weight": [
+        {
+            "id": 1,
+            "dogId": 1,
+            "weightInPounds": 24
+        }
+    ],
+
+    "behavior": [
+        {
+            "id": 1,
+            "dogId": 1,
+            "behaviorScale": 5,
+            "date": "2019/03/25"
+        }
+    ]
+}
