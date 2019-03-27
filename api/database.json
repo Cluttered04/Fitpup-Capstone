@@ -13,6 +13,33 @@
       "userId": 1,
       "name": "Doodles",
       "breed": "Schoodle"
+    },
+    {
+      "name": "Captain",
+      "breed": "Shepherd",
+      "neutered": "true",
+      "active": "true",
+      "age": 2,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "name": "Morose",
+      "breed": "Whippet",
+      "neutered": "true",
+      "active": "true",
+      "age": 3,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "name": "Morris",
+      "breed": "Hound",
+      "neutered": "true",
+      "active": "false",
+      "age": 3,
+      "userId": 1,
+      "id": 6
     }
   ],
   "exercises": [

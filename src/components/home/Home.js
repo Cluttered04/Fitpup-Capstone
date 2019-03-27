@@ -8,13 +8,12 @@ class Home extends Component {
       <div>
           <div>
           {this.props.dogs.map((dog) => {
-              console.log(this.dog)
               return (
                   <DogCard dog={dog} key={dog.id} deleteDog={this.props.deleteDog} {...this.props}/>
               )
           })}
           </div>
-          <button></button>
+          <button onClick={() => this.props.history.push("/dogs/new")}>Add Another Dog</button><button>My Foods</button><button>My exercises</button>
       </div>
     );
   }

@@ -20,7 +20,7 @@ const DogManager = {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(dogObject)
-        }).then(r => r.json)
+        }).then(r => r.json())
     },
 
     editDog: (dogObject) => {
