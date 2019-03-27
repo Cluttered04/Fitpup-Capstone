@@ -10,7 +10,7 @@ class FoodExerciseCard extends Component {
     render() {
         return(
             <Card style={{ width: '18rem' }}>
-            <Card.Body>
+            <Card.Body onClick={this.props.handleModal}>
                 <Card.Title>{this.props.collection.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{this.props.collection.brand ? this.props.collection.brand : ""}</Card.Subtitle>
                 <Card.Text>

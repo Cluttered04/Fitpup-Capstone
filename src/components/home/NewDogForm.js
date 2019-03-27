@@ -8,7 +8,7 @@ class NewDogForm extends Component {
         neutered: true,
         active: false,
         age: 1,
-        userId: 1
+        userId: 2
         // parseInt(sessionStorage.getItem("activeUser"))
     }
 

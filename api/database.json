@@ -9,22 +9,40 @@
   ],
   "dogs": [
     {
-        "id": 1,
-        "userId": 1,
-        "name": "Doodles",
-        "breed": "Schoodle",
-        "neutered": true,
-        "active": true,
-        "age": 3
+      "id": 1,
+      "userId": 1,
+      "name": "Doodles",
+      "breed": "Schoodle",
+      "neutered": true,
+      "active": true,
+      "age": 3
     },
     {
-        "id": 2,
-        "userId": 1,
-        "name": "Rufus",
-        "breed": "Terrier",
-        "neutered": false,
-        "active": false,
-        "age": 0
+      "id": 2,
+      "userId": 1,
+      "name": "Rufus",
+      "breed": "Terrier",
+      "neutered": false,
+      "active": false,
+      "age": 0
+    },
+    {
+      "name": "Ferri",
+      "breed": "Retriver",
+      "neutered": false,
+      "active": true,
+      "age": 2,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "name": "Charles",
+      "breed": "Greyhound",
+      "neutered": false,
+      "active": true,
+      "age": 2,
+      "userId": 2,
+      "id": 4
     }
   ],
   "exercises": [

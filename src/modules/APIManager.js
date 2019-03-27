@@ -7,13 +7,13 @@ const remoteURL = "localhost:5002"
 const APIManager = {
     //Checks for food/exercise entries of user as well as prefilled entries
     getAllEntriesbyUser: function(collection, userId){
-        return fetch(`http://localhost:5002/${collection}/?userId=${userId}`)
+        return fetch(`http://${remoteURL}/${collection}/?userId=${userId}`)
         .then(r=>r.json())
     },
 
 
     getAllEntries: function(collection, userId){
-        return fetch(`http://localhost:5002/${collection}/?userId=${userId}&&userId=1`)
+        return fetch(`http://${remoteURL}/${collection}/?userId=${userId}&&userId=1`)
         .then(r => r.json())
     },
 
