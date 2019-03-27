@@ -13,7 +13,7 @@ class Home extends Component {
               )
           })}
           </div>
-          <button onClick={() => this.props.history.push("/dogs/new")}>Add Another Dog</button><button>My Foods</button><button>My exercises</button>
+          <button onClick={() => this.props.history.push("/dogs/new")}>Add Another Dog</button><button onClick={() => this.props.history.push("/food")}>My Foods</button><button onClick={() => this.props.history.push("/exercise")}>My exercises</button>
       </div>
     );
   }

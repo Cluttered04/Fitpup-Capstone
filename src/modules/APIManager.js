@@ -1,0 +1,47 @@
+import React, {Component} from "react"
+
+const remoteURL = "localhost:5002"
+
+
+
+const APIManager = {
+    //Checks for food/exercise entries of user as well as prefilled entries
+    getAllEntriesbyUser: function(collection, userId){
+        return fetch(`http://localhost:5002/${collection}/?userId=${userId}`)
+        .then(r=>r.json())
+    },
+
+
+    getAllEntries: function(collection, userId){
+        return fetch(`http://localhost:5002/${collection}/?userId=${userId}&&userId=1`)
+        .then(r => r.json())
+    },
+
+    addNewEntry: function(collection, object){
+        return fetch(`http://${remoteURL}/${collection}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(object)
+        }).then(r => r.json())
+    },
+
+    editEntry: function(collection, object){
+        return fetch(`http://${remoteURL}/${collection}/${object.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(object)
+        }).then(r => r.json())
+    },
+
+    deleteEntry: function(collection, objectId) {
+        return fetch(`http://${remoteURL}/${collection}/${objectId}`)
+        .then(r => r.json())
+    }
+
+}
+
+export default APIManager

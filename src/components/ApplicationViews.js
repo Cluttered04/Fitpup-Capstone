@@ -5,6 +5,10 @@ import {Route, Redirect} from "react-router-dom"
 import Home from "./home/Home"
 import DogEditForm from "./home/DogEditForm"
 import NewDogForm from "./home/NewDogForm"
+import FoodList from "./foods/FoodList"
+import ExerciseList from "./foods/ExerciseList"
+import APIManager from "../modules/APIManager"
+
 
 
 class ApplicationViews extends Component {
@@ -21,8 +25,12 @@ class ApplicationViews extends Component {
 
     componentDidMount() {
         const newState = {};
-        DogManager.getAllDogs(this.state.activeUser).then(parsedDogs => {
+        APIManager.getAllEntriesbyUser("dogs",this.state.activeUser).then(parsedDogs => {
             newState.dogs = parsedDogs;
+        }).then(APIManager.getAllEntriesbyUser("foods", this.state.activeUser).then(parsedFoods => {
+            newState.foods = parsedFoods
+        })).then(APIManager.getAllEntriesbyUser("exercises", this.state.activeUser)).then(parsedExercises => {
+            newState.exercises = parsedExercises
             this.setState(newState)
         })
     }
@@ -48,6 +56,38 @@ editDog = (dogObject) => {
 
 
 
+addNewEntry = (collection, object, stateCollection) => {
+    const newState = {}
+
+    return APIManager.addNewEntry(collection, object).then(() => APIManager.getAllEntriesByUser(collection, this.state.activeUser)).then(response => {
+        newState[stateCollection] = response
+        this.setState(newState)
+     })
+}
+
+deleteEntry = (collection, objectId, stateCollection) => {
+    const newState = {}
+
+    return APIManager.deleteEntry(collection, objectId).then(() =>
+    APIManager.getAllEntriesByUser(collection, this.state.activeUser).then(response => {
+        newState[stateCollection] = response
+        this.setState(newState)
+    })
+    )
+}
+
+editEntry = (collection, object, stateCollection) => {
+    const newState ={}
+    return APIManager.editEntry(collection, object).then(() => APIManager.getAllEntriesByUser(collection, this.state.activeUser).then(response => {
+        newState[stateCollection] = response
+        this.setState(newState)
+    })
+    )
+}
+
+
+
+
 render(){
     return(
         <div className="container-div">
@@ -55,13 +95,13 @@ render(){
             {/* Routes to home page and dog forms */}
             <Route exact path="/" render={props=> {
                 return (
-                    <Home deleteDog={this.deleteDog} dogs={this.state.dogs} {...props}/>
+                    <Home deleteDog={this.deleteDog} dogs={this.state.dogs} {...props} />
 
                 )}} />
 
             <Route exact path="/:dogId(\d+)/edit" render={props => {
                 return (
-                    <DogEditForm {...props} dogs={this.state.dogs} EditDog = {this.editDog} />
+                    <DogEditForm {...props} dogs={this.state.dogs} editDog = {this.editDog} />
                 )
             }}/>
 
@@ -70,6 +110,18 @@ render(){
                     <NewDogForm {...props} dogs={this.state.dogs} addNewDog={this.addNewDog}/>
                 )
             }}/>
+
+            <Route exact path="/food" render={props => {
+                return(
+                    <FoodList {...props} foods={this.state.foods}/>
+                )
+            }}/>
+
+            <Route exact path="/exercise" render={props => {
+                return(
+                    <ExerciseList {...props} exercises={this.state.exercises}/>
+                )
+            }} />
 
 
 
