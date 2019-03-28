@@ -9,7 +9,7 @@ class Home extends Component {
           <div>
           {this.props.dogs.map((dog) => {
               return (
-                  <DogCard dog={dog} key={dog.id} deleteDog={this.props.deleteDog} {...this.props}/>
+                  <DogCard dog={dog} key={dog.id} deleteDog={this.props.deleteDog} deleteEntry={this.props.deleteEntry}{...this.props}/>
               )
           })}
           </div>

@@ -126,8 +126,8 @@ class DogEditForm extends Component {
                 name="age"
                 id="age"
                 value={1}
-                onChange={this.handleOptionChange}
-                checked={this.state.age === 1 ? true : false}
+                onClick={this.handleOptionChange}
+                checked={this.state.age === 1}
               />
               <Form.Check
                 type="radio"
@@ -135,8 +135,8 @@ class DogEditForm extends Component {
                 name="age"
                 id="age"
                 value={2}
-                onChange={this.handleOptionChange}
-                checked={this.state.age === 2 ? true : false}
+                onClick={this.handleOptionChange}
+                checked={this.state.age === 2}
               />
               <Form.Check
                 type="radio"
@@ -144,8 +144,8 @@ class DogEditForm extends Component {
                 name="age"
                 id="age"
                 value={3}
-                onChange={this.handleOptionChange}
-                checked={this.state.age === 3 ? true : false}
+                onClick={this.handleOptionChange}
+                checked={this.state.age === 3}
               />
             </Row>
           </Form.Group>
@@ -163,7 +163,7 @@ class DogEditForm extends Component {
               id="neutered"
               value={true}
               onChange={this.handleNeuterChange}
-              checked={this.state.neutered === true ? true : false}
+              checked={this.state.neutered === true}
             />
             <Form.Check
               type="radio"
@@ -172,7 +172,7 @@ class DogEditForm extends Component {
               id="neutered"
               value={false}
               onChange={this.handleNeuterChange}
-              checked={this.state.neutered === false ? true : false}
+              checked={this.state.neutered === false}
             />
           </Form.Group>
         </fieldset>
@@ -189,7 +189,7 @@ class DogEditForm extends Component {
               id="active"
               value={true}
               onChange={this.handleActiveChange}
-              checked={this.state.active === true ? true : false}
+              checked={this.state.active === true}
             />
             <Form.Check
               type="radio"
@@ -198,7 +198,7 @@ class DogEditForm extends Component {
               id="active"
               value={false}
               onChange={this.handleActiveChange}
-              checked={this.state.active === false ? true : false}
+              checked={this.state.active === false}
             />
           </Form.Group>
         </fieldset>

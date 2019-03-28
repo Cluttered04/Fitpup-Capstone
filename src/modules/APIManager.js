@@ -6,11 +6,10 @@ const remoteURL = "localhost:5002"
 
 const APIManager = {
     //Checks for food/exercise entries of user as well as prefilled entries
-    getAllEntriesbyUser: function(collection, userId){
+    getAllEntriesByUser: function(collection, userId){
         return fetch(`http://${remoteURL}/${collection}/?userId=${userId}`)
         .then(r=>r.json())
     },
-
 
     getAllEntries: function(collection, userId){
         return fetch(`http://${remoteURL}/${collection}/?userId=${userId}&&userId=1`)
@@ -38,7 +37,9 @@ const APIManager = {
     },
 
     deleteEntry: function(collection, objectId) {
-        return fetch(`http://${remoteURL}/${collection}/${objectId}`)
+        return fetch(`http://${remoteURL}/${collection}/${objectId}`, {
+            method: "DELETE"
+        })
         .then(r => r.json())
     }
 

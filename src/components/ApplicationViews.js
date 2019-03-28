@@ -8,6 +8,7 @@ import NewDogForm from "./home/NewDogForm";
 import FoodList from "./foods/FoodList";
 import ExerciseList from "./foods/ExerciseList";
 import APIManager from "../modules/APIManager";
+import AddNewFood from "./foods/AddNewFood"
 
 class ApplicationViews extends Component {
   state = {
@@ -23,7 +24,7 @@ class ApplicationViews extends Component {
 
   componentDidMount() {
     const newState = {};
-    APIManager.getAllEntriesbyUser("dogs", this.state.activeUser)
+    APIManager.getAllEntriesByUser("dogs", this.state.activeUser)
       .then(parsedDogs => {
         newState.dogs = parsedDogs;
       })
@@ -37,7 +38,7 @@ class ApplicationViews extends Component {
         newState.exercises = parsedExercises;
         this.setState(newState);
       });
-  }
+  };
 
   //Handles dog edit/add/delete
   addNewDog = dogObject => {
@@ -63,23 +64,23 @@ class ApplicationViews extends Component {
   //Universal add/edit/delete functions
   addNewEntry = (collection, object, stateCollection) => {
     const newState = {};
-
     return APIManager.addNewEntry(collection, object)
-      .then(() =>
-        APIManager.getAllEntriesByUser(collection, this.state.activeUser)
-      )
+      .then(() => APIManager.getAllEntriesByUser(collection, this.state.activeUser))
       .then(response => {
         newState[stateCollection] = response;
         this.setState(newState);
-      });
+      })
   };
+
 
   deleteEntry = (collection, objectId, stateCollection) => {
     const newState = {};
 
-    return APIManager.deleteEntry(collection, objectId).then(() =>
-      APIManager.getAllEntriesByUser(collection, this.state.activeUser).then(
-        response => {
+    return APIManager.deleteEntry(collection, objectId)
+    .then(() =>
+      APIManager.getAllEntriesByUser(collection, this.state.activeUser)
+
+      .then(response => {
           newState[stateCollection] = response;
           this.setState(newState);
         }
@@ -111,6 +112,7 @@ class ApplicationViews extends Component {
               <Home
                 deleteDog={this.deleteDog}
                 dogs={this.state.dogs}
+                deleteEntry={this.deleteEntry}
                 {...props}
               />
             );
@@ -140,6 +142,7 @@ class ApplicationViews extends Component {
                 {...props}
                 dogs={this.state.dogs}
                 addNewDog={this.addNewDog}
+                 addNewEntry={this.addNewEntry}
               />
             );
           }}
@@ -150,9 +153,16 @@ class ApplicationViews extends Component {
           exact
           path="/food"
           render={props => {
-            return <FoodList {...props} foods={this.state.foods} dogs={this.state.dogs}/>;
+            return (<FoodList {...props} foods={this.state.foods} dogs={this.state.dogs}/>)
           }}
         />
+
+        <Route exact path="/food/new" render={props=> {
+            return (
+            <AddNewFood {...props} addNewEntry={this.addNewEntry}/>
+            )
+        }
+        }/>
 
         <Route
           exact
@@ -161,6 +171,12 @@ class ApplicationViews extends Component {
             return <ExerciseList {...props} exercises={this.state.exercises} dogs={this.state.dogs}/>;
           }}
         />
+
+        {/* <Route exact path="/exercise/new" render={props ={
+            return (
+                <AddNewExercise {}
+            )
+        }} */}
       </div>
     );
   }

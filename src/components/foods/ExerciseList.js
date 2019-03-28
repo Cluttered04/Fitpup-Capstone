@@ -24,7 +24,7 @@ class ExerciseList extends Component {
                 {this.props.exercises.map(exercise => {
                     return <FoodExerciseCard collection={exercise} handleModal={this.handleModal}/>
                 })}
-                <button>Add New Exercise</button>
+                <button onClick={() => this.props.history.push("/exercise/new")}>Add New Exercise</button>
                 {this.state.showModal === true ? <AddEntryModal show={this.state.showModal} onHide={modalClose} addNewEntry={this.props.addNewEntry} dogs={this.props.dogs}{...this.props}/> : ""}
             </div>
         )
