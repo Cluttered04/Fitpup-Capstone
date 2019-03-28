@@ -16,6 +16,11 @@ const APIManager = {
         .then(r => r.json())
     },
 
+    getSingleEntry: function(collection, itemId){
+        return fetch(`http://${remoteURL}/${collection}/${itemId}`)
+        .then(r => r.json())
+    },
+
     addNewEntry: function(collection, object){
         return fetch(`http://${remoteURL}/${collection}`, {
             method: "POST",

@@ -42,7 +42,7 @@ class AddNewFood extends Component {
                 </Form.Text>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-                <Form.Label></Form.Label>
+                <Form.Label>Brand</Form.Label>
                 <Form.Control type="text" onChange={this.handleFieldChange} placeholder="Brand" id="brand"/>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">

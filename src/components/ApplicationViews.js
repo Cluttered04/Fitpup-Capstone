@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import DogManager from "../modules/DogManager";
-import { homedir } from "os";
 import { Route, Redirect } from "react-router-dom";
 import Home from "./home/Home";
 import DogEditForm from "./home/DogEditForm";
@@ -9,6 +8,9 @@ import FoodList from "./foods/FoodList";
 import ExerciseList from "./foods/ExerciseList";
 import APIManager from "../modules/APIManager";
 import AddNewFood from "./foods/AddNewFood"
+import AddNewExercise from "./foods/AddNewExercise"
+import EditFoodForm from "./foods/EditFoodForm"
+import EditExerciseForm from "./foods/EditExerciseForm"
 
 class ApplicationViews extends Component {
   state = {
@@ -34,7 +36,6 @@ class ApplicationViews extends Component {
       })
       .then(() => APIManager.getAllEntries("exercises", this.state.activeUser))
       .then(parsedExercises => {
-        console.log(parsedExercises);
         newState.exercises = parsedExercises;
         this.setState(newState);
       });
@@ -137,7 +138,7 @@ class ApplicationViews extends Component {
               <DogEditForm
                 {...props}
                 dogs={this.state.dogs}
-                editDog={this.editDog}
+                editEntry={this.editEntry}
               />
             );
           }}
@@ -174,6 +175,12 @@ class ApplicationViews extends Component {
         }
         }/>
 
+        <Route exact path="/food/:foodId(\d+)/edit" render={props => {
+            return (
+                <EditFoodForm {...props} editEntry={this.editEntry} foods={this.state.foods}/>
+            )
+        }}/>
+
         <Route
           exact
           path="/exercise"
@@ -182,11 +189,17 @@ class ApplicationViews extends Component {
           }}
         />
 
-        {/* <Route exact path="/exercise/new" render={props ={
+        <Route exact path="/exercise/new" render={props => {
             return (
-                <AddNewExercise {}
+                <AddNewExercise {...props} addNewFoodEntry={this.addNewFoodEntry} />
             )
-        }} */}
+        }}/>
+
+        <Route exact path="/exercise/:exerciseId(\d+)/edit" render={props=> {
+            return(
+                <EditExerciseForm {...props} exercises={this.state.exercises} editEntry={this.editEntry}/>
+            )
+        }}/>
       </div>
     );
   }

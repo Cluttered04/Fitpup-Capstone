@@ -10,7 +10,7 @@ class DogEditForm extends Component {
     age: 1,
     active: true,
     neutered: true,
-    activeUser: 1
+    activeUser: 2
   };
 
   //Handles text input changes
@@ -73,9 +73,9 @@ class DogEditForm extends Component {
           age: this.state.age,
           active: this.strToBoolean(this.state.active),
           neutered: this.strToBoolean(this.state.neutered)
-
       }
-      this.props.editDog(updatedDog)
+      console.log(updatedDog)
+      this.props.editEntry("dogs", updatedDog, "dogs")
       this.props.history.push("/")
 
   }

@@ -27,13 +27,67 @@
       "id": 3
     },
     {
+      "id": 4,
+      "userId": 1,
       "name": "Flip",
       "breed": "Whippet",
+      "age": 1,
+      "active": false,
+      "neutered": true
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "name": "test",
+      "breed": "Lab",
+      "age": 1,
+      "active": false,
+      "neutered": true
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "name": "Flip",
+      "breed": "Greyhound",
+      "age": 1,
+      "active": true,
+      "neutered": true
+    },
+    {
+      "id": 7,
+      "userId": 1,
+      "name": "test",
+      "breed": "Lab",
+      "age": 2,
+      "active": true,
+      "neutered": false
+    },
+    {
+      "id": 8,
+      "userId": 1,
+      "name": "Flip",
+      "breed": "Lab",
+      "age": "2",
+      "active": true,
+      "neutered": false
+    },
+    {
+      "id": 9,
+      "userId": 2,
+      "name": "Flip",
+      "breed": "Whippet",
+      "age": 1,
+      "active": false,
+      "neutered": false
+    },
+    {
+      "name": "test",
+      "breed": "Lab",
       "neutered": true,
       "active": false,
       "age": 1,
       "userId": 2,
-      "id": 4
+      "id": 10
     }
   ],
   "exercises": [
@@ -41,6 +95,19 @@
       "id": 1,
       "userId": 1,
       "name": "fetch"
+    },
+    {
+      "name": [
+        "Flirt Pole"
+      ],
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "name": [
+        "Flirt Pole"
+      ],
+      "id": 3
     }
   ],
   "foods": [

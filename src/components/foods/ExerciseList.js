@@ -22,10 +22,10 @@ class ExerciseList extends Component {
             <div>
                 <h1>My Exercises</h1>
                 {this.props.exercises.map(exercise => {
-                    return <FoodExerciseCard collection={exercise} handleModal={this.handleModal}/>
+                    return <FoodExerciseCard collection={exercise} handleModal={this.handleModal} {...this.props} deleteEntry={this.props.deleteEntry}/>
                 })}
                 <button onClick={() => this.props.history.push("/exercise/new")}>Add New Exercise</button>
-                {this.state.showModal === true ? <AddEntryModal show={this.state.showModal} onHide={modalClose} addNewEntry={this.props.addNewEntry} dogs={this.props.dogs}{...this.props}/> : ""}
+                {this.state.showModal === true ? <AddEntryModal show={this.state.showModal} onHide={modalClose} addNewEntry={this.props.addNewEntry} dogs={this.props.dogs} {...this.props}/> : ""}
             </div>
         )
     }

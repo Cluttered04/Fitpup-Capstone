@@ -6,19 +6,21 @@ import {Card} from "react-bootstrap"
 class FoodExerciseCard extends Component {
 
 
-
     render() {
+        const foodStatus = this.props.match.path
         return(
             <Card style={{ width: '18rem' }}>
-            <Card.Body onClick={this.props.handleModal}>
-                <Card.Title>{this.props.collection.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{this.props.collection.brand ? this.props.collection.brand : ""}</Card.Subtitle>
+            <Card.Body>
+                <Card.Title onClick={this.props.handleModal}>{this.props.collection.name}</Card.Title>
+                <Card.Subtitle onClick={this.props.handleModal} className="mb-2 text-muted">{this.props.collection.brand ? this.props.collection.brand : ""}</Card.Subtitle>
                 <Card.Text>
                 {this.props.collection.serving? `Serving Size: ${this.props.collection.serving}`  : ""}
                 </Card.Text>
                 <Card.Text>
                 {this.props.collection.calories? `Calories: ${this.props.collection.calories}` : ""}
                 </Card.Text>
+                {this.props.collection.userId !== 1 ? <button onClick={() => this.props.history.push(`${foodStatus}/${this.props.collection.id}/edit`)}>Edit</button> : ""}
+                {this.props.collection.userId !== 1 ? <button onClick={() => this.props.deleteEntry}>Delete</button> : ""}
             </Card.Body>
             </Card>
         )

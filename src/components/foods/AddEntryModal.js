@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import {Modal, Button} from "react-bootstrap"
+import {Modal, Button, Dropdown} from "react-bootstrap"
 
 class AddEntryModal extends Component {
     state = {
@@ -8,7 +8,10 @@ class AddEntryModal extends Component {
         foodId: "",
         serving: "",
         exerciseId: "",
-        time: ""
+        time: "",
+        dogName: ""
+
+
     }
 
 
@@ -20,6 +23,7 @@ class AddEntryModal extends Component {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
+        console.log(evt.target.value)
     }
 
     submitModal = evt => {
@@ -39,7 +43,7 @@ class AddEntryModal extends Component {
                 exerciseId: parseInt(this.state.exerciseId),
                 time: parseInt(this.state.time)
             }
-            this.props.addNewEntry("exerciseEntries", newEntry, "exerciseEntries")
+            this.props.addFoodNewEntry("exerciseEntries", newEntry, "exerciseEntries")
         } this.props.onHide()
     }
 
@@ -75,12 +79,19 @@ class AddEntryModal extends Component {
               onChange={this.handleFieldChange}
             />
           </div>
+            <label htmlFor="dropdown">Dog: </label><br/>
+            <select onChange={this.handleFieldChange} id="dogId">
+                {this.props.dogs.map(dog => {
+                   return <option id="dogId" name="dogId" value={dog.id} key={dog.id}>{dog.name}</option>
+                })}
+            </select>
+
           <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Due Date</label>
+            <label htmlFor="exampleInputPassword1">Date</label>
             <input
               type="date"
               className="form-control"
-              id="newDueDate"
+              id="date"
               onChange={this.handleFieldChange}
             />
           </div>
