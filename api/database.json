@@ -25,6 +25,15 @@
       "age": 2,
       "userId": 1,
       "id": 3
+    },
+    {
+      "name": "Flip",
+      "breed": "Whippet",
+      "neutered": true,
+      "active": false,
+      "age": 1,
+      "userId": 2,
+      "id": 4
     }
   ],
   "exercises": [
@@ -42,6 +51,22 @@
       "brand": "Tyson Pet Products",
       "serving": "one piece",
       "calories": 47
+    },
+    {
+      "userId": 2,
+      "brand": "s",
+      "name": "s",
+      "serving": "s",
+      "calories": null,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "brand": "k",
+      "name": "k",
+      "serving": "k",
+      "calories": null,
+      "id": 7
     }
   ],
   "exerciseEntries": [],

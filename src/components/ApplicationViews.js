@@ -72,6 +72,16 @@ class ApplicationViews extends Component {
       })
   };
 
+  addNewFoodEntry = (collection, object, stateCollection) => {
+      const newState = {}
+      return APIManager.addNewEntry(collection, object)
+      .then(() => APIManager.getAllEntries(collection, this.state.activeUser))
+      .then(response => {
+          newState[stateCollection] = response
+          this.setState(newState)
+      })
+  }
+
 
   deleteEntry = (collection, objectId, stateCollection) => {
     const newState = {};
@@ -159,7 +169,7 @@ class ApplicationViews extends Component {
 
         <Route exact path="/food/new" render={props=> {
             return (
-            <AddNewFood {...props} addNewEntry={this.addNewEntry}/>
+            <AddNewFood {...props} addNewFoodEntry={this.addNewFoodEntry}/>
             )
         }
         }/>

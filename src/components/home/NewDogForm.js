@@ -59,7 +59,6 @@ class NewDogForm extends Component {
             age: parseInt(this.state.age),
             userId: this.state.userId
         }
-        // this.props.addNewDog(dog)
         this.props.addNewEntry("dogs", dog, "dogs")
         .then(this.props.history.push("/"))
     }
