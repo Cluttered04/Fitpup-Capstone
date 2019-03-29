@@ -10,7 +10,7 @@ class DogEditForm extends Component {
     age: 1,
     active: true,
     neutered: true,
-    activeUser: 2
+    userId: ""
   };
 
   //Handles text input changes
@@ -54,7 +54,7 @@ class DogEditForm extends Component {
     DogManager.getSingleDog(this.props.match.params.dogId)
     .then(dog =>
         this.setState({
-            userId: dog.userId,
+            userId: parseInt(dog.userId),
             name: dog.name,
             breed: dog.breed,
             active: dog.active,

@@ -5,7 +5,7 @@ import APIManager from "../../modules/APIManager";
 
 class EditFoodForm extends Component {
     state = {
-        userId: 2,
+        userId: "",
         name: "",
         brand: "",
         serving:"",
@@ -37,7 +37,7 @@ class EditFoodForm extends Component {
             APIManager.getSingleEntry("foods", this.props.match.params.foodId)
             .then(food => {
                 this.setState({
-                    userId: food.userId,
+                    userId: parseInt(food.userId),
                     brand: food.brand,
                     name: food.name,
                     serving: food.serving,

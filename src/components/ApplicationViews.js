@@ -99,6 +99,20 @@ class ApplicationViews extends Component {
       });
   };
 
+  deleteAndRetrieveAll = (collection, objectId, stateCollection) => {
+    const newState = {};
+
+    return APIManager.deleteEntry(collection, objectId)
+      .then(() =>
+        APIManager.getAllEntries(collection, this.state.activeUser)
+      )
+
+      .then(response => {
+        newState[stateCollection] = response;
+        this.setState(newState);
+      });
+  };
+
 
   editEntry = (collection, object, stateCollection) => {
     const newState = {};
@@ -182,7 +196,7 @@ class ApplicationViews extends Component {
                 {...props}
                 foods={this.state.foods}
                 dogs={this.state.dogs}
-                deleteEntry={this.deleteEntry}
+                deleteAndRetrieveAll={this.deleteAndRetrieveAll}
               />
             );
           }}
@@ -222,7 +236,7 @@ class ApplicationViews extends Component {
                 exercises={this.state.exercises}
                 deleteDog={this.deleteDog}
                 dogs={this.state.dogs}
-                deleteEntry={this.deleteEntry}
+                deleteAndRetrieveAll={this.deleteAndRetrieveAll}
               />
             );
           }}

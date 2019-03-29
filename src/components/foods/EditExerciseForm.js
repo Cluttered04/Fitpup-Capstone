@@ -1,9 +1,45 @@
 import React, {Component} from "react"
 import {Form, Button} from "react-bootstrap"
 import PropTypes from "prop-types"
+import APIManager from "../../modules/APIManager";
 
 class EditExerciseForm extends Component {
+    state = {
+        userId: "",
+        name: ""
+    }
 
+    handleFieldChange = evt => {
+        const stateToChange = {}
+        stateToChange[evt.target.id] = evt.target.value
+        this.setState(stateToChange)
+    }
+
+    editExercise = evt => {
+        evt.preventDefault()
+        const updatedExercise = {
+            id: this.props.match.params.exerciseId,
+            userId: this.state.userId,
+            name: this.state.name
+        }
+
+        this.props.editAndRetrieveAll("exercises", updatedExercise, "exercises")
+        this.props.history.push("/exercises")
+    }
+
+    componentDidMount() {
+        APIManager.getSingleEntry("exercises", this.props.match.params.exerciseId)
+            .then(exercise => {
+                this.setState({
+                    id: exercise.id,
+                    name: exercise.name,
+                    userId: parseInt(exercise.userId)
+                })
+            })
+
+
+
+    }
 
     render() {
         return(
@@ -11,11 +47,11 @@ class EditExerciseForm extends Component {
             <Form>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Exercise</Form.Label>
-                <Form.Control type="text" placeholder="Exercise Type" onChange={this.handleFieldChange} id="name"/>
+                <Form.Control type="text" value={this.state.name} placeholder="Exercise Type" onChange={this.handleFieldChange} id="name"/>
                 <Form.Text className="text-muted">
                 </Form.Text>
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={this.addNewFoodEntry}>
+            <Button variant="primary" type="submit" onClick={this.editExercise}>
                 Add Exercise
             </Button>
         </Form>

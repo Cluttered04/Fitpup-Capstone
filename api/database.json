@@ -83,6 +83,11 @@
         "Flirt Pole"
       ],
       "id": 2
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "name": "agility"
     }
   ],
   "foods": [
@@ -96,11 +101,19 @@
     },
     {
       "userId": 2,
-      "name": "j",
+      "name": "s",
       "brand": "s",
-      "serving": "test",
-      "calories": 17,
+      "serving": "",
+      "calories": null,
       "id": 2
+    },
+    {
+      "userId": 2,
+      "brand": "j",
+      "name": "j",
+      "serving": "j",
+      "calories": 17,
+      "id": 3
     }
   ],
   "exerciseEntries": [],
