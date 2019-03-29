@@ -8,6 +8,7 @@ class FoodExerciseCard extends Component {
 
     render() {
         const foodStatus = this.props.match.path
+        const collectionParam = this.props.match.path.split("/")[1]
         return(
             <Card style={{ width: '18rem' }}>
             <Card.Body>
@@ -20,7 +21,7 @@ class FoodExerciseCard extends Component {
                 {this.props.collection.calories? `Calories: ${this.props.collection.calories}` : ""}
                 </Card.Text>
                 {this.props.collection.userId !== 1 ? <button onClick={() => this.props.history.push(`${foodStatus}/${this.props.collection.id}/edit`)}>Edit</button> : ""}
-                {this.props.collection.userId !== 1 ? <button onClick={() => this.props.deleteEntry}>Delete</button> : ""}
+                {this.props.collection.userId !== 1 ? <button onClick={() => this.props.deleteEntry(collectionParam, this.props.collection.id, collectionParam)}>Delete</button> : ""}
             </Card.Body>
             </Card>
         )

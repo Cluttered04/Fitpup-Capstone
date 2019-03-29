@@ -70,24 +70,6 @@
       "age": "2",
       "active": true,
       "neutered": false
-    },
-    {
-      "id": 9,
-      "userId": 2,
-      "name": "Flip",
-      "breed": "Whippet",
-      "age": 1,
-      "active": false,
-      "neutered": false
-    },
-    {
-      "name": "test",
-      "breed": "Lab",
-      "neutered": true,
-      "active": false,
-      "age": 1,
-      "userId": 2,
-      "id": 10
     }
   ],
   "exercises": [
@@ -101,13 +83,6 @@
         "Flirt Pole"
       ],
       "id": 2
-    },
-    {
-      "userId": 2,
-      "name": [
-        "Flirt Pole"
-      ],
-      "id": 3
     }
   ],
   "foods": [
@@ -121,19 +96,11 @@
     },
     {
       "userId": 2,
+      "name": "j",
       "brand": "s",
-      "name": "s",
-      "serving": "s",
-      "calories": null,
-      "id": 6
-    },
-    {
-      "userId": 2,
-      "brand": "k",
-      "name": "k",
-      "serving": "k",
-      "calories": null,
-      "id": 7
+      "serving": "test",
+      "calories": 17,
+      "id": 2
     }
   ],
   "exerciseEntries": [],

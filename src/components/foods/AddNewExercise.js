@@ -20,7 +20,7 @@ class AddNewExercise extends Component {
             name: this.state.name
         }
         this.props.addNewFoodEntry("exercises", exercise, "exercises")
-        this.props.history.push("/exercise")
+        this.props.history.push("/exercises")
     }
 
     render(){

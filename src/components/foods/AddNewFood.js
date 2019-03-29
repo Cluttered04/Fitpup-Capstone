@@ -27,7 +27,7 @@ class AddNewFood extends Component {
             calories: parseInt(this.state.calories)
         }
         this.props.addNewFoodEntry("foods", newFood, "foods")
-        this.props.history.push("/food")
+        this.props.history.push("/foods")
     }
 
 

@@ -25,10 +25,11 @@ class EditFoodForm extends Component {
                 name: this.state.name,
                 brand: this.state.brand,
                 serving: this.state.serving,
-                calories: parseInt(this.state.calories)
+                calories: parseInt(this.state.calories),
+                id: this.props.match.params.foodId
             }
 
-            this.props.editEntry("foods", updatedFood, "foods")
+            this.props.editAndRetrieveAll("foods", updatedFood, "foods")
             this.props.history.push("/foods")
         }
 
@@ -69,8 +70,8 @@ class EditFoodForm extends Component {
                 <Form.Label>Calories per serving</Form.Label>
                 <Form.Control type="text" placeholder="Calories" value={this.state.calories} onChange={this.handleFieldChange} id="calories"/>
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={this.addNewFood}>
-                Add Food
+            <Button variant="primary" type="submit" onClick={this.editFood}>
+                Submit
             </Button>
         </Form>
         </div>

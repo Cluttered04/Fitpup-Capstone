@@ -7,10 +7,10 @@ import NewDogForm from "./home/NewDogForm";
 import FoodList from "./foods/FoodList";
 import ExerciseList from "./foods/ExerciseList";
 import APIManager from "../modules/APIManager";
-import AddNewFood from "./foods/AddNewFood"
-import AddNewExercise from "./foods/AddNewExercise"
-import EditFoodForm from "./foods/EditFoodForm"
-import EditExerciseForm from "./foods/EditExerciseForm"
+import AddNewFood from "./foods/AddNewFood";
+import AddNewExercise from "./foods/AddNewExercise";
+import EditFoodForm from "./foods/EditFoodForm";
+import EditExerciseForm from "./foods/EditExerciseForm";
 
 class ApplicationViews extends Component {
   state = {
@@ -39,7 +39,7 @@ class ApplicationViews extends Component {
         newState.exercises = parsedExercises;
         this.setState(newState);
       });
-  };
+  }
 
   //Handles dog edit/add/delete
   addNewDog = dogObject => {
@@ -66,38 +66,39 @@ class ApplicationViews extends Component {
   addNewEntry = (collection, object, stateCollection) => {
     const newState = {};
     return APIManager.addNewEntry(collection, object)
-      .then(() => APIManager.getAllEntriesByUser(collection, this.state.activeUser))
+      .then(() =>
+        APIManager.getAllEntriesByUser(collection, this.state.activeUser)
+      )
       .then(response => {
         newState[stateCollection] = response;
         this.setState(newState);
-      })
+      });
   };
 
   addNewFoodEntry = (collection, object, stateCollection) => {
-      const newState = {}
-      return APIManager.addNewEntry(collection, object)
+    const newState = {};
+    return APIManager.addNewEntry(collection, object)
       .then(() => APIManager.getAllEntries(collection, this.state.activeUser))
       .then(response => {
-          newState[stateCollection] = response
-          this.setState(newState)
-      })
-  }
-
+        newState[stateCollection] = response;
+        this.setState(newState);
+      });
+  };
 
   deleteEntry = (collection, objectId, stateCollection) => {
     const newState = {};
 
     return APIManager.deleteEntry(collection, objectId)
-    .then(() =>
-      APIManager.getAllEntriesByUser(collection, this.state.activeUser)
+      .then(() =>
+        APIManager.getAllEntriesByUser(collection, this.state.activeUser)
+      )
 
       .then(response => {
-          newState[stateCollection] = response;
-          this.setState(newState);
-        }
-      )
-    );
+        newState[stateCollection] = response;
+        this.setState(newState);
+      });
   };
+
 
   editEntry = (collection, object, stateCollection) => {
     const newState = {};
@@ -110,6 +111,18 @@ class ApplicationViews extends Component {
       )
     );
   };
+
+  editAndRetrieveAll = (collection, object, stateCollection) => {
+      const newState={}
+      return APIManager.editEntry(collection, object).then(() => {
+          APIManager.getAllEntries(collection, this.state.activeUser).then(
+              response => {
+                  newState[stateCollection] = response;
+                  this.setState(newState)
+              }
+          )
+      })
+  }
 
   render() {
     return (
@@ -153,7 +166,7 @@ class ApplicationViews extends Component {
                 {...props}
                 dogs={this.state.dogs}
                 addNewDog={this.addNewDog}
-                 addNewEntry={this.addNewEntry}
+                addNewEntry={this.addNewEntry}
               />
             );
           }}
@@ -162,44 +175,85 @@ class ApplicationViews extends Component {
         {/* Routes to food and exercise pages */}
         <Route
           exact
-          path="/food"
+          path="/foods"
           render={props => {
-            return (<FoodList {...props} foods={this.state.foods} dogs={this.state.dogs}/>)
+            return (
+              <FoodList
+                {...props}
+                foods={this.state.foods}
+                dogs={this.state.dogs}
+                deleteEntry={this.deleteEntry}
+              />
+            );
           }}
         />
-
-        <Route exact path="/food/new" render={props=> {
-            return (
-            <AddNewFood {...props} addNewFoodEntry={this.addNewFoodEntry}/>
-            )
-        }
-        }/>
-
-        <Route exact path="/food/:foodId(\d+)/edit" render={props => {
-            return (
-                <EditFoodForm {...props} editEntry={this.editEntry} foods={this.state.foods}/>
-            )
-        }}/>
 
         <Route
           exact
-          path="/exercise"
+          path="/foods/new"
           render={props => {
-            return <ExerciseList {...props} exercises={this.state.exercises} dogs={this.state.dogs}/>;
+            return (
+              <AddNewFood {...props} addNewFoodEntry={this.addNewFoodEntry} />
+            );
           }}
         />
 
-        <Route exact path="/exercise/new" render={props => {
+        <Route
+          exact
+          path="/foods/:foodId(\d+)/edit"
+          render={props => {
             return (
-                <AddNewExercise {...props} addNewFoodEntry={this.addNewFoodEntry} />
-            )
-        }}/>
+              <EditFoodForm
+                {...props}
+                editAndRetrieveAll={this.editAndRetrieveAll}
+                foods={this.state.foods}
+              />
+            );
+          }}
+        />
 
-        <Route exact path="/exercise/:exerciseId(\d+)/edit" render={props=> {
-            return(
-                <EditExerciseForm {...props} exercises={this.state.exercises} editEntry={this.editEntry}/>
-            )
-        }}/>
+        <Route
+          exact
+          path="/exercises"
+          render={props => {
+            return (
+              <ExerciseList
+                {...props}
+                exercises={this.state.exercises}
+                deleteDog={this.deleteDog}
+                dogs={this.state.dogs}
+                deleteEntry={this.deleteEntry}
+              />
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/exercises/new"
+          render={props => {
+            return (
+              <AddNewExercise
+                {...props}
+                addNewFoodEntry={this.addNewFoodEntry}
+              />
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/exercises/:exerciseId(\d+)/edit"
+          render={props => {
+            return (
+              <EditExerciseForm
+                {...props}
+                exercises={this.state.exercises}
+                editAndRetrieveAll={this.editAndRetrieveAll}
+              />
+            );
+          }}
+        />
       </div>
     );
   }
