@@ -5,6 +5,12 @@
       "name": "genericUser",
       "email": "me@me.com",
       "password": "password"
+    },
+    {
+      "id": 2,
+      "name": "genericUser",
+      "email": "me@me.com",
+      "password": "password"
     }
   ],
   "dogs": [
@@ -12,34 +18,97 @@
       "id": 1,
       "userId": 1,
       "name": "Doodles",
-      "breed": "Schoodle"
+      "breed": "Schoodle",
+      "neutered": true,
+      "active": true,
+      "age": 3
     },
     {
-      "name": "Captain",
-      "breed": "Shepherd",
-      "neutered": "true",
-      "active": "true",
+      "name": "Ferri",
+      "breed": "Retriver",
+      "neutered": false,
+      "active": true,
       "age": 2,
       "userId": 1,
-      "id": 4
+      "id": 3
     },
     {
-      "name": "Morose",
+      "id": 4,
+      "userId": 1,
+      "name": "Flip",
       "breed": "Whippet",
-      "neutered": "true",
-      "active": "true",
-      "age": 3,
-      "userId": 1,
-      "id": 5
+      "age": 1,
+      "active": false,
+      "neutered": true
     },
     {
-      "name": "Morris",
-      "breed": "Hound",
-      "neutered": "true",
-      "active": "false",
-      "age": 3,
+      "id": 5,
       "userId": 1,
-      "id": 6
+      "name": "test",
+      "breed": "Lab",
+      "age": 1,
+      "active": false,
+      "neutered": true
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "name": "Flip",
+      "breed": "Greyhound",
+      "age": 1,
+      "active": true,
+      "neutered": true
+    },
+    {
+      "id": 7,
+      "userId": 1,
+      "name": "test",
+      "breed": "Lab",
+      "age": 2,
+      "active": true,
+      "neutered": false
+    },
+    {
+      "id": 8,
+      "userId": 1,
+      "name": "Flip",
+      "breed": "Lab",
+      "age": "2",
+      "active": true,
+      "neutered": false
+    },
+    {
+      "id": 9,
+      "name": "Flip",
+      "breed": "Whippet",
+      "age": "2",
+      "active": true,
+      "neutered": false
+    },
+    {
+      "id": 10,
+      "name": "Flip",
+      "breed": "Whippet",
+      "age": 2,
+      "active": false,
+      "neutered": true
+    },
+    {
+      "id": 11,
+      "name": "Flip",
+      "breed": "Lab",
+      "age": 2,
+      "active": true,
+      "neutered": false
+    },
+    {
+      "id": 12,
+      "userId": 2,
+      "name": "Skip",
+      "breed": "Whippet",
+      "age": 1,
+      "active": true,
+      "neutered": true
     }
   ],
   "exercises": [
@@ -47,6 +116,17 @@
       "id": 1,
       "userId": 1,
       "name": "fetch"
+    },
+    {
+      "name": [
+        "Flirt Pole"
+      ],
+      "id": 2
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "name": "l"
     }
   ],
   "foods": [
@@ -54,9 +134,17 @@
       "id": 1,
       "userId": 1,
       "name": "True Chews",
-      "brand": "Tyson Pet Producst",
+      "brand": "Tyson Pet Products",
       "serving": "one piece",
       "calories": 47
+    },
+    {
+      "userId": 2,
+      "name": "k",
+      "brand": "s",
+      "serving": "",
+      "calories": null,
+      "id": 2
     }
   ],
   "exerciseEntries": [],

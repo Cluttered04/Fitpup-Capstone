@@ -11,10 +11,10 @@ class NavBar extends Component {
                     <Link className="nav-link" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/food">Food</Link>
+                    <Link className="nav-link" to="/foods">Food</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/exercise">Exercise</Link>
+                    <Link className="nav-link" to="/exercises">Exercise</Link>
                 </li>
                 <li className="nav-item">
                 </li>

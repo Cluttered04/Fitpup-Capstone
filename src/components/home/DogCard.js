@@ -3,7 +3,6 @@ import React, {Component} from "react"
 
 class DogCard extends Component {
 
-
     render() {
             return (<div className="dogCards">
              <div className="card" style={{width: '18rem'}}>
@@ -14,7 +13,9 @@ class DogCard extends Component {
                 {this.props.dog.breed}
               </h5>
             </div>
-            <button onClick={()=> {this.props.history.push(`/${this.props.dog.id}/edit`)}}>Edit</button><button onClick={() => this.props.deleteDog(this.props.dog.id)}>Delete</button>
+            <button onClick={()=> {this.props.history.push(`/${this.props.dog.id}/edit`)}}>Edit</button>
+            <button onClick={() => this.props.deleteEntry("dogs", this.props.dog.id, "dogs")}
+            >Delete</button>
           </div>
           </div>
         )}}
