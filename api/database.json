@@ -78,22 +78,37 @@
       "neutered": false
     },
     {
+      "id": 9,
       "name": "Flip",
-      "breed": "Greyhound",
-      "neutered": false,
-      "active": false,
-      "age": 1,
-      "userId": 2,
-      "id": 9
+      "breed": "Whippet",
+      "age": "2",
+      "active": true,
+      "neutered": false
     },
     {
+      "id": 10,
+      "name": "Flip",
+      "breed": "Whippet",
+      "age": 2,
+      "active": false,
+      "neutered": true
+    },
+    {
+      "id": 11,
+      "name": "Flip",
+      "breed": "Lab",
+      "age": 2,
+      "active": true,
+      "neutered": false
+    },
+    {
+      "id": 12,
+      "userId": 2,
       "name": "Skip",
       "breed": "Whippet",
-      "neutered": true,
-      "active": false,
-      "age": 2,
-      "userId": 2,
-      "id": 10
+      "age": 1,
+      "active": true,
+      "neutered": true
     }
   ],
   "exercises": [
@@ -107,6 +122,11 @@
         "Flirt Pole"
       ],
       "id": 2
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "name": "l"
     }
   ],
   "foods": [
@@ -120,8 +140,8 @@
     },
     {
       "userId": 2,
+      "name": "k",
       "brand": "s",
-      "name": "s",
       "serving": "",
       "calories": null,
       "id": 2

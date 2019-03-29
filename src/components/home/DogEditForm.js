@@ -67,7 +67,7 @@ class DogEditForm extends Component {
       evt.preventDefault()
       const updatedDog = {
           id: this.props.match.params.dogId,
-          userId: this.state.activeUser,
+          userId: this.state.userId,
           name: this.state.name,
           breed: this.state.breed,
           age: this.state.age,
