@@ -5,6 +5,12 @@
       "name": "genericUser",
       "email": "me@me.com",
       "password": "password"
+    },
+    {
+      "id": 2,
+      "name": "genericUser",
+      "email": "me@me.com",
+      "password": "password"
     }
   ],
   "dogs": [
@@ -70,6 +76,24 @@
       "age": "2",
       "active": true,
       "neutered": false
+    },
+    {
+      "name": "Flip",
+      "breed": "Greyhound",
+      "neutered": false,
+      "active": false,
+      "age": 1,
+      "userId": 2,
+      "id": 9
+    },
+    {
+      "name": "Skip",
+      "breed": "Whippet",
+      "neutered": true,
+      "active": false,
+      "age": 2,
+      "userId": 2,
+      "id": 10
     }
   ],
   "exercises": [
@@ -83,11 +107,6 @@
         "Flirt Pole"
       ],
       "id": 2
-    },
-    {
-      "id": 3,
-      "userId": 2,
-      "name": "agility"
     }
   ],
   "foods": [
@@ -101,19 +120,11 @@
     },
     {
       "userId": 2,
-      "name": "s",
       "brand": "s",
+      "name": "s",
       "serving": "",
       "calories": null,
       "id": 2
-    },
-    {
-      "userId": 2,
-      "brand": "j",
-      "name": "j",
-      "serving": "j",
-      "calories": 17,
-      "id": 3
     }
   ],
   "exerciseEntries": [],

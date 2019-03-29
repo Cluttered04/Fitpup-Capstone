@@ -66,11 +66,11 @@ class AddEntryModal extends Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <h3>{this.props.match.path === "/food" ? this.props.food : this.props.exercise}</h3>
+          <h3>{this.props.match.path === "/foods" ? this.props.food : this.props.exercise}</h3>
           <form>
           <div className="form-group">
 
-            <label htmlFor="taskName">{this.props.match.path === "/food" ? "New Food Entry" : "New Exercise Entry"}</label>
+            <label htmlFor="taskName">{this.props.match.path === "/foods" ? "New Food Entry" : "New Exercise Entry"}</label>
             <input
               type="text"
               className="form-control"

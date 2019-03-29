@@ -1,5 +1,3 @@
-import React, {Component} from "react"
-
 const remoteURL = "localhost:5002"
 
 
