@@ -11,6 +11,7 @@ import AddNewFood from "./foods/AddNewFood";
 import AddNewExercise from "./foods/AddNewExercise";
 import EditFoodForm from "./foods/EditFoodForm";
 import EditExerciseForm from "./foods/EditExerciseForm";
+import DogSummary from "./dogs/DogSummary"
 
 class ApplicationViews extends Component {
   state = {
@@ -37,8 +38,17 @@ class ApplicationViews extends Component {
       .then(() => APIManager.getAllEntries("exercises", this.state.activeUser))
       .then(parsedExercises => {
         newState.exercises = parsedExercises;
-        this.setState(newState);
-      });
+      })
+      .then(() => APIManager.getAllEntriesByUser("foodEntries", this.state.activeUser))
+      .then((parsedFoodEntries => {
+          newState.foodEntries = parsedFoodEntries
+      }))
+      .then(() => APIManager.getAllEntriesByUser("exerciseEntries", this.state.activeUser))
+      .then(parsedExerciseEntries => {
+          newState.exerciseEntries = parsedExerciseEntries
+          this.setState(newState)
+      })
+      ;
   }
 
   //Handles dog edit/add/delete
@@ -268,6 +278,13 @@ class ApplicationViews extends Component {
             );
           }}
         />
+
+        <Route exact path="/dogs/:dogId(\d+)/" render={props => {
+            return (
+                <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior}/>
+            )
+        }}/>
+
       </div>
     );
   }

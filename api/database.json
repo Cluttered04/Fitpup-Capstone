@@ -148,7 +148,36 @@
     }
   ],
   "exerciseEntries": [],
-  "foodEntries": [],
-  "weight": [],
+  "foodEntries": [
+      {
+          "id":1,
+          "dogId": 12,
+          "foodId": 1,
+          "serving": 2,
+          "date": "2019/01/19"
+      },
+      {
+        "id":2,
+        "dogId": 12,
+        "foodId": 1,
+        "serving": 4,
+        "date": "2019/01/19"
+    },
+    {
+        "id":3,
+        "dogId": 12,
+        "foodId": 1,
+        "serving": 3,
+        "date": "2019/01/19"
+    }
+
+  ],
+  "weight": [
+      {
+          "dogId": 1,
+          "weight": 20,
+          "date": "2019/01/19"
+      }
+  ],
   "behavior": []
 }
