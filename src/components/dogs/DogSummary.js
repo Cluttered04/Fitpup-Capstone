@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import APIManager from "../../modules/APIManager";
+import Moment from "react-moment";
+import AddEntryModal from "../foods/AddEntryModal"
 
 class DogSummary extends Component {
   state = {
     dogs: "",
     expandedFoodEntries: [],
-    expandedExerciseEntries: []
+    expandedExerciseEntries: [],
   };
+
+
 
   componentDidMount() {
     const newState = {};
@@ -55,19 +59,23 @@ class DogSummary extends Component {
           {this.state.expandedFoodEntries.map(entry => {
             return (
               <div>
+                <h4>
+                  <Moment format="MM/DD/YYYY">{entry.date}</Moment>
+                </h4>
                 <h4>{entry.food.name}</h4>
                 <h5>{entry.food.brand}</h5>
+                <p>Calories per serving: {entry.food.calories}</p>
                 <p>Servings: {entry.serving}</p>
-                <p>
-                  Calories:{" "}
-                  {entry.servings * entry.food.calories}
-                </p>
+                <p>Calories: {entry.serving * entry.food.calories}</p>
               </div>
             );
           })}
-           {this.state.expandedExerciseEntries.map(entry => {
+          {this.state.expandedExerciseEntries.map(entry => {
             return (
               <div>
+                <h4>
+                  <Moment format="MM/DD/YYYY">{entry.date}</Moment>
+                </h4>
                 <h4>{entry.exercise.name}</h4>
                 <p>Time: {entry.time} Minutes</p>
               </div>
