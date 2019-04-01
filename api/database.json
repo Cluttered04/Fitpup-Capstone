@@ -118,15 +118,6 @@
       "age": 2,
       "userId": 2,
       "id": 14
-    },
-    {
-      "name": "test",
-      "breed": "Greyhound",
-      "neutered": true,
-      "active": true,
-      "age": 1,
-      "userId": 2,
-      "id": 15
     }
   ],
   "exercises": [
@@ -236,6 +227,20 @@
       "foodId": 1,
       "serving": 12,
       "id": 10
+    },
+    {
+      "dogId": null,
+      "date": "",
+      "foodId": 1,
+      "serving": null,
+      "id": 11
+    },
+    {
+      "dogId": 12,
+      "date": "2019-04-10",
+      "foodId": 1,
+      "serving": 2,
+      "id": 12
     }
   ],
   "weight": [

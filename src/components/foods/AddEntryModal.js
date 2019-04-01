@@ -25,7 +25,7 @@ class AddEntryModal extends Component {
 
     submitModal = evt => {
         evt.preventDefault()
-        // if(Number.isInteger(this.state.dogId)){
+        if(Number.isInteger(parseInt(this.state.dogId))){
             if(this.props.match.path === "/foods"){
                 const newEntry = {
                     dogId: parseInt(this.state.dogId),
@@ -43,9 +43,9 @@ class AddEntryModal extends Component {
                 }
                 this.props.addNewFoodEntry("exerciseEntries", newEntry, "exerciseEntries")
             } this.props.onHide()
-        // } else {
-        //     alert("Please select a dog")
-        // }
+        } else {
+            alert("Please select a dog")
+        }
 
     }
 
