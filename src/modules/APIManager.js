@@ -51,7 +51,6 @@ const APIManager = {
                 "Content-Type": "application/json"
             }
         })
-        .then(r => r.json())
     }
 
 }

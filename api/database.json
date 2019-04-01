@@ -169,6 +169,13 @@
       "exerciseId": 1,
       "time": 24,
       "id": 3
+    },
+    {
+      "dogId": 12,
+      "date": "",
+      "exerciseId": 1,
+      "time": 20,
+      "id": 4
     }
   ],
   "foodEntries": [
