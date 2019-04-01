@@ -23,7 +23,7 @@ class DogSummary extends Component {
         APIManager.getExpandedEntry(
           "exerciseEntries",
           this.props.match.params.dogId,
-          "exercises"
+          "exercise"
         )
       )
       .then(exercise => {
@@ -40,7 +40,6 @@ class DogSummary extends Component {
       this.props.dogs.find(
         dog => dog.id === parseInt(this.props.match.params.dogId)
       ) || {};
-      console.log(this.state.expandedFoodEntries)
     return (
       <div>
         <h1>{dog.name}</h1>
@@ -54,7 +53,6 @@ class DogSummary extends Component {
         </button>
         <section id="entries">
           {this.state.expandedFoodEntries.map(entry => {
-            console.log(entry.servings * entry.food.calories);
             return (
               <div>
                 <h4>{entry.food.name}</h4>
@@ -64,6 +62,14 @@ class DogSummary extends Component {
                   Calories:{" "}
                   {entry.servings * entry.food.calories}
                 </p>
+              </div>
+            );
+          })}
+           {this.state.expandedExerciseEntries.map(entry => {
+            return (
+              <div>
+                <h4>{entry.exercise.name}</h4>
+                <p>Time: {entry.time} Minutes</p>
               </div>
             );
           })}

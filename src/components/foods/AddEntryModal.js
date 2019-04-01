@@ -25,23 +25,28 @@ class AddEntryModal extends Component {
 
     submitModal = evt => {
         evt.preventDefault()
-        if(this.props.match.path === "/foods"){
-            const newEntry = {
-                dogId: parseInt(this.state.dogId),
-                date: this.state.date,
-                foodId: parseInt(this.state.collectionId),
-                serving: parseInt(this.state.serving)
-            }
-            this.props.addNewFoodEntry("foodEntries", newEntry, "foodEntries")
-        } else if(this.props.match.path === "/exercises"){
-            const newEntry = {
-                dogId: parseInt(this.state.dogId),
-                date: this.state.date,
-                exerciseId: parseInt(this.state.collectionId),
-                time: parseInt(this.state.time)
-            }
-            this.props.addNewFoodEntry("exerciseEntries", newEntry, "exerciseEntries")
-        } this.props.onHide()
+        // if(Number.isInteger(this.state.dogId)){
+            if(this.props.match.path === "/foods"){
+                const newEntry = {
+                    dogId: parseInt(this.state.dogId),
+                    date: this.state.date,
+                    foodId: parseInt(this.state.collectionId),
+                    serving: parseInt(this.state.serving)
+                }
+                this.props.addNewFoodEntry("foodEntries", newEntry, "foodEntries")
+            } else if(this.props.match.path === "/exercises"){
+                const newEntry = {
+                    dogId: parseInt(this.state.dogId),
+                    date: this.state.date,
+                    exerciseId: parseInt(this.state.collectionId),
+                    time: parseInt(this.state.time)
+                }
+                this.props.addNewFoodEntry("exerciseEntries", newEntry, "exerciseEntries")
+            } this.props.onHide()
+        // } else {
+        //     alert("Please select a dog")
+        // }
+
     }
 
 
@@ -78,6 +83,7 @@ class AddEntryModal extends Component {
           {/* <label htmlFor="foodOrExercise" id="foodId" value={this.props.match.path === "/foods" ? "foodId" : "exerciseId"}>{this.props.match.path === "/foods" ? this.props.food.name: this.props.exercise.name}</label> */}
             <label htmlFor="dropdown">Dog: </label><br/>
             <select onChange={this.handleFieldChange} id="dogId">
+                <option>Select a dog</option>
                 {this.props.dogs.map(dog => {
                    return <option id="dogId" name="dogId" value={dog.id} key={dog.id}>{dog.name}</option>
                 })}
