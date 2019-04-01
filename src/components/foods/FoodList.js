@@ -32,7 +32,6 @@ class MyFoodsList extends Component {
                 handleModal={this.handleModal}
                 key={food.id}
                 {...this.props}
-                deleteAndRetrieveAll={this.props.deleteAndRetrieveAll}
               />
             </div>
           );

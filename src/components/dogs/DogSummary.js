@@ -2,16 +2,23 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import APIManager from "../../modules/APIManager";
 import Moment from "react-moment";
-import AddEntryModal from "../foods/AddEntryModal"
+import EditEntryModal from "./EditEntryModal"
 
 class DogSummary extends Component {
   state = {
     dogs: "",
     expandedFoodEntries: [],
     expandedExerciseEntries: [],
+    showModal: false,
+    collectionItem: {}
   };
 
-
+  handleModal = item => {
+      this.setState({
+        collectionItem: item,
+        showModal: true
+      })
+  }
 
   componentDidMount() {
     const newState = {};
@@ -40,6 +47,7 @@ class DogSummary extends Component {
   }
 
   render() {
+    let modalClose = () => this.setState({ showModal: false });
     const dog =
       this.props.dogs.find(
         dog => dog.id === parseInt(this.props.match.params.dogId)
@@ -67,6 +75,8 @@ class DogSummary extends Component {
                 <p>Calories per serving: {entry.food.calories}</p>
                 <p>Servings: {entry.serving}</p>
                 <p>Calories: {entry.serving * entry.food.calories}</p>
+                <button onClick={() => this.handleModal(entry)}>Edit Entry</button>
+                <button onClick={() => this.props.deleteEntry("foodEntries", entry.id, "foodEntries")}>Delete Entry</button>
               </div>
             );
           })}
@@ -78,11 +88,24 @@ class DogSummary extends Component {
                 </h4>
                 <h4>{entry.exercise.name}</h4>
                 <p>Time: {entry.time} Minutes</p>
+                <button onClick={() => this.handleModal(entry)}>Edit Entry</button>
+                <button onClick={() => this.props.deleteEntry("exerciseEntries", entry.id, "exerciseEntries")}>Delete Entry</button>
               </div>
             );
           })}
         </section>
         <section id="entries" />
+        {this.state.showModal === true ? (
+          <EditEntryModal
+            dogs={this.props.dogs}
+            show={this.state.showModal}
+            onHide={modalClose}
+            addNewFoodEntry={this.props.addNewFoodEntry}
+            {...this.props} collectionItem={this.state.collectionItem}
+          />
+        ) : (
+          ""
+        )}
       </div>
     );
   }

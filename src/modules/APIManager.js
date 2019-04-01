@@ -46,10 +46,7 @@ const APIManager = {
 
     deleteEntry: function(collection, objectId) {
         return fetch(`http://${remoteURL}/${collection}/${objectId}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
+            method: "DELETE"
         })
     }
 
