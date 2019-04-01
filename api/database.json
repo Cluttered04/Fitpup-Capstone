@@ -109,6 +109,15 @@
       "age": 1,
       "active": true,
       "neutered": true
+    },
+    {
+      "name": "Whip",
+      "breed": "Golden",
+      "neutered": false,
+      "active": true,
+      "age": 2,
+      "userId": 2,
+      "id": 14
     }
   ],
   "exercises": [
@@ -137,18 +146,116 @@
       "brand": "Tyson Pet Products",
       "serving": "one piece",
       "calories": 47
-    },
-    {
-      "userId": 2,
-      "name": "k",
-      "brand": "s",
-      "serving": "",
-      "calories": null,
-      "id": 2
     }
   ],
-  "exerciseEntries": [],
-  "foodEntries": [],
-  "weight": [],
+  "exerciseEntries": [
+    {
+      "dogId": 13,
+      "date": "2019-04-02",
+      "exerciseId": 1,
+      "time": 20,
+      "id": 1
+    },
+    {
+      "dogId": null,
+      "date": "2019-04-02",
+      "exerciseId": 1,
+      "time": 20,
+      "id": 2
+    },
+    {
+      "dogId": 14,
+      "date": "2019-04-02",
+      "exerciseId": 1,
+      "time": 24,
+      "id": 3
+    },
+    {
+      "dogId": 12,
+      "date": "",
+      "exerciseId": 1,
+      "time": 20,
+      "id": 4
+    }
+  ],
+  "foodEntries": [
+    {
+      "id": 1,
+      "dogId": 12,
+      "foodId": 1,
+      "serving": 2,
+      "date": "2019/01/19"
+    },
+    {
+      "id": 2,
+      "dogId": 12,
+      "foodId": 1,
+      "serving": 4,
+      "date": "2019/01/19"
+    },
+    {
+      "id": 3,
+      "dogId": 12,
+      "foodId": 1,
+      "serving": 3,
+      "date": "2019/01/19"
+    },
+    {
+      "dogId": 13,
+      "date": "2019-04-27",
+      "foodId": 1,
+      "serving": 5,
+      "id": 4
+    },
+    {
+      "dogId": 13,
+      "date": "2019-04-01",
+      "foodId": 2,
+      "serving": 2,
+      "id": 6
+    },
+    {
+      "dogId": 12,
+      "date": "2019-04-02",
+      "foodId": 1,
+      "serving": null,
+      "id": 8
+    },
+    {
+      "dogId": 14,
+      "date": "",
+      "foodId": 1,
+      "serving": null,
+      "id": 9
+    },
+    {
+      "dogId": 14,
+      "date": "2019-04-03",
+      "foodId": 1,
+      "serving": 12,
+      "id": 10
+    },
+    {
+      "dogId": null,
+      "date": "",
+      "foodId": 1,
+      "serving": null,
+      "id": 11
+    },
+    {
+      "dogId": 12,
+      "date": "2019-04-10",
+      "foodId": 1,
+      "serving": 2,
+      "id": 12
+    }
+  ],
+  "weight": [
+    {
+      "dogId": 1,
+      "weight": 20,
+      "date": "2019/01/19"
+    }
+  ],
   "behavior": []
 }
