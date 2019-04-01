@@ -12,12 +12,14 @@ class EditFoodForm extends Component {
         calories: ""
         }
 
+        //Handles input changes
         handleFieldChange = evt => {
             const stateToChange = {}
             stateToChange[evt.target.id] = evt.target.value
             this.setState(stateToChange)
         }
 
+        //"PUT" request to submit edited food and redirects back to food list
         editFood = evt => {
             evt.preventDefault()
             const updatedFood = {
@@ -33,6 +35,7 @@ class EditFoodForm extends Component {
             this.props.history.push("/foods")
         }
 
+        //Retrieves food info to populate form fields and sets to state
         componentDidMount() {
             APIManager.getSingleEntry("foods", this.props.match.params.foodId)
             .then(food => {
@@ -47,7 +50,7 @@ class EditFoodForm extends Component {
             })
         }
 
-
+        //Renders Food Edit Form
     render() {
         return(
             <div>

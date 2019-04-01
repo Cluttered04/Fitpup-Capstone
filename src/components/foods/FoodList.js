@@ -11,6 +11,7 @@ class MyFoodsList extends Component {
     foodItem: {}
   };
 
+  //Handles modal visibility and sets specific entry to state for editing
   handleModal = (food) => {
      this.setState({
         showModal: true,
@@ -24,6 +25,7 @@ class MyFoodsList extends Component {
     return (
       <div>
         <h1>My Foods</h1>
+        {/* Maps through exercise list and returns cards */}
         {this.props.foods.map(food => {
           return (
             <div>
@@ -39,6 +41,7 @@ class MyFoodsList extends Component {
         <button onClick={() => this.props.history.push("/foods/new")}>
           Add New Food
         </button>
+        {/* Conditionally renders modal on button click */}
         {this.state.showModal === true ? (
           <AddEntryModal
             dogs={this.props.dogs}

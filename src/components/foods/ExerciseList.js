@@ -9,6 +9,7 @@ class ExerciseList extends Component {
     exerciseItem: {}
   };
 
+  //Handles modal visibility and sets specific entry to state for editing
   handleModal = exercise => {
     this.setState({
       showModal: true,
@@ -19,12 +20,14 @@ class ExerciseList extends Component {
   render() {
     //Function to close modal
     let modalClose = () => this.setState({ showModal: false });
+
     return (
       <div>
         <h1>My Exercises</h1>
         {this.props.exercises.map(exercise => {
           return (
             <div>
+                {/* Maps through exercise list and returns cards */}
               <FoodExerciseCard
                 collection={exercise}
                 handleModal={this.handleModal}
@@ -32,6 +35,7 @@ class ExerciseList extends Component {
                 deleteAndRetrieveAll={this.props.deleteAndRetrieveAll}
                 key={exercise.id}
               />
+              {/* Conditionally renders modal on button click */}
               {this.state.showModal === true ? (
                 <AddEntryModal
                   dogs={this.props.dogs}

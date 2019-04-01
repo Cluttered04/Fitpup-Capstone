@@ -24,15 +24,7 @@
       "id": 1
     }
   ],
-  "exercises": [
-    {
-      "userId": 2,
-      "name": [
-        "Fetch"
-      ],
-      "id": 1
-    }
-  ],
+  "exercises": [],
   "foods": [
     {
       "id": 1,
@@ -59,13 +51,67 @@
       "foodId": 1,
       "serving": 2,
       "id": 1
+    },
+    {
+      "dogId": 1,
+      "date": "2019-03-31",
+      "foodId": 2,
+      "serving": 2,
+      "id": 2
+    },
+    {
+      "dogId": 1,
+      "date": "2019-04-20",
+      "foodId": 1,
+      "serving": 2,
+      "id": 3
     }
   ],
   "weight": [
     {
+      "id": 1,
       "dogId": 1,
       "weight": 20,
       "date": "2019/01/19"
+    },
+    {
+      "dogId": "1",
+      "weight": "40",
+      "id": 2
+    },
+    {
+      "dogId": "1",
+      "weight": "40",
+      "id": 3
+    },
+    {
+      "dogId": "1",
+      "weight": "40",
+      "id": 4
+    },
+    {
+      "dogId": "1",
+      "weight": "50",
+      "date": "2019-04-01",
+      "id": 5
+    },
+    {
+      "dogId": "1",
+      "weight": "40",
+      "date": "2019-04-01",
+      "id": 6
+    },
+    {
+      "dogId": "1",
+      "weight": "50",
+      "date": "2019-04-01",
+      "id": 7
+    },
+    {
+      "dogId": "1",
+      "weight": "40",
+      "date": "2019-04-01",
+      "id": 8
     }
   ],
   "behavior": []

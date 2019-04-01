@@ -16,13 +16,14 @@ class EditEntryModal extends Component {
 
 
 
-
+    // Handles input changes
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
 
+    // Submits exercise or food conditionally, returns alert if dog is not selected
     submitModal = evt => {
         evt.preventDefault()
         if(Number.isInteger(parseInt(this.state.dogId))){

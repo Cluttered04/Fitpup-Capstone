@@ -7,12 +7,14 @@ class AddNewExercise extends Component {
         name: ""
     }
 
+    //Handles input changes
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = [evt.target.value]
         this.setState(stateToChange)
     }
 
+    // Submits new food entry and returns to exercise list
     addNewFoodEntry = evt => {
         evt.preventDefault()
         const exercise = {
@@ -23,6 +25,7 @@ class AddNewExercise extends Component {
         this.props.history.push("/exercises")
     }
 
+    // Exercise form
     render(){
         return(
             <div>

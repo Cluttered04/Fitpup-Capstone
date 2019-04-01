@@ -283,7 +283,7 @@ class ApplicationViews extends Component {
 
         <Route exact path="/dogs/:dogId(\d+)/" render={props => {
             return (
-                <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior} editAndRetrieveAll={this.editAndRetrieveAll} deleteEntry={this.deleteEntry}/>
+                <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior} editAndRetrieveAll={this.editAndRetrieveAll} deleteEntry={this.deleteEntry} addNewEntry={this.addNewEntry}/>
             )
         }}/>
 

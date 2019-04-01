@@ -31,7 +31,7 @@ const APIManager = {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(object)
-        }).then(r => r.json())
+        })
     },
 
     editEntry: function(collection, object){
