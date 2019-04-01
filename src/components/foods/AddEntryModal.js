@@ -5,13 +5,11 @@ class AddEntryModal extends Component {
     state = {
         dogId: "",
         date: "",
-        foodId: "",
+        collectionId: this.props.collectionItem.id,
+        collectionName: this.props.collectionItem.name,
         serving: "",
-        exerciseId: "",
         time: "",
-        dogName: ""
-
-
+        dogName: "",
     }
 
 
@@ -23,27 +21,26 @@ class AddEntryModal extends Component {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
-        console.log(evt.target.value)
     }
 
     submitModal = evt => {
         evt.preventDefault()
-        if(this.props.match.path === "/food"){
+        if(this.props.match.path === "/foods"){
             const newEntry = {
                 dogId: parseInt(this.state.dogId),
                 date: this.state.date,
-                foodId: parseInt(this.state.foodId),
+                foodId: parseInt(this.state.collectionId),
                 serving: parseInt(this.state.serving)
             }
-            this.props.addNewEntry("foodEntries", newEntry, "foodEntries")
-        } else if(this.props.match.path === "/exercise"){
+            this.props.addNewFoodEntry("foodEntries", newEntry, "foodEntries")
+        } else if(this.props.match.path === "/exercises"){
             const newEntry = {
                 dogId: parseInt(this.state.dogId),
                 date: this.state.date,
-                exerciseId: parseInt(this.state.exerciseId),
+                exerciseId: parseInt(this.state.collectionId),
                 time: parseInt(this.state.time)
             }
-            this.props.addFoodNewEntry("exerciseEntries", newEntry, "exerciseEntries")
+            this.props.addNewFoodEntry("exerciseEntries", newEntry, "exerciseEntries")
         } this.props.onHide()
     }
 
@@ -62,23 +59,23 @@ class AddEntryModal extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              {}
+            {this.props.match.path === "/foods" ? "New Food Entry" : "New Exercise Entry"}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <h3>{this.props.match.path === "/foods" ? this.props.food : this.props.exercise}</h3>
+          <h3>{this.state.collectionName}</h3>
           <form>
           <div className="form-group">
-
-            <label htmlFor="taskName">{this.props.match.path === "/foods" ? "New Food Entry" : "New Exercise Entry"}</label>
+          <label htmlFor="time/serving">{this.props.match.path === "/foods" ? "Servings:" : "Time (In Minutes)"}</label>
             <input
               type="text"
               className="form-control"
-              id=""
+              id={this.props.match.path === "/foods" ? "serving" : "time"}
               aria-describedby="emailHelp"
-              onChange={this.handleFieldChange}
+              onChange={this.handleFieldChange} value={this.props.match.path === "/foods" ? this.state.serving : this.state.time}
             />
           </div>
+          {/* <label htmlFor="foodOrExercise" id="foodId" value={this.props.match.path === "/foods" ? "foodId" : "exerciseId"}>{this.props.match.path === "/foods" ? this.props.food.name: this.props.exercise.name}</label> */}
             <label htmlFor="dropdown">Dog: </label><br/>
             <select onChange={this.handleFieldChange} id="dogId">
                 {this.props.dogs.map(dog => {

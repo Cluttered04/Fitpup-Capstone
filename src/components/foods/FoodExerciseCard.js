@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import PropTypes from "prop-types"
 import {Card} from "react-bootstrap"
+import AddEntryModal from "./AddEntryModal"
 
 
 class FoodExerciseCard extends Component {
@@ -12,7 +13,7 @@ class FoodExerciseCard extends Component {
         return(
             <Card style={{ width: '18rem' }}>
             <Card.Body>
-                <Card.Title onClick={this.props.handleModal}>{this.props.collection.name}</Card.Title>
+                <Card.Title onClick={() => this.props.handleModal(this.props.collection)} value={this.props.collection.id}>{this.props.collection.name}</Card.Title>
                 <Card.Subtitle onClick={this.props.handleModal} className="mb-2 text-muted">{this.props.collection.brand ? this.props.collection.brand : ""}</Card.Subtitle>
                 <Card.Text>
                 {this.props.collection.serving? `Serving Size: ${this.props.collection.serving}`  : ""}

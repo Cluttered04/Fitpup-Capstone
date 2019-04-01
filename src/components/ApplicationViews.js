@@ -207,6 +207,7 @@ class ApplicationViews extends Component {
                 foods={this.state.foods}
                 dogs={this.state.dogs}
                 deleteAndRetrieveAll={this.deleteAndRetrieveAll}
+                addNewFoodEntry={this.addNewFoodEntry}
               />
             );
           }}
@@ -247,6 +248,7 @@ class ApplicationViews extends Component {
                 deleteDog={this.deleteDog}
                 dogs={this.state.dogs}
                 deleteAndRetrieveAll={this.deleteAndRetrieveAll}
+                addNewFoodEntry={this.addNewFoodEntry}
               />
             );
           }}

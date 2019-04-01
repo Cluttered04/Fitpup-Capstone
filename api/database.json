@@ -109,6 +109,15 @@
       "age": 1,
       "active": true,
       "neutered": true
+    },
+    {
+      "name": "Flip",
+      "breed": "Whippet",
+      "neutered": true,
+      "active": false,
+      "age": 1,
+      "userId": 2,
+      "id": 13
     }
   ],
   "exercises": [
@@ -147,37 +156,51 @@
       "id": 2
     }
   ],
-  "exerciseEntries": [],
+  "exerciseEntries": [
+    {
+      "dogId": 13,
+      "date": "2019-04-02",
+      "exerciseId": 1,
+      "time": 20,
+      "id": 1
+    }
+  ],
   "foodEntries": [
-      {
-          "id":1,
-          "dogId": 12,
-          "foodId": 1,
-          "serving": 2,
-          "date": "2019/01/19"
-      },
-      {
-        "id":2,
-        "dogId": 12,
-        "foodId": 1,
-        "serving": 4,
-        "date": "2019/01/19"
+    {
+      "id": 1,
+      "dogId": 12,
+      "foodId": 1,
+      "serving": 2,
+      "date": "2019/01/19"
     },
     {
-        "id":3,
-        "dogId": 12,
-        "foodId": 1,
-        "serving": 3,
-        "date": "2019/01/19"
+      "id": 2,
+      "dogId": 12,
+      "foodId": 1,
+      "serving": 4,
+      "date": "2019/01/19"
+    },
+    {
+      "id": 3,
+      "dogId": 12,
+      "foodId": 1,
+      "serving": 3,
+      "date": "2019/01/19"
+    },
+    {
+      "dogId": 13,
+      "date": "2019-04-27",
+      "foodId": 1,
+      "serving": 5,
+      "id": 4
     }
-
   ],
   "weight": [
-      {
-          "dogId": 1,
-          "weight": 20,
-          "date": "2019/01/19"
-      }
+    {
+      "dogId": 1,
+      "weight": 20,
+      "date": "2019/01/19"
+    }
   ],
   "behavior": []
 }
