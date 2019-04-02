@@ -24,13 +24,13 @@
       "id": 1
     },
     {
-      "name": "Mr. Dog",
-      "breed": "Cat",
-      "neutered": false,
-      "active": false,
-      "age": 3,
+      "id": 2,
       "userId": 2,
-      "id": 2
+      "name": "Mr. Dog",
+      "breed": "CatDog",
+      "age": 3,
+      "active": false,
+      "neutered": false
     }
   ],
   "exercises": [
@@ -58,57 +58,35 @@
       "id": 2
     }
   ],
-  "exerciseEntries": [
-    {
-      "dogId": 2,
-      "date": "0019-04-11",
-      "exerciseId": 1,
-      "time": 6,
-      "id": 1
-    },
-    {
-      "dogId": 2,
-      "date": "2019-04-12",
-      "exerciseId": 1,
-      "time": 10000,
-      "id": 2
-    },
-    {
-      "dogId": 2,
-      "date": "2019-04-01",
-      "exerciseId": 1,
-      "time": 4200,
-      "id": 3
-    },
-    {
-      "dogId": 1,
-      "date": "2019-04-04",
-      "exerciseId": 2,
-      "time": 24,
-      "id": 4
-    }
-  ],
+  "exerciseEntries": [],
   "foodEntries": [
+    {
+      "dogId": 2,
+      "date": "2019-04-04",
+      "foodId": 1,
+      "serving": 3,
+      "id": 4
+    },
     {
       "dogId": 1,
       "date": "2019-04-03",
       "foodId": 1,
       "serving": 2,
-      "id": 1
+      "id": 5
+    },
+    {
+      "dogId": 2,
+      "date": "2019-04-03",
+      "foodId": 2,
+      "serving": 1,
+      "id": 6
     },
     {
       "dogId": 1,
-      "date": "2019-03-31",
+      "date": "2019-04-03",
       "foodId": 2,
       "serving": 2,
-      "id": 2
-    },
-    {
-      "dogId": 1,
-      "date": "2019-04-20",
-      "foodId": 1,
-      "serving": 2,
-      "id": 3
+      "id": 7
     }
   ],
   "weight": [

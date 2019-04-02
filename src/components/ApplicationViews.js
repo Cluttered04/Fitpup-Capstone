@@ -127,7 +127,8 @@ class ApplicationViews extends Component {
   editEntry = (collection, object, stateCollection) => {
     const newState = {};
     return APIManager.editEntry(collection, object).then(() =>
-      APIManager.getAllEntriesByUser(collection, this.state.activeUser).then(
+      APIManager.getAllEntriesByUser(collection, this.state.activeUser)
+      .then(
         response => {
           newState[stateCollection] = response;
           this.setState(newState);
@@ -141,10 +142,22 @@ class ApplicationViews extends Component {
       return APIManager.editEntry(collection, object).then(() => {
           APIManager.getAllEntries(collection, this.state.activeUser).then(
               response => {
-                  newState[stateCollection] = response;
-                  this.setState(newState)
+                newState[stateCollection] = response;
+                this.setState(newState);
               }
           )
+      })
+  }
+
+  editAndRetrieveExpand = (collection, object, stateCollection, dogId, expand) => {
+      const newState={}
+      return APIManager.editEntry(collection, object).then(() => {
+          APIManager.getExpandedEntry(collection, dogId, expand).then(
+            response => {
+              newState[stateCollection] = response;
+              this.setState(newState);
+            }
+        )
       })
   }
 
@@ -158,7 +171,6 @@ class ApplicationViews extends Component {
           render={props => {
             return (
               <Home
-                deleteDog={this.deleteDog}
                 dogs={this.state.dogs}
                 deleteEntry={this.deleteEntry}
                 {...props}
@@ -283,7 +295,7 @@ class ApplicationViews extends Component {
 
         <Route exact path="/dogs/:dogId(\d+)/" render={props => {
             return (
-                <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior} editAndRetrieveAll={this.editAndRetrieveAll} deleteEntry={this.deleteEntry} addNewEntry={this.addNewEntry}/>
+                <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior} editAndRetrieveExpand={this.editAndRetrieveExpand} deleteEntry={this.deleteEntry} addNewEntry={this.addNewEntry} />
             )
         }}/>
 

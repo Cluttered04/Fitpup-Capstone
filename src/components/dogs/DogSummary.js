@@ -133,7 +133,7 @@ class DogSummary extends Component {
             show={this.state.showModal}
             onHide={modalClose}
             addNewFoodEntry={this.props.addNewFoodEntry}
-            {...this.props} collectionItem={this.state.collectionItem}
+            {...this.props} collectionItem={this.state.collectionItem} editAndRetrieveExpand={this.props.editAndRetrieveExpand}
           />
         ) : (
           ""
