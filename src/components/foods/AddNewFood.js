@@ -11,12 +11,14 @@ class AddNewFood extends Component {
         calories: ""
     }
 
+    //Handles input changes
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
 
+    //Submits new food and returns to foods list
     addNewFood = evt => {
         evt.preventDefault()
         const newFood = {
@@ -30,7 +32,7 @@ class AddNewFood extends Component {
         this.props.history.push("/foods")
     }
 
-
+    //Renders new food form
     render(){
         return(
         <div>

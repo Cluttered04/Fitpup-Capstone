@@ -22,7 +22,6 @@ class FoodExerciseCard extends Component {
                 {this.props.collection.calories? `Calories: ${this.props.collection.calories}` : ""}
                 </Card.Text>
                 {this.props.collection.userId !== 1 ? <button onClick={() => this.props.history.push(`${foodStatus}/${this.props.collection.id}/edit`)}>Edit</button> : ""}
-                {this.props.collection.userId !== 1 ? <button onClick={() => this.props.deleteAndRetrieveAll(collectionParam, this.props.collection.id, collectionParam)}>Delete</button> : ""}
             </Card.Body>
             </Card>
         )

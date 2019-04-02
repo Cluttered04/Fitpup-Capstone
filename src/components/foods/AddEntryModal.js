@@ -16,13 +16,14 @@ class AddEntryModal extends Component {
 
 
 
-
+    // Handles modal input changes
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
 
+    // Conditionally submits food or exercise according to url path
     submitModal = evt => {
         evt.preventDefault()
         if(Number.isInteger(parseInt(this.state.dogId))){
@@ -80,7 +81,6 @@ class AddEntryModal extends Component {
               onChange={this.handleFieldChange} value={this.props.match.path === "/foods" ? this.state.serving : this.state.time}
             />
           </div>
-          {/* <label htmlFor="foodOrExercise" id="foodId" value={this.props.match.path === "/foods" ? "foodId" : "exerciseId"}>{this.props.match.path === "/foods" ? this.props.food.name: this.props.exercise.name}</label> */}
             <label htmlFor="dropdown">Dog: </label><br/>
             <select onChange={this.handleFieldChange} id="dogId">
                 <option>Select a dog</option>

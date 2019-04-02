@@ -9,12 +9,14 @@ class EditExerciseForm extends Component {
         name: ""
     }
 
+    //Handles input changes
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
 
+    //PUT request to edit exercise and redirect back to exercise list
     editExercise = evt => {
         evt.preventDefault()
         const updatedExercise = {
@@ -27,6 +29,7 @@ class EditExerciseForm extends Component {
         this.props.history.push("/exercises")
     }
 
+    //Retrieves exercise info to populate form fields and sets to state
     componentDidMount() {
         APIManager.getSingleEntry("exercises", this.props.match.params.exerciseId)
             .then(exercise => {

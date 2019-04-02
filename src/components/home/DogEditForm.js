@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import DogManager from "../../modules/DogManager"
+import APIManager from "../../modules/APIManager"
 import PropTypes from "prop-types"
 
 class DogEditForm extends Component {
@@ -51,7 +51,7 @@ class DogEditForm extends Component {
     }
 
   componentDidMount(){
-    DogManager.getSingleDog(this.props.match.params.dogId)
+    APIManager.getSingleEntry("dogs", this.props.match.params.dogId)
     .then(dog =>
         this.setState({
             userId: parseInt(dog.userId),
@@ -127,7 +127,8 @@ class DogEditForm extends Component {
                 id="age"
                 value={1}
                 onClick={this.handleOptionChange}
-                checked={this.state.age === 1}
+                checked={this.state.age === 1 ? "checked" : ""}
+
               />
               <Form.Check
                 type="radio"
@@ -136,7 +137,7 @@ class DogEditForm extends Component {
                 id="age"
                 value={2}
                 onClick={this.handleOptionChange}
-                checked={this.state.age === 2}
+                checked={this.state.age === 2 ? "checked" : ""}
               />
               <Form.Check
                 type="radio"
@@ -145,7 +146,7 @@ class DogEditForm extends Component {
                 id="age"
                 value={3}
                 onClick={this.handleOptionChange}
-                checked={this.state.age === 3}
+                checked={this.state.age === 3 ? "checked" : ""}
               />
             </Row>
           </Form.Group>

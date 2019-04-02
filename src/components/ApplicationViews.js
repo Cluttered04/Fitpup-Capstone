@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import DogManager from "../modules/DogManager";
 import { Route, Redirect } from "react-router-dom";
 import Home from "./home/Home";
 import DogEditForm from "./home/DogEditForm";
@@ -51,26 +50,7 @@ class ApplicationViews extends Component {
       ;
   }
 
-  //Handles dog edit/add/delete
-  addNewDog = dogObject => {
-    return DogManager.addNewDog(dogObject).then(() => {
-      DogManager.getAllDogs(this.state.activeUser).then(dogs => {
-        this.setState({ dogs: dogs });
-      });
-    });
-  };
 
-  deleteDog = id => {
-    return DogManager.deleteDog(id)
-      .then(() => DogManager.getAllDogs(this.state.activeUser))
-      .then(dogs => this.setState({ dogs: dogs }));
-  };
-
-  editDog = dogObject => {
-    return DogManager.editDog(dogObject)
-      .then(() => DogManager.getAllDogs(this.state.activeUser))
-      .then(dogs => this.setState({ dogs: dogs }));
-  };
 
   //Universal add/edit/delete functions
   addNewEntry = (collection, object, stateCollection) => {
@@ -127,7 +107,8 @@ class ApplicationViews extends Component {
   editEntry = (collection, object, stateCollection) => {
     const newState = {};
     return APIManager.editEntry(collection, object).then(() =>
-      APIManager.getAllEntriesByUser(collection, this.state.activeUser).then(
+      APIManager.getAllEntriesByUser(collection, this.state.activeUser)
+      .then(
         response => {
           newState[stateCollection] = response;
           this.setState(newState);
@@ -141,12 +122,13 @@ class ApplicationViews extends Component {
       return APIManager.editEntry(collection, object).then(() => {
           APIManager.getAllEntries(collection, this.state.activeUser).then(
               response => {
-                  newState[stateCollection] = response;
-                  this.setState(newState)
+                newState[stateCollection] = response;
+                this.setState(newState);
               }
           )
       })
   }
+
 
   render() {
     return (
@@ -158,7 +140,6 @@ class ApplicationViews extends Component {
           render={props => {
             return (
               <Home
-                deleteDog={this.deleteDog}
                 dogs={this.state.dogs}
                 deleteEntry={this.deleteEntry}
                 {...props}
@@ -283,7 +264,7 @@ class ApplicationViews extends Component {
 
         <Route exact path="/dogs/:dogId(\d+)/" render={props => {
             return (
-                <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior}/>
+                <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior} addNewEntry={this.addNewEntry} />
             )
         }}/>
 

@@ -7,12 +7,15 @@ class AddNewExercise extends Component {
         name: ""
     }
 
+    //Handles input changes
     handleFieldChange = evt => {
         const stateToChange = {}
-        stateToChange[evt.target.id] = [evt.target.value]
+        stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
 
+
+    // Submits new food entry and returns to exercise list
     addNewFoodEntry = evt => {
         evt.preventDefault()
         const exercise = {
@@ -23,16 +26,15 @@ class AddNewExercise extends Component {
         this.props.history.push("/exercises")
     }
 
+    // Exercise form
     render(){
         return(
             <div>
         <h1>Add New Exercise</h1>
         <Form>
-            <Form.Group controlId="formBasicEmail">
+                <Form.Group controlId="formBasicPassword">
                 <Form.Label>Exercise</Form.Label>
-                <Form.Control type="text" placeholder="Exercise Type" onChange={this.handleFieldChange} id="name"/>
-                <Form.Text className="text-muted">
-                </Form.Text>
+                <Form.Control type="text" placeholder="i.e. Fetch" onChange={this.handleFieldChange} id="name"/>
             </Form.Group>
             <Button variant="primary" type="submit" onClick={this.addNewFoodEntry}>
                 Add Exercise

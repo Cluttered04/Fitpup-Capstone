@@ -24,6 +24,11 @@ const APIManager = {
         .then(r => r.json())
     },
 
+    getSingleExpandedEntry: function(collection, itemId, dogId, expandedId){
+        return fetch(`http://${remoteURL}/${collection}/${itemId}?dogId=${dogId}&&_expand=${expandedId}`)
+        .then(r => r.json())
+    },
+
     addNewEntry: function(collection, object){
         return fetch(`http://${remoteURL}/${collection}`, {
             method: "POST",
@@ -31,7 +36,7 @@ const APIManager = {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(object)
-        }).then(r => r.json())
+        })
     },
 
     editEntry: function(collection, object){
@@ -46,10 +51,7 @@ const APIManager = {
 
     deleteEntry: function(collection, objectId) {
         return fetch(`http://${remoteURL}/${collection}/${objectId}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
+            method: "DELETE"
         })
     }
 
