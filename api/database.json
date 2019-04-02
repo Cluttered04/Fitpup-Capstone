@@ -58,7 +58,15 @@
       "id": 2
     }
   ],
-  "exerciseEntries": [],
+  "exerciseEntries": [
+    {
+      "dogId": 1,
+      "date": "2019-04-03",
+      "exerciseId": 2,
+      "time": 24,
+      "id": 1
+    }
+  ],
   "foodEntries": [
     {
       "dogId": 2,
@@ -94,6 +102,48 @@
       "weight": "92000",
       "date": "2019-04-01",
       "id": 10
+    },
+    {
+      "dogId": "1",
+      "weight": "25",
+      "date": "2019-04-02",
+      "id": 11
+    },
+    {
+      "dogId": "1",
+      "weight": "25",
+      "date": "2019-04-02",
+      "id": 12
+    },
+    {
+      "dogId": "1",
+      "weight": "15",
+      "date": "2019-04-02",
+      "id": 13
+    },
+    {
+      "dogId": "1",
+      "weight": "45",
+      "date": "2019-04-02",
+      "id": 14
+    },
+    {
+      "dogId": "1",
+      "weight": "15",
+      "date": "2019-04-02",
+      "id": 15
+    },
+    {
+      "dogId": "1",
+      "weight": "15",
+      "date": "2019-04-02",
+      "id": 16
+    },
+    {
+      "dogId": "1",
+      "weight": "20",
+      "date": "2019-04-02",
+      "id": 17
     }
   ],
   "behavior": []
