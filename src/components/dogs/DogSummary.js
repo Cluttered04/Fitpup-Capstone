@@ -22,6 +22,33 @@ class DogSummary extends Component {
       })
   }
 
+  editAndRetrieveExpand = (collection, object, stateCollection, dogId, expand) => {
+    const newState={}
+    return APIManager.editEntry(collection, object).then(() => {
+        APIManager.getExpandedEntry(collection, dogId, expand).then(
+          response => {
+            newState[stateCollection] = response;
+            this.setState(newState);
+          }
+      )
+    })
+}
+
+
+    deleteAndRetrieveExpand = (collection, objectId, stateCollection, dogId, expand) => {
+        const newState ={}
+
+        return APIManager.deleteEntry(collection, objectId)
+        .then(() => APIManager.getExpandedEntry(collection, dogId, expand))
+        .then(
+            response => {
+              newState[stateCollection] = response;
+              this.setState(newState);
+            }
+        )
+    }
+
+
   //Gets expanded entries by dog id
   componentDidMount() {
     const newState = {};
@@ -106,7 +133,7 @@ class DogSummary extends Component {
                 <h5>{entry.food.brand}</h5>
                 <p>Calories per serving: {entry.food.calories} <br></br>Servings: {entry.serving} <br/>Calories: {entry.serving * entry.food.calories}</p>
                 <button onClick={() => this.handleModal(entry)}>Edit Entry</button>
-                <button onClick={() => this.props.deleteEntry("foodEntries", entry.id, "foodEntries")}>Delete Entry</button>
+                <button onClick={() => this.deleteAndRetrieveExpand("foodEntries", entry.id, "expandedFoodEntries", entry.dogId, "food")}>Delete Entry</button>
               </div>
             );
           })}
@@ -120,7 +147,7 @@ class DogSummary extends Component {
                 <h4>{entry.exercise.name}</h4>
                 <p>Time: {entry.time} Minutes</p>
                 <button onClick={() => this.handleModal(entry)}>Edit Entry</button>
-                <button onClick={() => this.props.deleteEntry("exerciseEntries", entry.id, "exerciseEntries")}>Delete Entry</button>
+                <button onClick={() => this.deleteAndRetrieveExpand("exerciseEntries", entry.id, "expandedExerciseEntries", entry.dogId, "exercise")}>Delete Entry</button>
               </div>
             );
           })}
@@ -133,7 +160,7 @@ class DogSummary extends Component {
             show={this.state.showModal}
             onHide={modalClose}
             addNewFoodEntry={this.props.addNewFoodEntry}
-            {...this.props} collectionItem={this.state.collectionItem} editAndRetrieveExpand={this.props.editAndRetrieveExpand}
+            {...this.props} collectionItem={this.state.collectionItem} editAndRetrieveExpand={this.editAndRetrieveExpand}
           />
         ) : (
           ""

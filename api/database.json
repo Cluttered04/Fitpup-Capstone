@@ -68,13 +68,6 @@
       "id": 4
     },
     {
-      "dogId": 1,
-      "date": "2019-04-03",
-      "foodId": 1,
-      "serving": 2,
-      "id": 5
-    },
-    {
       "dogId": 2,
       "date": "2019-04-03",
       "foodId": 2,
@@ -83,8 +76,8 @@
     },
     {
       "dogId": 1,
-      "date": "2019-04-03",
-      "foodId": 2,
+      "date": "2019-04-02",
+      "foodId": 1,
       "serving": 2,
       "id": 7
     }

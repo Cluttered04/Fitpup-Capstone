@@ -39,7 +39,7 @@ class EditEntryModal extends Component {
                     foodId: this.state.foodId
 
                 }
-                this.props.editAndRetrieveExpand("foodEntries", updatedEntry, "foodEntries", this.state.dogId, "food")
+                this.props.editAndRetrieveExpand("foodEntries", updatedEntry, "expandedFoodEntries", this.state.dogId, "food")
             } else if(this.state.time){
                 const updatedEntry = {
                     dogId: parseInt(this.state.dogId),
@@ -48,7 +48,7 @@ class EditEntryModal extends Component {
                     time: parseInt(this.state.time),
                     exerciseId: this.state.exerciseId
                 }
-                this.props.editAndRetrieveExpand("exerciseEntries", updatedEntry, "exerciseEntries", this.state.dogId, "exercise")
+                this.props.editAndRetrieveExpand("exerciseEntries", updatedEntry, "expandedExerciseEntries", this.state.dogId, "exercise")
             } this.props.onHide()
     }
 

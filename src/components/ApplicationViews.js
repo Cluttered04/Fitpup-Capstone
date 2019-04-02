@@ -149,17 +149,6 @@ class ApplicationViews extends Component {
       })
   }
 
-  editAndRetrieveExpand = (collection, object, stateCollection, dogId, expand) => {
-      const newState={}
-      return APIManager.editEntry(collection, object).then(() => {
-          APIManager.getExpandedEntry(collection, dogId, expand).then(
-            response => {
-              newState[stateCollection] = response;
-              this.setState(newState);
-            }
-        )
-      })
-  }
 
   render() {
     return (
@@ -295,7 +284,7 @@ class ApplicationViews extends Component {
 
         <Route exact path="/dogs/:dogId(\d+)/" render={props => {
             return (
-                <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior} editAndRetrieveExpand={this.editAndRetrieveExpand} deleteEntry={this.deleteEntry} addNewEntry={this.addNewEntry} />
+                <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior} addNewEntry={this.addNewEntry} />
             )
         }}/>
 
