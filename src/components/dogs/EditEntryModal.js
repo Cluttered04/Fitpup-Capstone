@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import {Modal, Button, Dropdown} from "react-bootstrap"
+import APIManager from "../../modules/APIManager"
 
 class EditEntryModal extends Component {
     state = {
@@ -10,6 +11,7 @@ class EditEntryModal extends Component {
         serving: "",
         time: "",
         dogName: "",
+        id: this.props.collectionItem.id,
     }
 
 
@@ -26,13 +28,13 @@ class EditEntryModal extends Component {
     // Submits exercise or food conditionally, returns alert if dog is not selected
     submitModal = evt => {
         evt.preventDefault()
-        if(Number.isInteger(parseInt(this.state.dogId))){
             if(this.props.collectionItem.serving){
                 const updatedEntry = {
                     dogId: parseInt(this.state.dogId),
                     date: this.state.date,
                     foodId: parseInt(this.state.collectionId),
-                    serving: parseInt(this.state.serving)
+                    serving: parseInt(this.state.serving),
+
                 }
                 this.props.editAndRetrieveAll("foodEntries", updatedEntry, "foodEntries")
             } else if(this.props.collectionItem.time){
@@ -40,16 +42,25 @@ class EditEntryModal extends Component {
                     dogId: parseInt(this.state.dogId),
                     date: this.state.date,
                     exerciseId: parseInt(this.state.collectionId),
-                    time: parseInt(this.state.time)
+                    time: parseInt(this.state.time),
+
                 }
                 this.props.editAndRetrieveAll("exerciseEntries", updatedEntry, "exerciseEntries")
             } this.props.onHide()
-        } else {
-            alert("Please select a dog")
-        }
-
     }
 
+    componentDidMount(){
+        APIManager.getSingleExpandedEntry("foodEntries", this.props.collectionItem.id, this.props.match.params.dogId, "dog")
+        .then(entry => {
+            this.setState({
+                dogId: entry.dogId,
+                dogName: entry.dog.name,
+                serving: entry.serving,
+                date: entry.date,
+                id: this.props.collectionItem.id
+        })
+
+    })}
 
 
 
@@ -79,16 +90,11 @@ class EditEntryModal extends Component {
               className="form-control"
               id={this.props.collectionItem.serving ? "serving" : "time"}
               aria-describedby="emailHelp"
-              onChange={this.handleFieldChange} value={this.props.collectionItem.serving ? this.props.collectionItem.serving : this.props.collectionItem.time}
+              onChange={this.handleFieldChange} value={this.props.collectionItem.serving ? this.state.serving : this.state.time}
             />
           </div>
             <label htmlFor="dropdown">Dog: </label><br/>
-            <select onChange={this.handleFieldChange} id="dogId">
-                <option>Select a dog</option>
-                {this.props.dogs.map(dog => {
-                   return <option id="dogId" name="dogId" value={dog.id} key={dog.id}>{dog.name}</option>
-                })}
-            </select>
+            <label>{this.state.dogName}</label>
 
           <div className="form-group">
             <label htmlFor="exampleInputPassword1">Date</label>
@@ -97,7 +103,7 @@ class EditEntryModal extends Component {
               className="form-control"
               id="date"
               onChange={this.handleFieldChange}
-              value={this.props.collectionItem.date}
+              value={this.state.date}
             />
           </div>
           <button

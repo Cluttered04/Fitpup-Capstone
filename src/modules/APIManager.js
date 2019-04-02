@@ -24,6 +24,11 @@ const APIManager = {
         .then(r => r.json())
     },
 
+    getSingleExpandedEntry: function(collection, itemId, dogId, expandedId){
+        return fetch(`http://${remoteURL}/${collection}/${itemId}?dogId=${dogId}&&_expand=${expandedId}`)
+        .then(r => r.json())
+    },
+
     addNewEntry: function(collection, object){
         return fetch(`http://${remoteURL}/${collection}`, {
             method: "POST",

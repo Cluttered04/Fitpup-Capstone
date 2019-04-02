@@ -22,9 +22,24 @@
       "age": 3,
       "userId": 2,
       "id": 1
+    },
+    {
+      "name": "Mr. Dog",
+      "breed": "Cat",
+      "neutered": false,
+      "active": false,
+      "age": 3,
+      "userId": 2,
+      "id": 2
     }
   ],
-  "exercises": [],
+  "exercises": [
+    {
+      "userId": 2,
+      "name": "Flirt Pole",
+      "id": 2
+    }
+  ],
   "foods": [
     {
       "id": 1,
@@ -43,7 +58,36 @@
       "id": 2
     }
   ],
-  "exerciseEntries": [],
+  "exerciseEntries": [
+    {
+      "dogId": 2,
+      "date": "0019-04-11",
+      "exerciseId": 1,
+      "time": 6,
+      "id": 1
+    },
+    {
+      "dogId": 2,
+      "date": "2019-04-12",
+      "exerciseId": 1,
+      "time": 10000,
+      "id": 2
+    },
+    {
+      "dogId": 2,
+      "date": "2019-04-01",
+      "exerciseId": 1,
+      "time": 4200,
+      "id": 3
+    },
+    {
+      "dogId": 1,
+      "date": "2019-04-04",
+      "exerciseId": 2,
+      "time": 24,
+      "id": 4
+    }
+  ],
   "foodEntries": [
     {
       "dogId": 1,
@@ -75,43 +119,10 @@
       "date": "2019/01/19"
     },
     {
-      "dogId": "1",
-      "weight": "40",
-      "id": 2
-    },
-    {
-      "dogId": "1",
-      "weight": "40",
-      "id": 3
-    },
-    {
-      "dogId": "1",
-      "weight": "40",
-      "id": 4
-    },
-    {
-      "dogId": "1",
-      "weight": "50",
+      "dogId": "2",
+      "weight": "92000",
       "date": "2019-04-01",
-      "id": 5
-    },
-    {
-      "dogId": "1",
-      "weight": "40",
-      "date": "2019-04-01",
-      "id": 6
-    },
-    {
-      "dogId": "1",
-      "weight": "50",
-      "date": "2019-04-01",
-      "id": 7
-    },
-    {
-      "dogId": "1",
-      "weight": "40",
-      "date": "2019-04-01",
-      "id": 8
+      "id": 10
     }
   ],
   "behavior": []
