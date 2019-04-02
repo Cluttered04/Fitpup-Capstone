@@ -17,7 +17,7 @@
     {
       "id": 1,
       "userId": 2,
-      "name": "Whip",
+      "name": "Whip2",
       "breed": "Whippet",
       "age": 3,
       "active": false,
@@ -58,7 +58,15 @@
       "id": 2
     }
   ],
-  "exerciseEntries": [],
+  "exerciseEntries": [
+    {
+      "dogId": 2,
+      "date": "2019-04-02",
+      "id": 1,
+      "time": 20,
+      "exerciseId": 2
+    }
+  ],
   "foodEntries": [
     {
       "dogId": 2,
@@ -66,13 +74,6 @@
       "foodId": 1,
       "serving": 3,
       "id": 4
-    },
-    {
-      "dogId": 2,
-      "date": "2019-04-03",
-      "foodId": 2,
-      "serving": 1,
-      "id": 6
     },
     {
       "dogId": 1,
@@ -94,6 +95,12 @@
       "weight": "92000",
       "date": "2019-04-01",
       "id": 10
+    },
+    {
+      "dogId": "2",
+      "weight": "45",
+      "date": "2019-04-02",
+      "id": 11
     }
   ],
   "behavior": []
