@@ -50,6 +50,16 @@ class DogSummary extends Component {
         )
     }
 
+    postAndRetrieveWeight = (collection, object, searchCollection, itemId, stateCollection) => {
+        const newState = {}
+        return APIManager.addNewEntry(collection, object)
+        .then(() => APIManager.getSingleEntryById(collection, searchCollection, itemId))
+        .then(response => {
+            newState[stateCollection] = response;
+            this.setState(newState)
+        })
+    }
+
 
   //Gets expanded entries by dog id
   componentDidMount() {
@@ -99,7 +109,7 @@ class DogSummary extends Component {
             weight: this.state.weight,
             date: today
         }
-        this.props.addNewEntry("weight", weightEntry, "weight")
+        this.postAndRetrieveWeight("weight", weightEntry, "dogId", this.props.match.params.dogId, "weightHistory")
         this.state.weight = ""
         this.refs.weight.value = ""
         } else {
@@ -151,7 +161,7 @@ class DogSummary extends Component {
               </div>
             );
           })}
-          {/* List exercise entries sorted by date */}
+          {/* List exercise sorted by date */}
           {this.state.expandedExerciseEntries.sort((a, b) => a.date > b.date ? -1 : 1).map(entry => {
             return (
               <div key={entry.id}>
