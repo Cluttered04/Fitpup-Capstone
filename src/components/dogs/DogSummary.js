@@ -122,6 +122,7 @@ class DogSummary extends Component {
         <input type="text" id="weight" ref="weight" placeholder="Weight in pounds" onChange={this.handleWeighIn}></input>
         <button onClick={this.addWeightEntry} value="weight">Weigh In</button>
         <h3>Recent Weigh Ins</h3>
+        {/* Sorts weight history by date and displays three most recent weigh ins */}
         {this.state.weightHistory.sort((a,b) => b.date > a.date ? -1 : 1).slice(0, 3).map(weight => {
 
             return <div>
@@ -135,7 +136,7 @@ class DogSummary extends Component {
           Add Exercise Entry
         </button>
         <section id="entries">
-        {/* Lists foods sorted by date*/}
+        {/* Lists food entries sorted by date*/}
           {this.state.expandedFoodEntries.sort((a,b) => a.date > b.date ? -1 : 1).map(entry => {
             return (
               <div key={entry.id}>
@@ -150,7 +151,7 @@ class DogSummary extends Component {
               </div>
             );
           })}
-          {/* List exercises sorted by date */}
+          {/* List exercise entries sorted by date */}
           {this.state.expandedExerciseEntries.sort((a, b) => a.date > b.date ? -1 : 1).map(entry => {
             return (
               <div key={entry.id}>

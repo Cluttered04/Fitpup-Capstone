@@ -8,25 +8,51 @@ class MyFoodsList extends Component {
     showModal: false,
     activeItemName: "",
     activeItemId: null,
-    foodItem: {}
+    foodItem: {},
+    search: ""
   };
 
   //Handles modal visibility and sets specific entry to state for editing
-  handleModal = (food) => {
-     this.setState({
-        showModal: true,
-        foodItem: food,
+  handleModal = food => {
+    this.setState({
+      showModal: true,
+      foodItem: food
     });
+  };
+
+  //Handles search bar field change
+  handleFieldChange = evt => {
+    evt.preventDefault();
+    const stateToChange = {};
+    stateToChange[evt.target.id] = evt.target.value;
+    this.setState(stateToChange);
   };
 
   render() {
     //Function to close modal
     let modalClose = () => this.setState({ showModal: false });
+
+    //Search bar functionality
+    let filteredFoods = this.props.foods.filter(food => {
+      return (
+        food.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
+          -1 || food.brand.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+      );
+    });
+
+
     return (
       <div>
         <h1>My Foods</h1>
-        {/* Maps through exercise list and returns cards */}
-        {this.props.foods.map(food => {
+        {/* Search bar */}
+        <input
+          id="search"
+          value={this.state.search}
+          placeholder="Search Food Name or Brand"
+          onChange={this.handleFieldChange}
+        />
+        {/* Maps through food list and returns cards */}
+        {filteredFoods.map(food => {
           return (
             <div>
               <FoodExerciseCard
@@ -48,7 +74,8 @@ class MyFoodsList extends Component {
             show={this.state.showModal}
             onHide={modalClose}
             addNewFoodEntry={this.props.addNewFoodEntry}
-            {...this.props} collectionItem={this.state.foodItem}
+            {...this.props}
+            collectionItem={this.state.foodItem}
           />
         ) : (
           ""

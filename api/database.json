@@ -19,8 +19,8 @@
       "userId": 2,
       "name": "Whip",
       "breed": "Whippet",
-      "age": 3,
-      "active": false,
+      "age": "2",
+      "active": true,
       "neutered": true
     },
     {
@@ -28,9 +28,18 @@
       "userId": 2,
       "name": "Mr. Dog",
       "breed": "CatDog",
-      "age": 3,
-      "active": false,
-      "neutered": false
+      "age": "3",
+      "active": "true",
+      "neutered": "true"
+    },
+    {
+      "name": "j",
+      "breed": "Greyhound",
+      "neutered": "false",
+      "active": "false",
+      "age": "1",
+      "userId": 2,
+      "id": 3
     }
   ],
   "exercises": [
@@ -56,6 +65,14 @@
       "serving": "1 Cup",
       "calories": 245,
       "id": 2
+    },
+    {
+      "userId": 2,
+      "brand": "Blue Buffalo",
+      "name": "Kibble",
+      "serving": "1 Cup",
+      "calories": 300,
+      "id": 3
     }
   ],
   "exerciseEntries": [
