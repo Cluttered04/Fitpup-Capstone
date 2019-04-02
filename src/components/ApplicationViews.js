@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import DogManager from "../modules/DogManager";
 import { Route, Redirect } from "react-router-dom";
 import Home from "./home/Home";
 import DogEditForm from "./home/DogEditForm";
@@ -51,26 +50,7 @@ class ApplicationViews extends Component {
       ;
   }
 
-  //Handles dog edit/add/delete
-  addNewDog = dogObject => {
-    return DogManager.addNewDog(dogObject).then(() => {
-      DogManager.getAllDogs(this.state.activeUser).then(dogs => {
-        this.setState({ dogs: dogs });
-      });
-    });
-  };
 
-  deleteDog = id => {
-    return DogManager.deleteDog(id)
-      .then(() => DogManager.getAllDogs(this.state.activeUser))
-      .then(dogs => this.setState({ dogs: dogs }));
-  };
-
-  editDog = dogObject => {
-    return DogManager.editDog(dogObject)
-      .then(() => DogManager.getAllDogs(this.state.activeUser))
-      .then(dogs => this.setState({ dogs: dogs }));
-  };
 
   //Universal add/edit/delete functions
   addNewEntry = (collection, object, stateCollection) => {

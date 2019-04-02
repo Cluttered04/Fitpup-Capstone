@@ -15,13 +15,13 @@
   ],
   "dogs": [
     {
+      "id": 1,
+      "userId": 2,
       "name": "Whip",
       "breed": "Whippet",
-      "neutered": true,
-      "active": false,
       "age": 3,
-      "userId": 2,
-      "id": 1
+      "active": false,
+      "neutered": true
     },
     {
       "id": 2,

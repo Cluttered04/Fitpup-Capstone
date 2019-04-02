@@ -22,6 +22,7 @@ class DogSummary extends Component {
       })
   }
 
+  //Saves edit and retrieves expanded entries - sets to state
   editAndRetrieveExpand = (collection, object, stateCollection, dogId, expand) => {
     const newState={}
     return APIManager.editEntry(collection, object).then(() => {
@@ -34,7 +35,7 @@ class DogSummary extends Component {
     })
 }
 
-
+    //Deletes entry and retrieves expanded entries - sets to state
     deleteAndRetrieveExpand = (collection, objectId, stateCollection, dogId, expand) => {
         const newState ={}
 

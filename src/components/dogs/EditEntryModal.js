@@ -7,7 +7,7 @@ class EditEntryModal extends Component {
         dogId: "",
         date: "",
         collectionId: this.props.collectionItem.id,
-        collectionName: this.props.collectionItem.name,
+        name: "",
         serving: "",
         time: "",
         dogName: "",
@@ -52,6 +52,7 @@ class EditEntryModal extends Component {
             } this.props.onHide()
     }
 
+    //Mounts single exercise or food entry conditionally
     componentDidMount(){
         if(this.props.collectionItem.serving){
         APIManager.getSingleExpandedEntry("foodEntries", this.props.collectionItem.id, this.props.match.params.dogId, "dog")
@@ -62,7 +63,8 @@ class EditEntryModal extends Component {
                 serving: entry.serving,
                 date: entry.date,
                 id: entry.id,
-                foodId: entry.foodId
+                foodId: entry.foodId,
+                name: entry.name
         })
 
     })} else if (this.props.collectionItem.time){
@@ -74,7 +76,8 @@ class EditEntryModal extends Component {
                 time: entry.time,
                 date: entry.date,
                 id: entry.id,
-                exerciseId: entry.exerciseId
+                exerciseId: entry.exerciseId,
+                name: entry.name
             })
         })
     }
@@ -98,7 +101,7 @@ class EditEntryModal extends Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <label>{this.state.collectionName}</label>
+          <h3>{this.state.name}</h3>
           <form>
           <div className="form-group">
           <label htmlFor="time/serving">{this.props.collectionItem.serving ? "Servings:" : "Time (In Minutes)"}</label>

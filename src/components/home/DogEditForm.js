@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import DogManager from "../../modules/DogManager"
+import APIManager from "../../modules/APIManager"
 import PropTypes from "prop-types"
 
 class DogEditForm extends Component {
@@ -51,7 +51,7 @@ class DogEditForm extends Component {
     }
 
   componentDidMount(){
-    DogManager.getSingleDog(this.props.match.params.dogId)
+    APIManager.getSingleEntry("dogs", this.props.match.params.dogId)
     .then(dog =>
         this.setState({
             userId: parseInt(dog.userId),
