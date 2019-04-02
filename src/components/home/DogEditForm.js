@@ -7,9 +7,9 @@ class DogEditForm extends Component {
   state = {
     name: "",
     breed: "",
-    age: 1,
-    active: true,
-    neutered: true,
+    age: "",
+    active: "",
+    neutered: "",
     userId: ""
   };
 
@@ -42,13 +42,7 @@ class DogEditForm extends Component {
     });
   };
 
-    //Function to convert neuter or spay status and activity level to boolean to save in db
-    strToBoolean = value => {
-        if (value && typeof value === "string"){
-            if(value.toLowerCase() === "true") return true;
-            else if(value.toLowerCase() === "false") return false;
-        } return value
-    }
+
 
   componentDidMount(){
     APIManager.getSingleEntry("dogs", this.props.match.params.dogId)
@@ -71,8 +65,8 @@ class DogEditForm extends Component {
           name: this.state.name,
           breed: this.state.breed,
           age: this.state.age,
-          active: this.strToBoolean(this.state.active),
-          neutered: this.strToBoolean(this.state.neutered)
+          active: this.state.active,
+          neutered: this.state.neutered
       }
       console.log(updatedDog)
       this.props.editEntry("dogs", updatedDog, "dogs")
@@ -127,7 +121,7 @@ class DogEditForm extends Component {
                 id="age"
                 value={1}
                 onClick={this.handleOptionChange}
-                checked={this.state.age === 1 ? "checked" : ""}
+                checked={this.state.age ==="1" ? "checked" : ""}
 
               />
               <Form.Check
@@ -137,7 +131,7 @@ class DogEditForm extends Component {
                 id="age"
                 value={2}
                 onClick={this.handleOptionChange}
-                checked={this.state.age === 2 ? "checked" : ""}
+                checked={this.state.age === "2" ? "checked" : ""}
               />
               <Form.Check
                 type="radio"
@@ -146,7 +140,7 @@ class DogEditForm extends Component {
                 id="age"
                 value={3}
                 onClick={this.handleOptionChange}
-                checked={this.state.age === 3 ? "checked" : ""}
+                checked={this.state.age === "3" ? "checked" : ""}
               />
             </Row>
           </Form.Group>
@@ -164,7 +158,7 @@ class DogEditForm extends Component {
               id="neutered"
               value={true}
               onChange={this.handleNeuterChange}
-              checked={this.state.neutered === true}
+              checked={this.state.neutered === "true" ? "checked" : ""}
             />
             <Form.Check
               type="radio"
@@ -173,7 +167,7 @@ class DogEditForm extends Component {
               id="neutered"
               value={false}
               onChange={this.handleNeuterChange}
-              checked={this.state.neutered === false}
+              checked={this.state.neutered === "false" ? "checked" : ""}
             />
           </Form.Group>
         </fieldset>
@@ -190,7 +184,7 @@ class DogEditForm extends Component {
               id="active"
               value={true}
               onChange={this.handleActiveChange}
-              checked={this.state.active === true}
+              checked={this.state.active === "true" ? "checked" : ""}
             />
             <Form.Check
               type="radio"
@@ -199,7 +193,7 @@ class DogEditForm extends Component {
               id="active"
               value={false}
               onChange={this.handleActiveChange}
-              checked={this.state.active === false}
+              checked={this.state.active === "false" ? "checked" : ""}
             />
           </Form.Group>
         </fieldset>

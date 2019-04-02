@@ -15,22 +15,22 @@
   ],
   "dogs": [
     {
-      "id": 1,
+      "id": 3,
       "userId": 2,
       "name": "Whip",
-      "breed": "Whippet",
-      "age": 3,
-      "active": false,
-      "neutered": true
+      "breed": "Greyhound",
+      "age": "1",
+      "active": "false",
+      "neutered": "false"
     },
     {
-      "id": 2,
+      "name": "Flip",
+      "breed": "Greyhound",
+      "neutered": "true",
+      "active": "false",
+      "age": "1",
       "userId": 2,
-      "name": "Mr. Dog",
-      "breed": "CatDog",
-      "age": 3,
-      "active": false,
-      "neutered": false
+      "id": 4
     }
   ],
   "exercises": [
@@ -38,6 +38,11 @@
       "userId": 2,
       "name": "Flirt Pole",
       "id": 2
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "name": "Agility class"
     }
   ],
   "foods": [
@@ -56,44 +61,53 @@
       "serving": "1 Cup",
       "calories": 245,
       "id": 2
+    },
+    {
+      "userId": 2,
+      "brand": "Blue Buffalo",
+      "name": "Kibble",
+      "serving": "1 Cup",
+      "calories": 300,
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "name": "Kibble",
+      "brand": "Hills Science Diet",
+      "serving": "1 Cup",
+      "calories": 275,
+      "id": 4
     }
   ],
   "exerciseEntries": [],
   "foodEntries": [
     {
-      "dogId": 2,
-      "date": "2019-04-04",
-      "foodId": 1,
-      "serving": 3,
-      "id": 4
-    },
-    {
-      "dogId": 2,
-      "date": "2019-04-03",
-      "foodId": 2,
-      "serving": 1,
-      "id": 6
-    },
-    {
-      "dogId": 1,
+      "dogId": 3,
       "date": "2019-04-02",
       "foodId": 1,
-      "serving": 2,
-      "id": 7
+      "serving": 3,
+      "id": 1
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-02",
+      "foodId": 3,
+      "serving": 3,
+      "id": 2
     }
   ],
   "weight": [
     {
-      "id": 1,
-      "dogId": 1,
-      "weight": 20,
-      "date": "2019/01/19"
+      "dogId": "3",
+      "weight": "24",
+      "date": "2019-04-02",
+      "id": 1
     },
     {
-      "dogId": "2",
-      "weight": "92000",
-      "date": "2019-04-01",
-      "id": 10
+      "dogId": "3",
+      "weight": "25",
+      "date": "2019-04-02",
+      "id": 2
     }
   ],
   "behavior": []

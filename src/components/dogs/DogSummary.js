@@ -11,7 +11,8 @@ class DogSummary extends Component {
     expandedExerciseEntries: [],
     showModal: false,
     collectionItem: {},
-    weight: ""
+    weight: "",
+    weightHistory: []
   };
 
   //handles edit entry modal
@@ -49,6 +50,16 @@ class DogSummary extends Component {
         )
     }
 
+    postAndRetrieveWeight = (collection, object, searchCollection, itemId, stateCollection) => {
+        const newState = {}
+        return APIManager.addNewEntry(collection, object)
+        .then(() => APIManager.getSingleEntryById(collection, searchCollection, itemId))
+        .then(response => {
+            newState[stateCollection] = response;
+            this.setState(newState)
+        })
+    }
+
 
   //Gets expanded entries by dog id
   componentDidMount() {
@@ -70,11 +81,14 @@ class DogSummary extends Component {
       )
       .then(exercise => {
         newState.expandedExerciseEntries = exercise;
-        this.setState(newState);
       })
       .then(() =>
         APIManager.getSingleEntry("dogs", this.props.match.params.dogId)
-      );
+        .then(dog => {newState.dogs = dog})
+      ).then(() => APIManager.getSingleEntryById("weight", "dogId", this.props.match.params.dogId))
+      .then(weight => {
+         newState.weightHistory = weight
+        this.setState(newState)})
   }
 
     // Handles weight input changes
@@ -95,7 +109,7 @@ class DogSummary extends Component {
             weight: this.state.weight,
             date: today
         }
-        this.props.addNewEntry("weight", weightEntry, "weight")
+        this.postAndRetrieveWeight("weight", weightEntry, "dogId", this.props.match.params.dogId, "weightHistory")
         this.state.weight = ""
         this.refs.weight.value = ""
         } else {
@@ -109,6 +123,7 @@ class DogSummary extends Component {
       this.props.dogs.find(
         dog => dog.id === parseInt(this.props.match.params.dogId)
       ) || {};
+
     return (
         // Dog info and weight input/button
       <div>
@@ -116,6 +131,14 @@ class DogSummary extends Component {
         <img src="../../../public/images/DogSummaryImage.png" alt="dog" />
         <input type="text" id="weight" ref="weight" placeholder="Weight in pounds" onChange={this.handleWeighIn}></input>
         <button onClick={this.addWeightEntry} value="weight">Weigh In</button>
+        <h3>Recent Weigh Ins</h3>
+        {/* Sorts weight history by date and displays three most recent weigh ins */}
+        {this.state.weightHistory.sort((a,b) => b.date > a.date ? -1 : 1).slice(0, 3).map(weight => {
+
+            return <div>
+                <p>{weight.date} <br/> {weight.weight} lbs.</p>
+                </div>
+        })}
         <button onClick={() => this.props.history.push("/foods")}>
           Add Food Entry
         </button>
@@ -123,7 +146,7 @@ class DogSummary extends Component {
           Add Exercise Entry
         </button>
         <section id="entries">
-        {/* Lists foods sorted by date*/}
+        {/* Lists food entries sorted by date*/}
           {this.state.expandedFoodEntries.sort((a,b) => a.date > b.date ? -1 : 1).map(entry => {
             return (
               <div key={entry.id}>
@@ -138,7 +161,7 @@ class DogSummary extends Component {
               </div>
             );
           })}
-          {/* List exercises sorted by date */}
+          {/* List exercise sorted by date */}
           {this.state.expandedExerciseEntries.sort((a, b) => a.date > b.date ? -1 : 1).map(entry => {
             return (
               <div key={entry.id}>

@@ -40,13 +40,6 @@ class NewDogForm extends Component {
         })
     }
 
-    //Function to convert neuter or spay status and activity level to boolean to save in db
-    strToBoolean = value => {
-        if (value && typeof value === "string"){
-            if(value.toLowerCase() === "true") return true;
-            else if(value.toLowerCase() === "false") return false;
-        } return value
-    }
 
     //Creates dog object from state and posts to database
     addNewDog = evt => {
@@ -54,9 +47,9 @@ class NewDogForm extends Component {
         const dog = {
             name: this.state.name,
             breed: this.state.breed,
-            neutered: this.strToBoolean(this.state.neutered),
-            active: this.strToBoolean(this.state.active),
-            age: parseInt(this.state.age),
+            neutered: this.state.neutered,
+            active: this.state.active,
+            age: this.state.age,
             userId: this.state.userId
         }
         this.props.addNewEntry("dogs", dog, "dogs")

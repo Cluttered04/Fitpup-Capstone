@@ -6,7 +6,8 @@ import AddEntryModal from "./AddEntryModal";
 class ExerciseList extends Component {
   state = {
     showModal: false,
-    exerciseItem: {}
+    exerciseItem: {},
+    search: ""
   };
 
   //Handles modal visibility and sets specific entry to state for editing
@@ -17,14 +18,35 @@ class ExerciseList extends Component {
     });
   };
 
+//Handles search bar field change
+  handleFieldChange = evt => {
+    evt.preventDefault();
+    const stateToChange = {};
+    stateToChange[evt.target.id] = evt.target.value;
+    this.setState(stateToChange);
+  };
+
+
   render() {
     //Function to close modal
     let modalClose = () => this.setState({ showModal: false });
+    let filteredExercises = this.props.exercises.filter(exercise => {
+        return (
+          exercise.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
+            -1
+        );
+      });
 
     return (
       <div>
         <h1>My Exercises</h1>
-        {this.props.exercises.map(exercise => {
+        <input
+          id="search"
+          value={this.state.search}
+          placeholder="Search Exercises"
+          onChange={this.handleFieldChange}
+        />
+        {filteredExercises.map(exercise => {
           return (
             <div>
                 {/* Maps through exercise list and returns cards */}
