@@ -19,6 +19,11 @@ const APIManager = {
         .then(r => r.json())
     },
 
+    getSingleEntryById: function(collection, searchCollection, itemId){
+        return fetch(`http://${remoteURL}/${collection}/?${searchCollection}=${itemId}`)
+        .then(r => r.json())
+    },
+
     getExpandedEntry: function(collection, dogId, expandedId){
         return fetch(`http://${remoteURL}/${collection}/?dogId=${dogId}&&_expand=${expandedId}`)
         .then(r => r.json())

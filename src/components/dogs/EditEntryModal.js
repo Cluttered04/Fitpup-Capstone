@@ -64,7 +64,7 @@ class EditEntryModal extends Component {
                 date: entry.date,
                 id: entry.id,
                 foodId: entry.foodId,
-                name: entry.name
+                name: this.props.collectionItem.food.name
         })
 
     })} else if (this.props.collectionItem.time){
@@ -77,7 +77,7 @@ class EditEntryModal extends Component {
                 date: entry.date,
                 id: entry.id,
                 exerciseId: entry.exerciseId,
-                name: entry.name
+                name: this.props.collectionItem.exercise.name
             })
         })
     }
