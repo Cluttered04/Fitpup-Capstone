@@ -128,12 +128,13 @@ class DogSummary extends Component {
         // Dog info and weight input/button
       <div>
         <h1>{dog.name}</h1>
-        <img src="../../../public/images/DogSummaryImage.png" alt="dog" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2qjTV1Vh1YMdM3hIkSB85WPbxlli89K7HUrvmLufKlatZLKr3" alt="dog" />
+        <br/>
         <input type="text" id="weight" ref="weight" placeholder="Weight in pounds" onChange={this.handleWeighIn}></input>
         <button onClick={this.addWeightEntry} value="weight">Weigh In</button>
         <h3>Recent Weigh Ins</h3>
         {/* Sorts weight history by date and displays three most recent weigh ins */}
-        {this.state.weightHistory.sort((a,b) => b.date > a.date ? -1 : 1).slice(0, 3).map(weight => {
+        {this.state.weightHistory.sort((a,b) => b.date > a.date ? 1 : -1).slice(0, 3).map(weight => {
 
             return <div>
                 <p>{weight.date} <br/> {weight.weight} lbs.</p>

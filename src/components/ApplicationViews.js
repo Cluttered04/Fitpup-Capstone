@@ -11,10 +11,13 @@ import AddNewExercise from "./foods/AddNewExercise";
 import EditFoodForm from "./foods/EditFoodForm";
 import EditExerciseForm from "./foods/EditExerciseForm";
 import DogSummary from "./dogs/DogSummary"
+import Callback from "./Authentication/Callback";
+import Auth0Client from "./Authentication/Auth.js";
+import Info from "./home/Info"
 
 class ApplicationViews extends Component {
   state = {
-    activeUser: 2,
+    activeUser: parseInt(sessionStorage.getItem("credentials")),
     dogs: [],
     exercises: [],
     foods: [],
@@ -24,31 +27,41 @@ class ApplicationViews extends Component {
     weight: []
   };
 
-  componentDidMount() {
+
+  mountUponLogin = ()  => {
     const newState = {};
-    APIManager.getAllEntriesByUser("dogs", this.state.activeUser)
+    const userCredentials = parseInt(sessionStorage.getItem("credentials"));
+    APIManager.getAllEntriesByUser("dogs", userCredentials)
       .then(parsedDogs => {
         newState.dogs = parsedDogs;
       })
-      .then(() => APIManager.getAllEntries("foods", this.state.activeUser))
+      .then(() => APIManager.getAllEntries("foods", userCredentials))
       .then(parsedFoods => {
         newState.foods = parsedFoods;
       })
-      .then(() => APIManager.getAllEntries("exercises", this.state.activeUser))
+      .then(() => APIManager.getAllEntries("exercises", userCredentials))
       .then(parsedExercises => {
         newState.exercises = parsedExercises;
       })
-      .then(() => APIManager.getAllEntriesByUser("foodEntries", this.state.activeUser))
+      .then(() => APIManager.getAllEntriesByUser("foodEntries", userCredentials))
       .then((parsedFoodEntries => {
           newState.foodEntries = parsedFoodEntries
       }))
-      .then(() => APIManager.getAllEntriesByUser("exerciseEntries", this.state.activeUser))
+      .then(() => APIManager.getAllEntriesByUser("exerciseEntries", userCredentials))
       .then(parsedExerciseEntries => {
           newState.exerciseEntries = parsedExerciseEntries
           this.setState(newState)
       })
-      ;
+
+}
+
+
+  componentDidMount(){
+     if (sessionStorage.getItem("credentials") != null) {
+      this.mountUponLogin()
+    }
   }
+
 
 
 
@@ -138,13 +151,18 @@ class ApplicationViews extends Component {
           exact
           path="/"
           render={props => {
-            return (
-              <Home
-                dogs={this.state.dogs}
-                deleteEntry={this.deleteEntry}
-                {...props}
-              />
-            );
+            if (Auth0Client.isAuthenticated()) {
+              return (
+                <Home
+                  dogs={this.state.dogs}
+                  deleteEntry={this.deleteEntry}
+                  {...props}
+                />)
+            } else {
+              return (
+                <Info/>
+              );
+            }
           }}
         />
 
@@ -268,6 +286,10 @@ class ApplicationViews extends Component {
             )
         }}/>
 
+        <Route exact path="/callback" render={props => {
+          return (
+            <Callback {...props} mountUponLogin={this.mountUponLogin}/>
+          )}}/>
       </div>
     );
   }

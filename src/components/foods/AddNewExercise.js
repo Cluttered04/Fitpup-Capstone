@@ -3,7 +3,7 @@ import {Form, Button} from "react-bootstrap"
 
 class AddNewExercise extends Component {
     state = {
-        userId: 2,
+        userId: parseInt(sessionStorage.getItem("credentials")),
         name: ""
     }
 

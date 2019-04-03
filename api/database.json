@@ -1,16 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "genericUser",
-      "email": "me@me.com",
-      "password": "password"
+      "aud": "auth0|5ca4bd968bbc2e10cd7accc1",
+      "name": "me1",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "genericUser",
-      "email": "me@me.com",
-      "password": "password"
+      "aud": "auth0|5ca4c1e5158ad41148802fdf",
+      "name": "me2",
+      "id": 2
     }
   ],
   "dogs": [
@@ -19,16 +17,16 @@
       "userId": 2,
       "name": "Whip",
       "breed": "Greyhound",
-      "age": "1",
-      "active": "false",
+      "age": "2",
+      "active": "true",
       "neutered": "false"
     },
     {
-      "name": "Flip",
+      "name": "Skip",
       "breed": "Greyhound",
-      "neutered": "true",
-      "active": "false",
-      "age": "1",
+      "neutered": "false",
+      "active": "true",
+      "age": "2",
       "userId": 2,
       "id": 4
     }
@@ -42,7 +40,12 @@
     {
       "id": 3,
       "userId": 2,
-      "name": "Agility class"
+      "name": "DockDiving"
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "name": "Agility Course"
     }
   ],
   "foods": [
@@ -58,7 +61,7 @@
       "userId": 2,
       "name": "Kibble",
       "brand": "Purina One",
-      "serving": "1 Cup",
+      "serving": ".75 Cups",
       "calories": 245,
       "id": 2
     },
@@ -77,23 +80,70 @@
       "serving": "1 Cup",
       "calories": 275,
       "id": 4
+    },
+    {
+      "userId": 2,
+      "brand": "Purina Puppy",
+      "name": "Kibble",
+      "serving": ".5 Cups",
+      "calories": 150,
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "brand": "s",
+      "name": "Chocolate covered peanuts",
+      "serving": "",
+      "calories": 23,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "brand": "s",
+      "name": "Chocolate covered peanuts",
+      "serving": "",
+      "calories": 24,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "brand": "",
+      "name": "Chocolate covered peanuts",
+      "serving": "",
+      "calories": null,
+      "id": 8
     }
   ],
-  "exerciseEntries": [],
-  "foodEntries": [
+  "exerciseEntries": [
     {
       "dogId": 3,
-      "date": "2019-04-02",
-      "foodId": 1,
-      "serving": 3,
-      "id": 1
+      "date": "2019-04-03",
+      "id": 2,
+      "time": 15,
+      "exerciseId": 2
     },
     {
       "dogId": 3,
-      "date": "2019-04-02",
-      "foodId": 3,
-      "serving": 3,
-      "id": 2
+      "date": "2019-04-04",
+      "id": 6,
+      "time": 10,
+      "exerciseId": 2
+    }
+  ],
+  "foodEntries": [
+    {
+      "dogId": 3,
+      "date": "2019-04-03",
+      "foodId": 1,
+      "serving": 2,
+      "id": 7
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-03",
+      "foodId": 2,
+      "serving": 2,
+      "id": 8
     }
   ],
   "weight": [
@@ -105,9 +155,21 @@
     },
     {
       "dogId": "3",
-      "weight": "25",
-      "date": "2019-04-02",
-      "id": 2
+      "weight": "24",
+      "date": "2019-04-03",
+      "id": 5
+    },
+    {
+      "dogId": "3",
+      "weight": "24",
+      "date": "2019-04-03",
+      "id": 6
+    },
+    {
+      "dogId": "3",
+      "weight": "19",
+      "date": "2019-04-03",
+      "id": 7
     }
   ],
   "behavior": []

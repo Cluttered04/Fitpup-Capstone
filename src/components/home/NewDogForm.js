@@ -8,8 +8,7 @@ class NewDogForm extends Component {
         neutered: true,
         active: false,
         age: 1,
-        userId: 2
-        // parseInt(sessionStorage.getItem("activeUser"))
+        userId: parseInt(sessionStorage.getItem("credentials"))
     }
 
     //Handles text input changes

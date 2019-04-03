@@ -4,7 +4,7 @@ import {Form, Button } from "react-bootstrap"
 
 class AddNewFood extends Component {
     state = {
-        userId: 2,
+        userId: parseInt(sessionStorage.getItem("credentials")),
         brand: "",
         name: "",
         serving: "",

@@ -5,7 +5,7 @@ import APIManager from "../../modules/APIManager";
 
 class EditExerciseForm extends Component {
     state = {
-        userId: "",
+        userId: parseInt(sessionStorage.getItem("credentials")),
         name: ""
     }
 
