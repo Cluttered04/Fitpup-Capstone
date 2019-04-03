@@ -59,7 +59,6 @@ class ApplicationViews extends Component {
   componentDidMount(){
      if (sessionStorage.getItem("credentials") != null) {
       this.mountUponLogin()
-      console.log("authenticated")
     }
   }
 

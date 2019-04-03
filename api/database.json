@@ -92,22 +92,29 @@
       "exerciseId": 2,
       "time": 25,
       "id": 1
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-03",
+      "id": 2,
+      "time": 25,
+      "exerciseId": 2
     }
   ],
   "foodEntries": [
-    {
-      "dogId": 3,
-      "date": "2019-04-02",
-      "foodId": 1,
-      "serving": 3,
-      "id": 4
-    },
     {
       "dogId": 4,
       "date": "2019-04-03",
       "foodId": 2,
       "serving": 1,
       "id": 5
+    },
+    {
+      "dogId": 3,
+      "date": "",
+      "id": 6,
+      "serving": 3,
+      "foodId": 1
     }
   ],
   "weight": [

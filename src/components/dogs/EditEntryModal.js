@@ -13,7 +13,8 @@ class EditEntryModal extends Component {
         dogName: "",
         id: this.props.collectionItem.id,
         foodId: "",
-        exerciseId: ""
+        exerciseId: "",
+        errorMessage: ""
     }
 
 
@@ -27,20 +28,28 @@ class EditEntryModal extends Component {
         this.setState(stateToChange)
     }
 
-    // Submits exercise or food conditionally, returns alert if dog is not selected
+    // Submits exercise or food conditionally
     submitModal = evt => {
         evt.preventDefault()
+        let errorMessage = ""
             if(this.state.serving){
+              if(!isNaN(parseInt(this.state.serving))){
                 const updatedEntry = {
-                    dogId: parseInt(this.state.dogId),
-                    date: this.state.date,
-                    id: parseInt(this.state.collectionId),
-                    serving: parseInt(this.state.serving),
-                    foodId: this.state.foodId
+                  dogId: parseInt(this.state.dogId),
+                  date: this.state.date,
+                  id: parseInt(this.state.collectionId),
+                  serving: parseInt(this.state.serving),
+                  foodId: this.state.foodId
 
-                }
-                this.props.editAndRetrieveExpand("foodEntries", updatedEntry, "expandedFoodEntries", this.state.dogId, "food")
+              }
+              this.props.editAndRetrieveExpand("foodEntries", updatedEntry, "expandedFoodEntries", this.state.dogId, "food")
+              this.props.onHide()
+              } else {
+                errorMessage = "Please enter a number"
+                this.setState({errorMessage : errorMessage})
+              }
             } else if(this.state.time){
+              if(!isNaN(parseInt(this.state.time))){
                 const updatedEntry = {
                     dogId: parseInt(this.state.dogId),
                     date: this.state.date,
@@ -49,7 +58,11 @@ class EditEntryModal extends Component {
                     exerciseId: this.state.exerciseId
                 }
                 this.props.editAndRetrieveExpand("exerciseEntries", updatedEntry, "expandedExerciseEntries", this.state.dogId, "exercise")
-            } this.props.onHide()
+                this.props.onHide()
+            } else {
+              errorMessage = "Please enter a number"
+              this.setState({errorMessage : errorMessage})
+            }}
     }
 
     //Mounts single exercise or food entry conditionally
@@ -72,7 +85,7 @@ class EditEntryModal extends Component {
         .then(entry => {
             this.setState({
                 dogId: entry.dogId,
-                dogName: entry.dogName,
+                dogName: entry.dog.name,
                 time: entry.time,
                 date: entry.date,
                 id: entry.id,
@@ -97,21 +110,22 @@ class EditEntryModal extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-            {this.props.collectionItem.serving ? "Edit Food Entry" : "Edit Exercise Entry"}
+            {this.state.foodId ? "Edit Food Entry" : "Edit Exercise Entry"}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
           <h3>{this.state.name}</h3>
           <form>
           <div className="form-group">
-          <label htmlFor="time/serving">{this.props.collectionItem.serving ? "Servings:" : "Time (In Minutes)"}</label>
+          <label htmlFor="time/serving">{this.state.foodId ? "Servings:" : "Time (In Minutes)"}</label>
             <input
               type="text"
               className="form-control"
-              id={this.props.collectionItem.serving ? "serving" : "time"}
+              id={this.state.foodId ? "serving" : "time"}
               aria-describedby="emailHelp"
-              onChange={this.handleFieldChange} value={this.props.collectionItem.serving ? this.state.serving : this.state.time}
+              onChange={this.handleFieldChange} value={this.state.foodId ? this.state.serving : this.state.time}
             />
+            <p>{this.state.errorMessage}</p>
           </div>
             <label htmlFor="dropdown">Dog: </label><br/>
             <label>{this.state.dogName}</label>
