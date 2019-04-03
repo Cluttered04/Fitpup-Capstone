@@ -17,7 +17,7 @@ import Info from "./home/Info"
 
 class ApplicationViews extends Component {
   state = {
-    activeUser: 2,
+    activeUser: parseInt(sessionStorage.getItem("credentials")),
     dogs: [],
     exercises: [],
     foods: [],

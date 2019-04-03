@@ -17,15 +17,15 @@
       "userId": 2,
       "name": "Whip",
       "breed": "Greyhound",
-      "age": "1",
-      "active": "false",
+      "age": "2",
+      "active": "true",
       "neutered": "false"
     },
     {
       "name": "Flip",
-      "breed": "Greyhound",
-      "neutered": "true",
-      "active": "false",
+      "breed": "Whippet",
+      "neutered": "false",
+      "active": "true",
       "age": "1",
       "userId": 2,
       "id": 4
@@ -40,7 +40,7 @@
     {
       "id": 3,
       "userId": 2,
-      "name": "Agility class"
+      "name": "DockDiving"
     }
   ],
   "foods": [
@@ -56,7 +56,7 @@
       "userId": 2,
       "name": "Kibble",
       "brand": "Purina One",
-      "serving": "1 Cup",
+      "serving": ".5 Cups",
       "calories": 245,
       "id": 2
     },
@@ -75,15 +75,23 @@
       "serving": "1 Cup",
       "calories": 275,
       "id": 4
+    },
+    {
+      "userId": 2,
+      "brand": "Purina Puppy",
+      "name": "Kibble",
+      "serving": ".5 Cups",
+      "calories": 150,
+      "id": 5
     }
   ],
   "exerciseEntries": [
     {
-      "dogId": 2,
-      "date": "2019-04-02",
-      "id": 1,
-      "time": 20,
-      "exerciseId": 2
+      "dogId": 4,
+      "date": "2019-04-03",
+      "exerciseId": 2,
+      "time": 25,
+      "id": 1
     }
   ],
   "foodEntries": [
@@ -95,11 +103,11 @@
       "id": 4
     },
     {
-      "dogId": 1,
-      "date": "2019-04-02",
-      "foodId": 3,
-      "serving": 3,
-      "id": 2
+      "dogId": 4,
+      "date": "2019-04-03",
+      "foodId": 2,
+      "serving": 1,
+      "id": 5
     }
   ],
   "weight": [
@@ -110,16 +118,22 @@
       "id": 1
     },
     {
-      "dogId": "2",
-      "weight": "92000",
-      "date": "2019-04-01",
-      "id": 10
+      "dogId": "4",
+      "weight": "25",
+      "date": "2019-04-03",
+      "id": 2
     },
     {
-      "dogId": "2",
-      "weight": "45",
-      "date": "2019-04-02",
-      "id": 11
+      "dogId": "4",
+      "weight": "19",
+      "date": "2019-02-03",
+      "id": 3
+    },
+    {
+      "dogId": "4",
+      "weight": "18",
+      "date": "2019-03-03",
+      "id": 4
     }
   ],
   "behavior": []

@@ -10,7 +10,7 @@ class DogEditForm extends Component {
     age: "",
     active: "",
     neutered: "",
-    userId: ""
+    userId: parseInt(sessionStorage.getItem("credentials"))
   };
 
   //Handles text input changes

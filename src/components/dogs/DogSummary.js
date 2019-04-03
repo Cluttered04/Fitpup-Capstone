@@ -133,7 +133,7 @@ class DogSummary extends Component {
         <button onClick={this.addWeightEntry} value="weight">Weigh In</button>
         <h3>Recent Weigh Ins</h3>
         {/* Sorts weight history by date and displays three most recent weigh ins */}
-        {this.state.weightHistory.sort((a,b) => b.date > a.date ? -1 : 1).slice(0, 3).map(weight => {
+        {this.state.weightHistory.sort((a,b) => b.date > a.date ? 1 : -1).slice(0, 3).map(weight => {
 
             return <div>
                 <p>{weight.date} <br/> {weight.weight} lbs.</p>
