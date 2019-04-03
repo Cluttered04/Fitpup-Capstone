@@ -27,31 +27,33 @@ class ApplicationViews extends Component {
     weight: []
   };
 
+
   mountUponLogin = ()  => {
     const newState = {};
-    APIManager.getAllEntriesByUser("dogs", this.state.activeUser)
+    const userCredentials = parseInt(sessionStorage.getItem("credentials"));
+    APIManager.getAllEntriesByUser("dogs", userCredentials)
       .then(parsedDogs => {
         newState.dogs = parsedDogs;
       })
-      .then(() => APIManager.getAllEntries("foods", this.state.activeUser))
+      .then(() => APIManager.getAllEntries("foods", userCredentials))
       .then(parsedFoods => {
         newState.foods = parsedFoods;
       })
-      .then(() => APIManager.getAllEntries("exercises", this.state.activeUser))
+      .then(() => APIManager.getAllEntries("exercises", userCredentials))
       .then(parsedExercises => {
         newState.exercises = parsedExercises;
       })
-      .then(() => APIManager.getAllEntriesByUser("foodEntries", this.state.activeUser))
+      .then(() => APIManager.getAllEntriesByUser("foodEntries", userCredentials))
       .then((parsedFoodEntries => {
           newState.foodEntries = parsedFoodEntries
       }))
-      .then(() => APIManager.getAllEntriesByUser("exerciseEntries", this.state.activeUser))
+      .then(() => APIManager.getAllEntriesByUser("exerciseEntries", userCredentials))
       .then(parsedExerciseEntries => {
           newState.exerciseEntries = parsedExerciseEntries
           this.setState(newState)
       })
-      ;
-  }
+
+}
 
 
   componentDidMount(){
