@@ -31,13 +31,13 @@
       "neutered": false
     },
     {
-      "name": "Flip",
-      "breed": "Greyhound",
-      "neutered": false,
-      "active": false,
-      "age": 1,
+      "id": 3,
       "userId": 2,
-      "id": 3
+      "name": "Whip",
+      "breed": "Greyhound",
+      "age": "3",
+      "active": true,
+      "neutered": true
     }
   ],
   "exercises": [

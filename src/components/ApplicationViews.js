@@ -13,6 +13,7 @@ import EditExerciseForm from "./foods/EditExerciseForm";
 import DogSummary from "./dogs/DogSummary"
 import Callback from "./Authentication/Callback";
 import Auth0Client from "./Authentication/Auth.js";
+import Info from "./home/Info"
 
 class ApplicationViews extends Component {
   state = {
@@ -149,13 +150,18 @@ class ApplicationViews extends Component {
           exact
           path="/"
           render={props => {
-            return (
-              <Home
-                dogs={this.state.dogs}
-                deleteEntry={this.deleteEntry}
-                {...props}
-              />
-            );
+            if (Auth0Client.isAuthenticated()) {
+              return (
+                <Home
+                  dogs={this.state.dogs}
+                  deleteEntry={this.deleteEntry}
+                  {...props}
+                />)
+            } else {
+              return (
+                <Info/>
+              );
+            }
           }}
         />
 
