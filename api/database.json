@@ -22,11 +22,11 @@
       "neutered": "false"
     },
     {
-      "name": "Flip",
-      "breed": "Whippet",
+      "name": "Skip",
+      "breed": "Greyhound",
       "neutered": "false",
       "active": "true",
-      "age": "1",
+      "age": "2",
       "userId": 2,
       "id": 4
     }
@@ -41,6 +41,11 @@
       "id": 3,
       "userId": 2,
       "name": "DockDiving"
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "name": "Agility Course"
     }
   ],
   "foods": [
@@ -56,7 +61,7 @@
       "userId": 2,
       "name": "Kibble",
       "brand": "Purina One",
-      "serving": ".5 Cups",
+      "serving": ".75 Cups",
       "calories": 245,
       "id": 2
     },
@@ -83,38 +88,62 @@
       "serving": ".5 Cups",
       "calories": 150,
       "id": 5
+    },
+    {
+      "userId": 2,
+      "brand": "s",
+      "name": "Chocolate covered peanuts",
+      "serving": "",
+      "calories": 23,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "brand": "s",
+      "name": "Chocolate covered peanuts",
+      "serving": "",
+      "calories": 24,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "brand": "",
+      "name": "Chocolate covered peanuts",
+      "serving": "",
+      "calories": null,
+      "id": 8
     }
   ],
   "exerciseEntries": [
     {
-      "dogId": 4,
-      "date": "2019-04-03",
-      "exerciseId": 2,
-      "time": 25,
-      "id": 1
-    },
-    {
       "dogId": 3,
       "date": "2019-04-03",
       "id": 2,
-      "time": 25,
+      "time": 15,
+      "exerciseId": 2
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-04",
+      "id": 6,
+      "time": 10,
       "exerciseId": 2
     }
   ],
   "foodEntries": [
     {
-      "dogId": 4,
+      "dogId": 3,
       "date": "2019-04-03",
-      "foodId": 2,
-      "serving": 1,
-      "id": 5
+      "foodId": 1,
+      "serving": 2,
+      "id": 7
     },
     {
       "dogId": 3,
-      "date": "",
-      "id": 6,
-      "serving": 3,
-      "foodId": 1
+      "date": "2019-04-03",
+      "foodId": 2,
+      "serving": 2,
+      "id": 8
     }
   ],
   "weight": [
@@ -125,28 +154,22 @@
       "id": 1
     },
     {
-      "dogId": "4",
-      "weight": "25",
+      "dogId": "3",
+      "weight": "24",
       "date": "2019-04-03",
-      "id": 2
-    },
-    {
-      "dogId": "4",
-      "weight": "19",
-      "date": "2019-02-03",
-      "id": 3
-    },
-    {
-      "dogId": "4",
-      "weight": "18",
-      "date": "2019-03-03",
-      "id": 4
+      "id": 5
     },
     {
       "dogId": "3",
       "weight": "24",
       "date": "2019-04-03",
-      "id": 5
+      "id": 6
+    },
+    {
+      "dogId": "3",
+      "weight": "19",
+      "date": "2019-04-03",
+      "id": 7
     }
   ],
   "behavior": []

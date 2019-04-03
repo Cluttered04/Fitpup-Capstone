@@ -51,6 +51,9 @@ class MyFoodsList extends Component {
           placeholder="Search Food Name or Brand"
           onChange={this.handleFieldChange}
         />
+        <button onClick={() => this.props.history.push("/foods/new")}>
+          Add New Food
+        </button>
         {/* Maps through food list and returns cards */}
         {filteredFoods.map(food => {
           return (
@@ -64,9 +67,7 @@ class MyFoodsList extends Component {
             </div>
           );
         })}
-        <button onClick={() => this.props.history.push("/foods/new")}>
-          Add New Food
-        </button>
+
         {/* Conditionally renders modal on button click */}
         {this.state.showModal === true ? (
           <AddEntryModal

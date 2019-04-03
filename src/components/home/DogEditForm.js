@@ -68,7 +68,6 @@ class DogEditForm extends Component {
           active: this.state.active,
           neutered: this.state.neutered
       }
-      console.log(updatedDog)
       this.props.editEntry("dogs", updatedDog, "dogs")
       this.props.history.push("/")
 

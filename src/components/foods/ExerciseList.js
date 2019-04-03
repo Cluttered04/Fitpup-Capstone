@@ -46,6 +46,9 @@ class ExerciseList extends Component {
           placeholder="Search Exercises"
           onChange={this.handleFieldChange}
         />
+        <button onClick={() => this.props.history.push("/exercises/new")}>
+          Add New Exercise
+        </button>
         {filteredExercises.map(exercise => {
           return (
             <div>
@@ -73,9 +76,7 @@ class ExerciseList extends Component {
             </div>
           );
         })}
-        <button onClick={() => this.props.history.push("/exercises/new")}>
-          Add New Exercise
-        </button>
+
       </div>
     );
   }
