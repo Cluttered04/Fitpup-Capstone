@@ -11,6 +11,8 @@ import AddNewExercise from "./foods/AddNewExercise";
 import EditFoodForm from "./foods/EditFoodForm";
 import EditExerciseForm from "./foods/EditExerciseForm";
 import DogSummary from "./dogs/DogSummary"
+import Callback from "./Authentication/Callback";
+import Auth0Client from "./Authentication/Auth.js";
 
 class ApplicationViews extends Component {
   state = {
@@ -267,6 +269,8 @@ class ApplicationViews extends Component {
                 <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior} addNewEntry={this.addNewEntry} />
             )
         }}/>
+        {/* <Route path="/login" component={Login} /> */}
+        <Route exact path="/callback" component={Callback} />
 
       </div>
     );
