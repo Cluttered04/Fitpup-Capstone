@@ -26,17 +26,13 @@ class NavBar extends Component {
                     <Link className="nav-link" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/food">Food</Link>
+                    <Link className="nav-link" to="/foods">Food</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/exercise">Exercise</Link>
+                    <Link className="nav-link" to="/exercises">Exercise</Link>
                 </li>
                 <li className="nav-item">
                 </li>
-                    <li className=
-                        "nav-item">
-                        <Link className="nav-link" to="/login" onClick={this.props.handleLogout}>Log Out</Link>
-                    </li>
                     </ul>
                     <div>
                     <label className="mr-2 text-blue">

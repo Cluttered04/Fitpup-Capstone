@@ -6,14 +6,12 @@ class Callback extends Component {
   async componentDidMount() {
     await auth0Client.handleAuthentication();
 
-    // Needs to be refactored, put in its own module, etc
+    // Checks to see if user exists in db
     fetch(`http://localhost:5002/users?aud=${auth0Client.getProfile().sub}`)
       .then(matchingUser => matchingUser.json())
       .then(matchingUser => {
 
-        // If the the fetch call comes back empty, it means that the user who just logged in with Auth 0 doesn't exist in our json-server database. We need to register them!
         if (matchingUser.length === 0) {
-          console.log("User not found, registering a new user!");
 
           // Create a new user object to post to the db
           const newUser = {
@@ -21,7 +19,7 @@ class Callback extends Component {
             name: auth0Client.getProfile().nickname
           };
 
-          // Post it!!
+          // Posts new user to db
           fetch(`http://localhost:5002/users`, {
             method: "POST",
             headers: {
@@ -32,20 +30,16 @@ class Callback extends Component {
             .then(newlyCreatedUser => newlyCreatedUser.json())
             .then(parsedUser => {
 
-              //Once the POST request is successfully completed, store the PK json-server generated for us in session storage
-              console.log(
-                "We created this new user in the json-server db and we're about to log them in",
-                parsedUser
-              );
+              //Sets new user info in session storage
+
               sessionStorage.setItem("credentials", parsedUser.id);
             });
         } else {
-          // If something DOES come back from the fetch call (i.e. the array has a user in it), that means the user already exists in our db and we just need to log them in
-          console.log(
-            "We found that user! Here's their id!",
-            matchingUser[0].id
-          );
+
+          //Logs user in if user exists in database - sets user info to state
+
           sessionStorage.setItem("credentials", matchingUser[0].id);
+          this.props.mountUponLogin()
         }
       });
     this.props.history.replace("/");

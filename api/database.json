@@ -1,16 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "genericUser",
-      "email": "me@me.com",
-      "password": "password"
+      "aud": "auth0|5ca4bd968bbc2e10cd7accc1",
+      "name": "me1",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "genericUser",
-      "email": "me@me.com",
-      "password": "password"
+      "aud": "auth0|5ca4c1e5158ad41148802fdf",
+      "name": "me2",
+      "id": 2
     }
   ],
   "dogs": [
@@ -31,6 +29,15 @@
       "age": 3,
       "active": false,
       "neutered": false
+    },
+    {
+      "name": "Flip",
+      "breed": "Greyhound",
+      "neutered": false,
+      "active": false,
+      "age": 1,
+      "userId": 2,
+      "id": 3
     }
   ],
   "exercises": [

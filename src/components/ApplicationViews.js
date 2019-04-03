@@ -26,7 +26,7 @@ class ApplicationViews extends Component {
     weight: []
   };
 
-  componentDidMount() {
+  mountUponLogin = ()  => {
     const newState = {};
     APIManager.getAllEntriesByUser("dogs", this.state.activeUser)
       .then(parsedDogs => {
@@ -51,6 +51,7 @@ class ApplicationViews extends Component {
       })
       ;
   }
+
 
 
 
@@ -269,9 +270,11 @@ class ApplicationViews extends Component {
                 <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior} addNewEntry={this.addNewEntry} />
             )
         }}/>
-        {/* <Route path="/login" component={Login} /> */}
-        <Route exact path="/callback" component={Callback} />
 
+        <Route exact path="/callback" render={props => {
+          return (
+            <Callback {...props} mountUponLogin={this.mountUponLogin}/>
+          )}}/>
       </div>
     );
   }
