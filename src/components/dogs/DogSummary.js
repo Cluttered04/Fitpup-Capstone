@@ -12,7 +12,9 @@ class DogSummary extends Component {
     showModal: false,
     collectionItem: {},
     weight: "",
-    weightHistory: []
+    weightHistory: [],
+    foodEntriesByDate: [],
+    exerciseEntriesByDate: []
   };
 
   //handles edit entry modal
@@ -85,6 +87,9 @@ class DogSummary extends Component {
       "food"
     )
       .then(food => {
+        const sortedFoodEntries = food.sort((a, b) => (b.date > a.date ? 1 : -1))
+        const foodEntriesByDate = this.divideEntriesByDate(sortedFoodEntries)
+        newState.foodEntriesByDate = foodEntriesByDate
         newState.expandedFoodEntries = food;
       })
       .then(() =>
@@ -95,6 +100,9 @@ class DogSummary extends Component {
         )
       )
       .then(exercise => {
+        const sortedExerciseEntries = exercise.sort((a, b) => (b.date > a.date ? 1 : -1))
+        const exerciseEntriesByDate = this.divideEntriesByDate(sortedExerciseEntries)
+        newState.exerciseEntriesByDate = exerciseEntriesByDate
         newState.expandedExerciseEntries = exercise;
       })
       .then(() =>
@@ -154,6 +162,7 @@ class DogSummary extends Component {
 
   //Separates entries into separate arrays and pushes them into one big array - adaptation of stackoverflow answer on splitting an array into contiguous dates
 
+  //Checks for difference between date
   divideEntriesByDate = (entries) => {
     function getDiffInDays(d1, d2){
       if(d1 && d2){
@@ -161,23 +170,28 @@ class DogSummary extends Component {
         return parseInt((+d2 - +d1)/milliSecInDay);
       }
     }
+    //Defines empty container array and lastDate
     let result = []
     let lastDate = null
-    const sortedEntries = entries.sort((a, b) =>
-      a.date > b.date ? -1 : 1
-    );
-    sortedEntries.reduce(function(p, c, i, a){
+
+    //Sorts entries by date
+
+    entries.reduce(function(p, c, i, a){
       let date = new Date(c.date)
+      //If same date, push into small array (p)
       if(!(lastDate === null || getDiffInDays(lastDate, date) === 0)){
         result.push(p)
         p=[]
       }p.push(c)
+      //Pushes small array into container array
       if(i === a.length - 1 && p.length > 0){
         result.push(p)
-      } lastDate = date
+      } //Sets last date to current date in the array
+      lastDate = date
       return p
     }, [])
-    console.log(result)
+    return result
+    // console.log(result)
   }
 
 
@@ -189,21 +203,11 @@ class DogSummary extends Component {
         dog => dog.id === parseInt(this.props.match.params.dogId)
       ) || {};
 
-    //Sorts food and exercise entries by date
-    const sortedFoodEntries = this.state.expandedFoodEntries.sort((a, b) =>
-      a.date > b.date ? -1 : 1
-    );
-    const sortedExerciseEntries = this.state.expandedExerciseEntries.sort(
-      (a, b) => (a.date > b.date ? -1 : 1)
-    );
-
-
 
     return (
       // Dog info and weight input/button
       <div>
         <h1>{dog.name}</h1>
-        <h2>{this.divideEntriesByDate(this.state.expandedFoodEntries)}</h2>
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2qjTV1Vh1YMdM3hIkSB85WPbxlli89K7HUrvmLufKlatZLKr3"
           alt="dog"
@@ -240,14 +244,19 @@ class DogSummary extends Component {
           Add Exercise Entry
         </button>
         <section id="entries">
-          {/* Lists food entries sorted by date*/}
-          <h2>Today</h2>
-          {sortedFoodEntries.map(entry => {
+
+          {/* Loops over dates, prints headers/groups food entries together */}
+          {this.state.foodEntriesByDate.map(date => {
+            return (
+            <div><h3>
+            <Moment format="MM/DD/YYYY">{date[0].date}</Moment>
+          </h3>
+          <h4>Total Calories: {date.reduce((a, b) => a + (b.food.calories * b.serving), 0 )}</h4>
+
+          {/* Prints out individual entry information */}
+           {date.map(entry => {
             return (
               <div key={entry.id}>
-                <h4>
-                  <Moment format="MM/DD/YYYY">{entry.date}</Moment>
-                </h4>
                 <h4>{entry.food.name}</h4>
                 <h5>{entry.food.brand}</h5>
                 <p>
@@ -271,16 +280,23 @@ class DogSummary extends Component {
                 >
                   Delete Entry
                 </button>
-              </div>
-            );
-          })}
-          {/* List exercise sorted by date */}
-          {sortedExerciseEntries.map(entry => {
+            </div>
+          )})};
+          </div>)
+          })})
+
+          {/* Separates exercise entries by date, prints headers and total time */}
+          {this.state.exerciseEntriesByDate.map(date => {
+            return (
+            <div><h3>
+            <Moment format="MM/DD/YYYY">{date[0].date}</Moment>
+          </h3>
+          <h4>Total time: {date.reduce((a, b) =>   a + b.time, 0 )} </h4>
+
+            {/* Prints individual exercise entry information */}
+           {date.map(entry => {
             return (
               <div key={entry.id}>
-                <h4>
-                  <Moment format="MM/DD/YYYY">{entry.date}</Moment>
-                </h4>
                 <h4>{entry.exercise.name}</h4>
                 <p>Time: {entry.time} Minutes</p>
                 <button onClick={() => this.handleModal(entry)}>
@@ -301,7 +317,7 @@ class DogSummary extends Component {
                 </button>
               </div>
             );
-          })}
+          })}</div>)})}
         </section>
         <section id="entries" />
         {/* Conditionally displays edit modal */}
