@@ -87,9 +87,6 @@ class DogSummary extends Component {
       "food"
     )
       .then(food => {
-        const sortedFoodEntries = food.sort((a, b) => (b.date > a.date ? 1 : -1))
-        const foodEntriesByDate = this.divideEntriesByDate(sortedFoodEntries)
-        newState.foodEntriesByDate = foodEntriesByDate
         newState.expandedFoodEntries = food;
       })
       .then(() =>
@@ -100,9 +97,6 @@ class DogSummary extends Component {
         )
       )
       .then(exercise => {
-        const sortedExerciseEntries = exercise.sort((a, b) => (b.date > a.date ? 1 : -1))
-        const exerciseEntriesByDate = this.divideEntriesByDate(sortedExerciseEntries)
-        newState.exerciseEntriesByDate = exerciseEntriesByDate
         newState.expandedExerciseEntries = exercise;
       })
       .then(() =>
@@ -202,6 +196,10 @@ class DogSummary extends Component {
       this.props.dogs.find(
         dog => dog.id === parseInt(this.props.match.params.dogId)
       ) || {};
+      const sortedFoodEntries = this.state.expandedFoodEntries.sort((a, b) => (b.date > a.date ? 1 : -1))
+      const foodEntriesByDate = this.divideEntriesByDate(sortedFoodEntries).length > 0 ? this.divideEntriesByDate(sortedFoodEntries) : []
+      const sortedExerciseEntries = this.state.expandedExerciseEntries.sort((a, b) => (b.date > a.date ? 1 : -1))
+      const exerciseEntriesByDate = this.divideEntriesByDate(sortedExerciseEntries).length > 0 ? this.divideEntriesByDate(sortedExerciseEntries) : []
 
 
     return (
@@ -246,7 +244,7 @@ class DogSummary extends Component {
         <section id="entries">
 
           {/* Loops over dates, prints headers/groups food entries together */}
-          {this.state.foodEntriesByDate.map(date => {
+          {foodEntriesByDate.map(date => {
             return (
             <div><h3>
             <Moment format="MM/DD/YYYY">{date[0].date}</Moment>
@@ -286,7 +284,7 @@ class DogSummary extends Component {
           })})
 
           {/* Separates exercise entries by date, prints headers and total time */}
-          {this.state.exerciseEntriesByDate.map(date => {
+          {exerciseEntriesByDate.map(date => {
             return (
             <div><h3>
             <Moment format="MM/DD/YYYY">{date[0].date}</Moment>

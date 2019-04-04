@@ -22,22 +22,13 @@
       "neutered": "false"
     },
     {
-      "name": "Skip",
-      "breed": "Greyhound",
-      "neutered": "false",
-      "active": "true",
-      "age": "2",
-      "userId": 2,
-      "id": 4
-    },
-    {
       "id": 5,
       "userId": 2,
       "name": "SKip",
-      "breed": "",
+      "breed": "Lab",
       "age": "3",
       "active": "false",
-      "neutered": "false"
+      "neutered": "true"
     }
   ],
   "exercises": [
@@ -75,7 +66,7 @@
       "userId": 2,
       "name": "Kibble",
       "brand": "Purina One",
-      "serving": ".75 Cups",
+      "serving": "1 Cups",
       "calories": 245,
       "id": 2
     },
@@ -126,36 +117,37 @@
       "serving": "",
       "calories": null,
       "id": 8
+    },
+    {
+      "userId": 2,
+      "brand": "Blue Buffalo",
+      "name": "Kibble",
+      "serving": ".75 Cups",
+      "calories": 200,
+      "id": 9
     }
   ],
   "exerciseEntries": [
     {
       "dogId": 3,
-      "date": "2019-04-03",
-      "id": 2,
-      "time": 15,
+      "date": "2019-04-04",
+      "id": 6,
+      "time": 30,
       "exerciseId": 2
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-03",
+      "id": 8,
+      "time": 15,
+      "exerciseId": 4
     },
     {
       "dogId": 3,
       "date": "2019-04-04",
-      "id": 6,
-      "time": 10,
-      "exerciseId": 2
-    },
-    {
-      "dogId": 3,
-      "date": "2019-04-03",
-      "exerciseId": 3,
+      "exerciseId": 5,
       "time": 25,
-      "id": 7
-    },
-    {
-      "dogId": 3,
-      "date": "2019-04-03",
-      "exerciseId": 4,
-      "time": 15,
-      "id": 8
+      "id": 9
     }
   ],
   "foodEntries": [
@@ -169,9 +161,9 @@
     {
       "dogId": 3,
       "date": "2019-04-03",
-      "foodId": 2,
-      "serving": 2,
-      "id": 8
+      "id": 8,
+      "serving": 3,
+      "foodId": 2
     },
     {
       "dogId": 3,
@@ -190,8 +182,8 @@
     {
       "dogId": 3,
       "date": "2019-04-04",
-      "foodId": 1,
-      "serving": 3,
+      "foodId": 3,
+      "serving": 1,
       "id": 11
     }
   ],
@@ -225,6 +217,18 @@
       "weight": "24",
       "date": "2019-04-03",
       "id": 8
+    },
+    {
+      "dogId": "3",
+      "weight": "23",
+      "date": "2019-04-04",
+      "id": 9
+    },
+    {
+      "dogId": "3",
+      "weight": "23",
+      "date": "2019-04-04",
+      "id": 10
     }
   ],
   "behavior": []
