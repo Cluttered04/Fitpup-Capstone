@@ -29,6 +29,15 @@
       "age": "2",
       "userId": 2,
       "id": 4
+    },
+    {
+      "id": 5,
+      "userId": 2,
+      "name": "SKip",
+      "breed": "",
+      "age": "3",
+      "active": "false",
+      "neutered": "false"
     }
   ],
   "exercises": [
@@ -46,6 +55,11 @@
       "id": 4,
       "userId": 2,
       "name": "Agility Course"
+    },
+    {
+      "userId": 2,
+      "name": "Fetch",
+      "id": 5
     }
   ],
   "foods": [
@@ -144,6 +158,27 @@
       "foodId": 2,
       "serving": 2,
       "id": 8
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-03",
+      "foodId": 1,
+      "serving": 2,
+      "id": 9
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-02",
+      "foodId": 2,
+      "serving": 2,
+      "id": 10
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-04",
+      "foodId": 1,
+      "serving": 3,
+      "id": 11
     }
   ],
   "weight": [
@@ -170,6 +205,12 @@
       "weight": "19",
       "date": "2019-04-03",
       "id": 7
+    },
+    {
+      "dogId": "3",
+      "weight": "24",
+      "date": "2019-04-03",
+      "id": 8
     }
   ],
   "behavior": []
