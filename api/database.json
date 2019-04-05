@@ -9,35 +9,40 @@
       "aud": "auth0|5ca4c1e5158ad41148802fdf",
       "name": "me2",
       "id": 2
+    },
+    {
+      "aud": "auth0|5ca77488566e2e116437083a",
+      "name": "me3",
+      "id": 3
     }
   ],
   "dogs": [
     {
-      "id": 3,
+      "id": 1,
       "userId": 2,
-      "name": "Whip",
-      "breed": "Greyhound",
+      "name": "Flip",
+      "breed": "",
       "age": "2",
       "active": "true",
       "neutered": "false"
     },
     {
-      "name": "Skip",
-      "breed": "golden",
+      "name": "Flip",
+      "breed": "Greyhound",
       "neutered": true,
       "active": false,
       "age": 1,
       "userId": 2,
-      "id": 7
+      "id": 2
     },
     {
-      "name": "Flip",
-      "breed": "lab",
-      "neutered": "false",
-      "active": "true",
-      "age": "2",
-      "userId": 2,
-      "id": 8
+      "id": 3,
+      "userId": 3,
+      "name": "Flip2",
+      "breed": "",
+      "age": 1,
+      "active": false,
+      "neutered": true
     }
   ],
   "exercises": [
@@ -60,6 +65,11 @@
       "userId": 2,
       "name": "Fetch",
       "id": 5
+    },
+    {
+      "id": 6,
+      "userId": 3,
+      "name": "Flirt Pole"
     }
   ],
   "foods": [
@@ -75,7 +85,7 @@
       "userId": 2,
       "name": "Kibble",
       "brand": "Purina One",
-      "serving": "1 Cups",
+      "serving": "2 Cups",
       "calories": 245,
       "id": 2
     },
@@ -110,116 +120,66 @@
       "serving": ".75 Cups",
       "calories": 200,
       "id": 9
+    },
+    {
+      "userId": 3,
+      "name": "Kibble",
+      "brand": "Blue Buffalo",
+      "serving": "1 Cup",
+      "calories": 200,
+      "id": 10
     }
   ],
   "exerciseEntries": [
     {
       "dogId": 3,
-      "date": "2019-04-04",
-      "id": 6,
-      "time": 30,
-      "exerciseId": 2
-    },
-    {
-      "dogId": 3,
-      "date": "2019-04-03",
-      "id": 8,
-      "time": 15,
-      "exerciseId": 4
-    },
-    {
-      "dogId": 3,
-      "date": "2019-04-04",
-      "exerciseId": 5,
+      "date": "2019-04-05",
+      "exerciseId": 6,
       "time": 25,
-      "id": 9
+      "id": 1
     }
   ],
   "foodEntries": [
     {
       "dogId": 3,
-      "date": "2019-04-03",
-      "foodId": 1,
+      "date": "2019-04-05",
+      "foodId": 10,
       "serving": 2,
-      "id": 7
+      "id": 1
     },
     {
       "dogId": 3,
-      "date": "2019-04-03",
-      "id": 8,
+      "date": "2019-04-05",
+      "foodId": 10,
       "serving": 3,
-      "foodId": 2
-    },
-    {
-      "dogId": 3,
-      "date": "2019-04-03",
-      "foodId": 1,
-      "serving": 2,
-      "id": 9
-    },
-    {
-      "dogId": 3,
-      "date": "2019-04-02",
-      "foodId": 2,
-      "serving": 2,
-      "id": 10
+      "id": 2
     },
     {
       "dogId": 3,
       "date": "2019-04-04",
-      "foodId": 3,
+      "foodId": 1,
       "serving": 1,
-      "id": 11
+      "id": 3
     }
   ],
   "weight": [
     {
       "dogId": "3",
-      "weight": 24,
-      "date": "2019-04-03",
+      "weight": 25,
+      "date": "2019-04-05T15:45:32.776Z",
       "id": 1
     },
     {
       "dogId": "3",
       "weight": 24,
-      "date": "2019-04-04",
+      "date": "2019-04-05T15:45:40.564Z",
       "id": 2
     },
     {
       "dogId": "3",
-      "weight": 25,
-      "date": "2019-04-01",
+      "weight": 23,
+      "date": "2019-04-05T15:45:45.888Z",
       "id": 3
-    },
-    {
-      "dogId": "3",
-      "weight": 30,
-      "date": "2019-03-30",
-      "id": 4
-    },
-    {
-      "dogId": "3",
-      "weight": 25,
-      "date": "2019-03-29",
-      "id": 5
-    },
-    {
-      "dogId": "3",
-      "weight": 12,
-      "date": "2019-03-28",
-      "id": 6
-    },
-    {
-      "dogId": "3",
-      "weight": 40,
-      "date": "2019-03-27",
-      "id": 7
-    },
-    {
-      "dogId": "3",
-      "weight": 25,
-      "date": "2019-04-05T15:24:30.863Z",
-      "id": 8
     }
   ],
   "behavior": []
