@@ -205,6 +205,19 @@ class DogSummary extends Component {
       const sortedExerciseEntries = this.state.expandedExerciseEntries.sort((a, b) => (b.date > a.date ? 1 : -1))
       const exerciseEntriesByDate = this.divideEntriesByDate(sortedExerciseEntries).length > 0 ? this.divideEntriesByDate(sortedExerciseEntries) : []
 
+      //Array that calculates calories by date for graph
+      const calorieArray = []
+      const caloriesByDate = foodEntriesByDate.map( date => {
+        const newFoodObject = {
+          date: date[0].date,
+          calories: date.reduce((a, b) => a + (b.food.calories * b.serving), 0 )
+        }
+        calorieArray.push(newFoodObject)
+        return calorieArray
+      })
+
+
+      //Sorts weight history array with most recent weigh in first
       const sortedWeightHistory = this.state.weightHistory
       .sort((a, b) => (b.date > a.date ? 1 : -1))
 
@@ -247,7 +260,10 @@ class DogSummary extends Component {
           <h3>{sortedWeightHistory.length > 0 ? `Estimated Calorie Needs per Day for Maintenance: ${Math.round(calculator.expandedRERCalculator(calculator.basicRERCalculator(sortedWeightHistory[0].weight), this.state.dogs.active, this.state.dogs.neutered, this.state.dogs.age))}` : "" }</h3>
         </div>
 
+        <div className="graphs">
         {/* Weight over time graph */}
+        <div>
+        <h5>Weight Over Time</h5>
         <Label>Weight Over Time</Label>
         <LineChart width={400} height={300} data={this.state.weightHistory.sort((a, b) => (b.date > a.date ? -1 : 1))}>
           <Line type="monotone" dataKey="weight" stroke="#8884d8" />
@@ -257,9 +273,25 @@ class DogSummary extends Component {
           <Tooltip />
         <Legend />
         </LineChart>
+        </div>
+
+        {/* Calories over time graph */}
+        <div>
+        <h5>Calories Over Time</h5>
+        <Label>Calories Over Time</Label>
+        <LineChart width={400} height={300} data={calorieArray}>
+          <Line type="monotone" dataKey="calories" stroke="#8884d8" />
+          <CartesianGrid stroke="#ccc" />
+          <XAxis dataKey="date" />
+          <YAxis />
+          <Tooltip />
+        <Legend />
+        </LineChart>
+        </div>
 
         {/* Exercise over time graph */}
-        <Label>Recent Activity</Label>
+        <div>
+        <h5>Activity Over Time</h5>
         <LineChart width={400} height={300} data={this.state.expandedExerciseEntries.sort((a, b) => (b.date > a.date ? -1 : 1))}>
           <Line type="monotone" dataKey="time" stroke="#8884d8" />
           <CartesianGrid stroke="#ccc" />
@@ -268,6 +300,8 @@ class DogSummary extends Component {
           <Tooltip />
         <Legend />
         </LineChart>
+        </div>
+          </div>
 
         {/* Add new entry buttons */}
         <button onClick={() => this.props.history.push("/foods")}>

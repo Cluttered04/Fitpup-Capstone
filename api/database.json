@@ -160,6 +160,13 @@
       "foodId": 1,
       "serving": 1,
       "id": 3
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-02",
+      "foodId": 10,
+      "serving": 3,
+      "id": 4
     }
   ],
   "weight": [
