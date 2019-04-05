@@ -213,8 +213,20 @@ class DogSummary extends Component {
           calories: date.reduce((a, b) => a + (b.food.calories * b.serving), 0 )
         }
         calorieArray.push(newFoodObject)
-        return calorieArray
+        return calorieArray.sort((a, b) => b.date > a.date ? -1 : 1)
       })
+
+      //Array that calculates exercise time by date for graph
+      const activityArray = []
+      const activityOverTime = exerciseEntriesByDate.map(date => {
+        const newExerciseObject = {
+          date: date[0].date,
+          activity: date.reduce((a, b) =>   a + b.time, 0 )
+        }
+        activityArray.push(newExerciseObject)
+        return activityArray.sort((a, b) => b.date > a.date ? -1 : 1)
+      })
+
 
 
       //Sorts weight history array with most recent weigh in first
@@ -292,8 +304,8 @@ class DogSummary extends Component {
         {/* Exercise over time graph */}
         <div>
         <h5>Activity Over Time</h5>
-        <LineChart width={400} height={300} data={this.state.expandedExerciseEntries.sort((a, b) => (b.date > a.date ? -1 : 1))}>
-          <Line type="monotone" dataKey="time" stroke="#8884d8" />
+        <LineChart width={400} height={300} data={activityArray}>
+          <Line type="monotone" dataKey="activity" stroke="#8884d8" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="date" />
           <YAxis />

@@ -43,6 +43,24 @@
       "age": 1,
       "active": false,
       "neutered": true
+    },
+    {
+      "name": "Whip",
+      "breed": "Lab",
+      "neutered": "false",
+      "active": "false",
+      "age": "1",
+      "userId": 3,
+      "id": 4
+    },
+    {
+      "name": "Skip",
+      "breed": "Whippet",
+      "neutered": "true",
+      "active": "false",
+      "age": "1",
+      "userId": 3,
+      "id": 5
     }
   ],
   "exercises": [
@@ -128,6 +146,22 @@
       "serving": "1 Cup",
       "calories": 200,
       "id": 10
+    },
+    {
+      "userId": 3,
+      "brand": "Blue Buffalo",
+      "name": "Kibble",
+      "serving": "1 Cup",
+      "calories": 245,
+      "id": 11
+    },
+    {
+      "userId": 3,
+      "brand": "Tricky Trainers",
+      "name": "Treat",
+      "serving": "10 treats",
+      "calories": 50,
+      "id": 12
     }
   ],
   "exerciseEntries": [
@@ -137,6 +171,20 @@
       "exerciseId": 6,
       "time": 25,
       "id": 1
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-05",
+      "exerciseId": 6,
+      "time": 15,
+      "id": 2
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-04",
+      "exerciseId": 6,
+      "time": 15,
+      "id": 3
     }
   ],
   "foodEntries": [

@@ -9,12 +9,11 @@ class FoodExerciseCard extends Component {
 
     render() {
         const foodStatus = this.props.match.path
-        const collectionParam = this.props.match.path.split("/")[1]
         return(
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '12rem' }}>
             <Card.Body>
-                <Card.Title onClick={() => this.props.handleModal(this.props.collection)} value={this.props.collection.id}>{this.props.collection.name}</Card.Title>
-                <Card.Subtitle onClick={this.props.handleModal} className="mb-2 text-muted">{this.props.collection.brand ? this.props.collection.brand : ""}</Card.Subtitle>
+                <Card.Title  className="clickable" onClick={() => this.props.handleModal(this.props.collection)} value={this.props.collection.id}>{this.props.collection.name}</Card.Title>
+                <Card.Subtitle className="clickable" onClick={this.props.handleModal} className="mb-2 text-muted">{this.props.collection.brand ? this.props.collection.brand : ""}</Card.Subtitle>
                 <Card.Text>
                 {this.props.collection.serving? `Serving Size: ${this.props.collection.serving}`  : ""}
                 </Card.Text>

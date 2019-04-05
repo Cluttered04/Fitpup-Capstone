@@ -3,6 +3,7 @@ import ApplicationViews from "./ApplicationViews"
 import "./FitPup.css";
 import NavBar from "./Nav/NavBar"
 import auth0Client from "./Authentication/Auth.js"
+import "./FitPup.css"
 
 class FitPup extends Component {
 
