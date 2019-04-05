@@ -4,6 +4,7 @@ import APIManager from "../../modules/APIManager";
 import Moment from "react-moment";
 import EditEntryModal from "./EditEntryModal";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
+import calculator from "../calculator/Calculator"
 
 class DogSummary extends Component {
   state = {
@@ -135,7 +136,7 @@ class DogSummary extends Component {
       let today = new Date().toISOString().slice(0, 10);
       const weightEntry = {
         dogId: this.props.match.params.dogId,
-        weight: this.state.weight,
+        weight: parseInt(this.state.weight),
         date: today
       };
       this.postAndRetrieveWeight(
@@ -204,6 +205,9 @@ class DogSummary extends Component {
       const sortedExerciseEntries = this.state.expandedExerciseEntries.sort((a, b) => (b.date > a.date ? 1 : -1))
       const exerciseEntriesByDate = this.divideEntriesByDate(sortedExerciseEntries).length > 0 ? this.divideEntriesByDate(sortedExerciseEntries) : []
 
+      const sortedWeightHistory = this.state.weightHistory
+      .sort((a, b) => (b.date > a.date ? 1 : -1))
+
 
     return (
       // Dog info and weight input/button
@@ -226,8 +230,7 @@ class DogSummary extends Component {
         </button>
         <h3>Recent Weigh Ins</h3>
         {/* Sorts weight history by date and displays three most recent weigh ins */}
-        {this.state.weightHistory
-      .sort((a, b) => (b.date > a.date ? 1 : -1))
+        {sortedWeightHistory
           .slice(0, 3)
           .map(weight => {
             return (
@@ -238,6 +241,11 @@ class DogSummary extends Component {
               </div>
             );
           })}
+
+          {/* Calculates necessary resting calorie intake per day */}
+        <div>
+          <h3>{sortedWeightHistory.length > 0 ? `Estimated Calorie Needs per Day for Maintenance: ${calculator.expandedRERCalculator(calculator.basicRERCalculator(sortedWeightHistory[0].weight), this.state.dogs.active, this.state.dogs.neutered, this.state.dogs.age)}` : "" }</h3>
+        </div>
 
         {/* Weight over time graph */}
         <Label>Weight Over Time</Label>
