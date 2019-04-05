@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Fit pup - Your best friend's fitness app
 
-## Available Scripts
+A calorie, weight, and exercise tracker for your furry friend
 
-In the project directory, you can run:
+## To install
+Visit https://github.com/Cluttered04/Fitpup-Capstone and clone down a branch to your local directory then "checkout -b *name*" a new branch to test. Run the commands "npm install react", "npm install --save moment react-moment", "npm install react-bootstrap bootstrap", "npm install recharts", and "npm install react-router-dom" to install the necessary node modules. Run the "npm start" command to launch application in your browser.
 
-### `npm start`
+## Front page
+When the user visit the website, they will be greeted with a splash information page with a "Please sign in" message, and a green sign in button on the navbar.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Authentication
+Upon clicking the "Sign in" button, an auth0 authentication pop up will display, and the user may create a new account or log in. Upon log in, the user's information will be saved to session storage and they will be able to navigate to the other pages of the application. User will be on the "Dog Summary" page immediately upon sign in.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Dog Summary/Home
+Upon sign in, or upon clicking the "Home" button on the nav bar, the user will be taken to a page where they may view a list of their saved dogs. For each dog, an image will be displayed, underneath which the user will see their dog's name and breed. A user may click the "Add new dog" button to reach a form where they may enter a new dog's information - name, breed, age, activity level, and whether the dog is neutered/spayed. Upon saving the dog's information, they will be returned to the dog list, now with the new dog's information.
 
-### `npm test`
+User may edit a dog by clicking the "Edit dog" button. They will be redirected to a pre-populated form that will allow them to change previously saved details about their dog. Upon saving their changes, they will be taken back to the dog list with their updated dog's new information.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+User may also navigate to the food or exercise list pages by clicking the "My foods", or "My exercises" buttons respectively, or by clicking on the nav bar.
 
-### `npm run build`
+## Food/Exercise list pages
+Upon visiting the foods list page, a user may view a list of pre-seeded data of a variety of food's names, brands, calorie counts, and serving sizes, as well as any foods they have previously entered for personal use. They may edit the details of any food they have personally entered by clicking the "Edit" button to be taken to a form when they may change the food's details. Upon saving those details, they will be returned to the updated Food List page. A user may add a new food by clicking the "Add New Food" button. This button will render a form allowing them to enter details of a food for personal later user. User will be returned to the updated Foods List upon saving their food details.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The exercise list page functionality is the same as the food list page, with the exception of displaying only the name of the activity.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Adding an individual entry to a dog
+To add a food or exercise entry for their dog, a user may click the name or brand of the food or exercise in the list. Clicking will generate a modal containing a form. This form will conditionally render with the item's name prefilled. User will be able to choose a dog for either entry, then enter a time (in minutes) for exercises, and number of servings for foods. Clicking the "Submit" button on the modal will close the modal while posting their new entry to the database.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Dog Summary Page
+A user may click the image associated with a dog on their dog list/home page to view that dog's summary page. The summary page will have the individual dog's information at the top. Under this information, a user may record their dog's weight. The three most recent weigh ins are available to view underneath, along with a graph that shows the dog's weight changes over time. There is also a graph showing the dog's exercise activity over time.
 
-### `npm run eject`
+Previously entered food entries are grouped, by date, underneath, with a header displaying the day of the entries and a calculated calorie total. Previously entered exercise entries are also grouped by date, displaying the date header and total time spent exercising for that day.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+User may click the "Add New Food Entry" or "Add New Exercise Entry" to be returned to the food or exercise list, respectively, where they may make a new entry for their dog.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+User may click the "Edit" button on any entry to display a modal with the dog's name and the name of the food/exercise previously entered pre-rendered. User may then make changes to the number of servings or time (in minutes) spent exercising. If a user enters something other than a number for either field, they will receive a helpful error message. Upon clicking "Submit", their entry's information will be saved and update in the dog summary page, displaying with an updated total calorie count/time spent header in the appropriate day.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+User may delete any individual entry by clicking the "Delete" button on the entry, which will update their list and the appropriate total time/calorie headers for that day.

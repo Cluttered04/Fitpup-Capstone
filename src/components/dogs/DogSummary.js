@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import APIManager from "../../modules/APIManager";
 import Moment from "react-moment";
 import EditEntryModal from "./EditEntryModal";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
+import calculator from "../calculator/Calculator"
 
 class DogSummary extends Component {
   state = {
@@ -113,8 +115,8 @@ class DogSummary extends Component {
           this.props.match.params.dogId
         )
       )
-      .then(weight => {
-        newState.weightHistory = weight;
+      .then(weightEntry => {
+        newState.weightHistory = weightEntry;
         this.setState(newState);
       });
   }
@@ -131,10 +133,10 @@ class DogSummary extends Component {
   addWeightEntry = evt => {
     evt.preventDefault();
     if (Number.isInteger(parseInt(this.state.weight))) {
-      let today = new Date().toISOString().slice(0, 10);
+      let today = new Date().toISOString();
       const weightEntry = {
         dogId: this.props.match.params.dogId,
-        weight: this.state.weight,
+        weight: parseInt(this.state.weight),
         date: today
       };
       this.postAndRetrieveWeight(
@@ -196,10 +198,15 @@ class DogSummary extends Component {
       this.props.dogs.find(
         dog => dog.id === parseInt(this.props.match.params.dogId)
       ) || {};
+
+      //Sorts foods/exercises by date, then groups them into smaller arrays by dates
       const sortedFoodEntries = this.state.expandedFoodEntries.sort((a, b) => (b.date > a.date ? 1 : -1))
       const foodEntriesByDate = this.divideEntriesByDate(sortedFoodEntries).length > 0 ? this.divideEntriesByDate(sortedFoodEntries) : []
       const sortedExerciseEntries = this.state.expandedExerciseEntries.sort((a, b) => (b.date > a.date ? 1 : -1))
       const exerciseEntriesByDate = this.divideEntriesByDate(sortedExerciseEntries).length > 0 ? this.divideEntriesByDate(sortedExerciseEntries) : []
+
+      const sortedWeightHistory = this.state.weightHistory
+      .sort((a, b) => (b.date > a.date ? 1 : -1))
 
 
     return (
@@ -223,18 +230,46 @@ class DogSummary extends Component {
         </button>
         <h3>Recent Weigh Ins</h3>
         {/* Sorts weight history by date and displays three most recent weigh ins */}
-        {this.state.weightHistory
-          .sort((a, b) => (b.date > a.date ? 1 : -1))
+        {sortedWeightHistory
           .slice(0, 3)
           .map(weight => {
             return (
               <div>
                 <p>
-                  {weight.date} <br /> {weight.weight} lbs.
+                  {weight.date.slice(0, 10)} <br /> {weight.weight} lbs.
                 </p>
               </div>
             );
           })}
+
+          {/* Calculates necessary resting calorie intake per day */}
+        <div>
+          <h3>{sortedWeightHistory.length > 0 ? `Estimated Calorie Needs per Day for Maintenance: ${Math.round(calculator.expandedRERCalculator(calculator.basicRERCalculator(sortedWeightHistory[0].weight), this.state.dogs.active, this.state.dogs.neutered, this.state.dogs.age))}` : "" }</h3>
+        </div>
+
+        {/* Weight over time graph */}
+        <Label>Weight Over Time</Label>
+        <LineChart width={400} height={300} data={this.state.weightHistory.sort((a, b) => (b.date > a.date ? -1 : 1))}>
+          <Line type="monotone" dataKey="weight" stroke="#8884d8" />
+          <CartesianGrid stroke="#ccc" />
+          <XAxis dataKey="date" />
+          <YAxis />
+          <Tooltip />
+        <Legend />
+        </LineChart>
+
+        {/* Exercise over time graph */}
+        <Label>Recent Activity</Label>
+        <LineChart width={400} height={300} data={this.state.expandedExerciseEntries.sort((a, b) => (b.date > a.date ? -1 : 1))}>
+          <Line type="monotone" dataKey="time" stroke="#8884d8" />
+          <CartesianGrid stroke="#ccc" />
+          <XAxis dataKey="date" />
+          <YAxis />
+          <Tooltip />
+        <Legend />
+        </LineChart>
+
+        {/* Add new entry buttons */}
         <button onClick={() => this.props.history.push("/foods")}>
           Add Food Entry
         </button>
@@ -289,7 +324,7 @@ class DogSummary extends Component {
             <div><h3>
             <Moment format="MM/DD/YYYY">{date[0].date}</Moment>
           </h3>
-          <h4>Total time: {date.reduce((a, b) =>   a + b.time, 0 )} </h4>
+          <h4>Total time: {date.reduce((a, b) =>   a + b.time, 0 )} Minutes</h4>
 
             {/* Prints individual exercise entry information */}
            {date.map(entry => {

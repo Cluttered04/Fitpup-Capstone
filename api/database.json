@@ -22,13 +22,22 @@
       "neutered": "false"
     },
     {
-      "id": 5,
+      "name": "Skip",
+      "breed": "golden",
+      "neutered": true,
+      "active": false,
+      "age": 1,
       "userId": 2,
-      "name": "SKip",
-      "breed": "Lab",
-      "age": "3",
-      "active": "false",
-      "neutered": "true"
+      "id": 7
+    },
+    {
+      "name": "Flip",
+      "breed": "lab",
+      "neutered": "false",
+      "active": "true",
+      "age": "2",
+      "userId": 2,
+      "id": 8
     }
   ],
   "exercises": [
@@ -93,30 +102,6 @@
       "serving": ".5 Cups",
       "calories": 150,
       "id": 5
-    },
-    {
-      "userId": 2,
-      "brand": "s",
-      "name": "Chocolate covered peanuts",
-      "serving": "",
-      "calories": 23,
-      "id": 6
-    },
-    {
-      "userId": 2,
-      "brand": "s",
-      "name": "Chocolate covered peanuts",
-      "serving": "",
-      "calories": 24,
-      "id": 7
-    },
-    {
-      "userId": 2,
-      "brand": "",
-      "name": "Chocolate covered peanuts",
-      "serving": "",
-      "calories": null,
-      "id": 8
     },
     {
       "userId": 2,
@@ -190,45 +175,51 @@
   "weight": [
     {
       "dogId": "3",
-      "weight": "24",
-      "date": "2019-04-02",
+      "weight": 24,
+      "date": "2019-04-03",
       "id": 1
     },
     {
       "dogId": "3",
-      "weight": "24",
-      "date": "2019-04-03",
+      "weight": 24,
+      "date": "2019-04-04",
+      "id": 2
+    },
+    {
+      "dogId": "3",
+      "weight": 25,
+      "date": "2019-04-01",
+      "id": 3
+    },
+    {
+      "dogId": "3",
+      "weight": 30,
+      "date": "2019-03-30",
+      "id": 4
+    },
+    {
+      "dogId": "3",
+      "weight": 25,
+      "date": "2019-03-29",
       "id": 5
     },
     {
       "dogId": "3",
-      "weight": "24",
-      "date": "2019-04-03",
+      "weight": 12,
+      "date": "2019-03-28",
       "id": 6
     },
     {
       "dogId": "3",
-      "weight": "19",
-      "date": "2019-04-03",
+      "weight": 40,
+      "date": "2019-03-27",
       "id": 7
     },
     {
       "dogId": "3",
-      "weight": "24",
-      "date": "2019-04-03",
+      "weight": 25,
+      "date": "2019-04-05T15:24:30.863Z",
       "id": 8
-    },
-    {
-      "dogId": "3",
-      "weight": "23",
-      "date": "2019-04-04",
-      "id": 9
-    },
-    {
-      "dogId": "3",
-      "weight": "23",
-      "date": "2019-04-04",
-      "id": 10
     }
   ],
   "behavior": []
