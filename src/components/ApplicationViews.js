@@ -70,7 +70,7 @@ class ApplicationViews extends Component {
     const newState = {};
     return APIManager.addNewEntry(collection, object)
       .then(() =>
-        APIManager.getAllEntriesByUser(collection, this.state.activeUser)
+        APIManager.getAllEntriesByUser(collection, parseInt(sessionStorage.getItem("credentials")))
       )
       .then(response => {
         newState[stateCollection] = response;
@@ -81,7 +81,7 @@ class ApplicationViews extends Component {
   addNewFoodEntry = (collection, object, stateCollection) => {
     const newState = {};
     return APIManager.addNewEntry(collection, object)
-      .then(() => APIManager.getAllEntries(collection, this.state.activeUser))
+      .then(() => APIManager.getAllEntries(collection, parseInt(sessionStorage.getItem("credentials"))))
       .then(response => {
         newState[stateCollection] = response;
         this.setState(newState);
@@ -93,7 +93,7 @@ class ApplicationViews extends Component {
 
     return APIManager.deleteEntry(collection, objectId)
       .then(() =>
-        APIManager.getAllEntriesByUser(collection, this.state.activeUser)
+        APIManager.getAllEntriesByUser(collection, parseInt(sessionStorage.getItem("credentials")))
       )
 
       .then(response => {
@@ -107,7 +107,7 @@ class ApplicationViews extends Component {
 
     return APIManager.deleteEntry(collection, objectId)
       .then(() =>
-        APIManager.getAllEntries(collection, this.state.activeUser)
+        APIManager.getAllEntries(collection, parseInt(sessionStorage.getItem("credentials")))
       )
 
       .then(response => {
@@ -120,7 +120,7 @@ class ApplicationViews extends Component {
   editEntry = (collection, object, stateCollection) => {
     const newState = {};
     return APIManager.editEntry(collection, object).then(() =>
-      APIManager.getAllEntriesByUser(collection, this.state.activeUser)
+      APIManager.getAllEntriesByUser(collection, parseInt(sessionStorage.getItem("credentials")))
       .then(
         response => {
           newState[stateCollection] = response;
@@ -133,7 +133,7 @@ class ApplicationViews extends Component {
   editAndRetrieveAll = (collection, object, stateCollection) => {
       const newState={}
       return APIManager.editEntry(collection, object).then(() => {
-          APIManager.getAllEntries(collection, this.state.activeUser).then(
+          APIManager.getAllEntries(collection, parseInt(sessionStorage.getItem("credentials"))).then(
               response => {
                 newState[stateCollection] = response;
                 this.setState(newState);
