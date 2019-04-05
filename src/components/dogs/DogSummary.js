@@ -115,8 +115,8 @@ class DogSummary extends Component {
           this.props.match.params.dogId
         )
       )
-      .then(weight => {
-        newState.weightHistory = weight;
+      .then(weightEntry => {
+        newState.weightHistory = weightEntry;
         this.setState(newState);
       });
   }
@@ -133,7 +133,7 @@ class DogSummary extends Component {
   addWeightEntry = evt => {
     evt.preventDefault();
     if (Number.isInteger(parseInt(this.state.weight))) {
-      let today = new Date().toISOString().slice(0, 10);
+      let today = new Date().toISOString();
       const weightEntry = {
         dogId: this.props.match.params.dogId,
         weight: parseInt(this.state.weight),
@@ -236,7 +236,7 @@ class DogSummary extends Component {
             return (
               <div>
                 <p>
-                  {weight.date} <br /> {weight.weight} lbs.
+                  {weight.date.slice(0, 10)} <br /> {weight.weight} lbs.
                 </p>
               </div>
             );
@@ -244,7 +244,7 @@ class DogSummary extends Component {
 
           {/* Calculates necessary resting calorie intake per day */}
         <div>
-          <h3>{sortedWeightHistory.length > 0 ? `Estimated Calorie Needs per Day for Maintenance: ${calculator.expandedRERCalculator(calculator.basicRERCalculator(sortedWeightHistory[0].weight), this.state.dogs.active, this.state.dogs.neutered, this.state.dogs.age)}` : "" }</h3>
+          <h3>{sortedWeightHistory.length > 0 ? `Estimated Calorie Needs per Day for Maintenance: ${Math.round(calculator.expandedRERCalculator(calculator.basicRERCalculator(sortedWeightHistory[0].weight), this.state.dogs.active, this.state.dogs.neutered, this.state.dogs.age))}` : "" }</h3>
         </div>
 
         {/* Weight over time graph */}
