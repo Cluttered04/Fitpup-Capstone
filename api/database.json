@@ -171,6 +171,20 @@
       "exerciseId": 6,
       "time": 25,
       "id": 1
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-05",
+      "exerciseId": 6,
+      "time": 15,
+      "id": 2
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-04",
+      "exerciseId": 6,
+      "time": 15,
+      "id": 3
     }
   ],
   "foodEntries": [
