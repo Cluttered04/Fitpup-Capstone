@@ -40,6 +40,7 @@ class ExerciseList extends Component {
     return (
       <div>
         <h1>My Exercises</h1>
+        <div className="search-bar">
         <input
           id="search"
           value={this.state.search}
@@ -49,9 +50,11 @@ class ExerciseList extends Component {
         <button onClick={() => this.props.history.push("/exercises/new")}>
           Add New Exercise
         </button>
+        </div>
         {filteredExercises.map(exercise => {
           return (
             <div>
+              <div className="food-list">
                 {/* Maps through exercise list and returns cards */}
               <FoodExerciseCard
                 collection={exercise}
@@ -60,6 +63,7 @@ class ExerciseList extends Component {
                 deleteAndRetrieveAll={this.props.deleteAndRetrieveAll}
                 key={exercise.id}
               />
+              </div>
               {/* Conditionally renders modal on button click */}
               {this.state.showModal === true ? (
                 <AddEntryModal

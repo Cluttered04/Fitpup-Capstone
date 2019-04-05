@@ -45,28 +45,31 @@ class MyFoodsList extends Component {
       <div>
         <h1>My Foods</h1>
         {/* Search bar */}
+        <div className="search-bar">
         <input
           id="search"
           value={this.state.search}
           placeholder="Search Food Name or Brand"
           onChange={this.handleFieldChange}
         />
+        <br/>
         <button onClick={() => this.props.history.push("/foods/new")}>
           Add New Food
         </button>
+        </div>
         {/* Maps through food list and returns cards */}
+        <div className="food-list">
         {filteredFoods.map(food => {
           return (
-            <div>
               <FoodExerciseCard
                 collection={food}
                 handleModal={this.handleModal}
                 key={food.id}
                 {...this.props}
               />
-            </div>
           );
         })}
+        </div>
 
         {/* Conditionally renders modal on button click */}
         {this.state.showModal === true ? (
