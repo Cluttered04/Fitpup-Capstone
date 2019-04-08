@@ -36,7 +36,8 @@ class AddNewFood extends Component {
     render(){
         return(
         <div>
-        <Form>
+        <h1>Add New Food</h1>
+        <Form className="food-form">
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Food Name</Form.Label>
                 <Form.Control type="text" placeholder="Food Name" onChange={this.handleFieldChange} id="name"/>

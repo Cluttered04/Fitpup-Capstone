@@ -66,3 +66,22 @@ h1 {
 .new-dog {
   margin: auto;
 }
+
+.food-form {
+  padding-top: 20px;
+  width: 40vw;
+  margin: auto;
+}
+
+.dog-form {
+  margin: auto;
+  width: 65vw;
+}
+
+input[type="radio"]{
+  margin-right: 25px;
+}
+
+.boxed {
+  border: 1px dashed green
+}
