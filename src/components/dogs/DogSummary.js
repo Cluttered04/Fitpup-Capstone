@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import APIManager from "../../modules/APIManager";
 import Moment from "react-moment";
 import EditEntryModal from "./EditEntryModal";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, BarChart, Bar } from 'recharts';
 import calculator from "../calculator/Calculator"
 
 class DogSummary extends Component {
@@ -18,7 +18,8 @@ class DogSummary extends Component {
     foodEntriesByDate: [],
     exerciseEntriesByDate: [],
     behavior: "",
-    behaviorHistory: []
+    behaviorHistory: [],
+    behaviorMessage: false
   };
 
   //handles edit entry modal
@@ -181,6 +182,9 @@ class DogSummary extends Component {
       this.props.match.params.dogId,
       "behaviorHistory"
     )
+    this.setState({
+      behaviorMessage: true
+    })
   }
 
 
@@ -257,6 +261,21 @@ class DogSummary extends Component {
         return activityArray.sort((a, b) => b.date > a.date ? -1 : 1)
       })
 
+      const behaviorActivityArray = []
+      const behaviorActivityCorrelation = exerciseEntriesByDate.map(date => {
+        this.state.behaviorHistory.map(behavior => {
+          if(behavior.date === date[0].date) {
+            const behaviorObject = {
+            date: date[0].date,
+            behavior: behavior.behavior,
+            activity: date.reduce((a, b) =>   a + b.time, 0)
+          }
+          behaviorActivityArray.push(behaviorObject)
+          return behaviorActivityArray.sort((a, b) => b.date > a.date ? -1 : 1)
+        }
+        })
+      })
+
 
 
       //Sorts weight history array with most recent weigh in first
@@ -313,6 +332,7 @@ class DogSummary extends Component {
                 <option value="1">Lazy</option>
             </select>
             <button onClick={this.addBehaviorEntry}>Submit</button>
+            {this.state.behaviorMessage ? <p>Behavior Entry Submitted</p> : ""}
         </div>
 
         <div className="graphs">
@@ -357,6 +377,24 @@ class DogSummary extends Component {
         </LineChart>
         </div>
           </div>
+
+          <BarChart
+        width={500}
+        height={300}
+        data={behaviorActivityArray}
+        margin={{
+          top: 20, right: 30, left: 20, bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="date" />
+        <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
+        <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+        <Tooltip />
+        <Legend />
+        <Bar yAxisId="left" dataKey="behavior" fill="#8884d8" />
+        <Bar yAxisId="right" dataKey="activity" fill="#82ca9d" />
+      </BarChart>
 
         {/* Add new entry buttons */}
         <button onClick={() => this.props.history.push("/foods")}>

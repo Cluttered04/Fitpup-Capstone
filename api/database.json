@@ -48,20 +48,11 @@
     {
       "id": 4,
       "userId": 3,
-      "name": "Whip",
+      "name": "Whippers",
       "breed": "Lab",
       "age": "2",
       "active": "true",
       "neutered": "true"
-    },
-    {
-      "name": "Whip",
-      "breed": "Golden",
-      "neutered": "false",
-      "active": "true",
-      "age": "2",
-      "userId": 3,
-      "id": 5
     },
     {
       "name": "Flip",
@@ -81,6 +72,16 @@
       "active": "true",
       "neutered": "false",
       "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554734628/q902rpugkpkohxmlii8x.jpg"
+    },
+    {
+      "name": "Clifford",
+      "breed": "Rhodesian",
+      "neutered": "false",
+      "active": "true",
+      "age": "2",
+      "userId": 3,
+      "image": "",
+      "id": 8
     }
   ],
   "exercises": [
@@ -107,7 +108,7 @@
     {
       "id": 6,
       "userId": 3,
-      "name": "Fetch2"
+      "name": "Fetch"
     },
     {
       "userId": 3,
@@ -123,6 +124,11 @@
       "userId": 3,
       "name": "Flyball",
       "id": 9
+    },
+    {
+      "userId": 3,
+      "name": "Running",
+      "id": 10
     }
   ],
   "foods": [
@@ -178,7 +184,7 @@
       "userId": 3,
       "name": "Kibble",
       "brand": "Blue Buffalo",
-      "serving": "2 Cup",
+      "serving": "3 Cups",
       "calories": 210,
       "id": 10
     },
@@ -205,6 +211,22 @@
       "serving": "1 C",
       "calories": 243,
       "id": 13
+    },
+    {
+      "userId": 3,
+      "name": "Kibble - Chicken",
+      "brand": "Hills Science",
+      "serving": "1 Cup",
+      "calories": 300,
+      "id": 14
+    },
+    {
+      "userId": 3,
+      "name": "Minis",
+      "brand": "Zuke's",
+      "serving": "20 treats",
+      "calories": 75,
+      "id": 15
     }
   ],
   "exerciseEntries": [
@@ -228,6 +250,27 @@
       "exerciseId": 6,
       "time": 15,
       "id": 3
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-06",
+      "exerciseId": 6,
+      "time": 15,
+      "id": 5
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-07",
+      "exerciseId": 9,
+      "time": 35,
+      "id": 6
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-08",
+      "exerciseId": 7,
+      "time": 45,
+      "id": 7
     }
   ],
   "foodEntries": [
@@ -256,7 +299,7 @@
       "dogId": 7,
       "date": "2019-04-10",
       "id": 7,
-      "serving": 1,
+      "serving": 13,
       "foodId": 12
     }
   ],
@@ -308,20 +351,62 @@
       "weight": 19,
       "date": "2019-04-08T14:51:22.508Z",
       "id": 8
+    },
+    {
+      "dogId": "3",
+      "weight": 45,
+      "date": "2019-04-08T15:59:36.735Z",
+      "id": 9
     }
   ],
   "behavior": [
     {
       "dogId": 7,
       "behavior": 1,
-      "date": "2019-04-08",
+      "date": "2019-04-07",
       "id": 1
+    },
+    {
+      "dogId": "3",
+      "date": "2019-04-06",
+      "behavior": 4,
+      "id": 2
+    },
+    {
+      "dogId": "7",
+      "date": "2019-04-05",
+      "behavior": 5,
+      "id": 3
+    },
+    {
+      "dogId": "7",
+      "date": "2019-04-08",
+      "behavior": 2,
+      "id": 4
+    },
+    {
+      "dogId": "7",
+      "date": "2019-04-08",
+      "behavior": 5,
+      "id": 5
+    },
+    {
+      "dogId": "3",
+      "date": "2019-04-08",
+      "behavior": 5,
+      "id": 6
     },
     {
       "dogId": "3",
       "date": "2019-04-08",
       "behavior": 4,
-      "id": 2
+      "id": 7
+    },
+    {
+      "dogId": "3",
+      "date": "2019-04-08",
+      "behavior": 5,
+      "id": 8
     }
   ]
 }
