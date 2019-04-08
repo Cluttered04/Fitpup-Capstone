@@ -360,7 +360,7 @@ class DogSummary extends Component {
                   Delete Entry
                 </button>
             </div>
-          )})};
+          )})}
           </div>)
           })})
 
