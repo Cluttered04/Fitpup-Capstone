@@ -85,3 +85,61 @@ input[type="radio"]{
 .boxed {
   border: 1px dashed green
 }
+
+.summary-entries {
+  display: flex;
+  justify-content: space-around;
+}
+
+.summary-headers {
+  padding-top: 45px;
+  padding-bottom: 25px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.exercise-entries{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 2px solid black
+}
+
+.food-entries{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 2px solid black
+}
+
+.analysis{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 45px;
+}
+
+.graph-header{
+  text-align: center;
+}
+
+.calorie-estimate {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 35px;
+}
+
+.summary-image {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 2px solid black;
+}
+
+.weight-and-behavior {
+  display: flex;
+  justify-content: space-around;
+  width: 65%;
+  margin: auto
+}

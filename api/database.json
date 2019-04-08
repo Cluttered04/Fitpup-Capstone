@@ -271,6 +271,13 @@
       "exerciseId": 7,
       "time": 45,
       "id": 7
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-06",
+      "exerciseId": 8,
+      "time": 25,
+      "id": 8
     }
   ],
   "foodEntries": [
@@ -301,6 +308,20 @@
       "id": 7,
       "serving": 13,
       "foodId": 12
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-05",
+      "foodId": 11,
+      "serving": 2,
+      "id": 8
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-04",
+      "foodId": 1,
+      "serving": 3,
+      "id": 9
     }
   ],
   "weight": [
@@ -357,6 +378,12 @@
       "weight": 45,
       "date": "2019-04-08T15:59:36.735Z",
       "id": 9
+    },
+    {
+      "dogId": "7",
+      "weight": 40,
+      "date": "2019-04-08T19:03:05.919Z",
+      "id": 10
     }
   ],
   "behavior": [

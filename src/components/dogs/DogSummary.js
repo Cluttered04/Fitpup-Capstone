@@ -299,11 +299,20 @@ class DogSummary extends Component {
       // Dog info and weight input/button
       <div>
         <h1>{dog.name}</h1>
-        <img
+        <img className="summary-image"
           src={dog.image ? dog.image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2qjTV1Vh1YMdM3hIkSB85WPbxlli89K7HUrvmLufKlatZLKr3"}
           alt="dog"
         />
         <br />
+
+        {/* Calculates necessary resting calorie intake per day */}
+        <div className="calorie-estimate">
+          <h6>{sortedWeightHistory.length > 0 ? `Estimated Calorie Needs per Day for Maintenance: ${Math.round(calculator.expandedRERCalculator(calculator.basicRERCalculator(sortedWeightHistory[0].weight), this.state.dogs.active, this.state.dogs.neutered, this.state.dogs.age))}` : "" }</h6>
+        </div>
+
+      <div className="weight-and-behavior">
+      <div className="weight">
+        {/* Weight input field */}
         <input
           type="text"
           id="weight"
@@ -314,7 +323,7 @@ class DogSummary extends Component {
         <button onClick={this.addWeightEntry} value="weight">
           Weigh In
         </button>
-        <h3>Recent Weigh Ins</h3>
+        <h5>Recent Weigh Ins</h5>
         {/* Sorts weight history by date and displays three most recent weigh ins */}
         {sortedWeightHistory
           .slice(0, 3)
@@ -322,19 +331,17 @@ class DogSummary extends Component {
             return (
               <div>
                 <p>
-                  {weight.date.slice(0, 10)} <br /> {weight.weight} lbs.
+                  {weight.date.slice(0, 10)} - {weight.weight} lbs.
                 </p>
               </div>
             );
           })}
+          </div>
 
-          {/* Calculates necessary resting calorie intake per day */}
-        <div>
-          <h3>{sortedWeightHistory.length > 0 ? `Estimated Calorie Needs per Day for Maintenance: ${Math.round(calculator.expandedRERCalculator(calculator.basicRERCalculator(sortedWeightHistory[0].weight), this.state.dogs.active, this.state.dogs.neutered, this.state.dogs.age))}` : "" }</h3>
-        </div>
+
 
         <div className="behavior">
-        <label htmlFor="dropdown">Behavior Today!</label><br/>
+        <h5>Behavior Today!</h5>
             <select onChange={this.handleFieldChange} id="behavior">
                 <option>Energy Levels</option>
                 <option value="5">Very energetic/Unruly</option>
@@ -345,12 +352,14 @@ class DogSummary extends Component {
             </select>
             <button onClick={this.addBehaviorEntry}>Submit</button>
             {this.state.behaviorMessage ? <p>Behavior Entry Submitted</p> : ""}
+            <p>How has your pet been feeling?</p>
+        </div>
         </div>
 
-        <div className="graphs">
+        <div className="analysis">
         {/* Weight over time graph */}
         <div>
-        <h5>Weight Over Time</h5>
+        <h5 className="graph-header">Weight Over Time</h5>
         <Label>Weight Over Time</Label>
         <LineChart width={400} height={300} data={weightArray}>
           <Line type="monotone" dataKey="weight" stroke="#8884d8" />
@@ -364,7 +373,7 @@ class DogSummary extends Component {
 
         {/* Calories over time graph */}
         <div>
-        <h5>Calories Over Time</h5>
+        <h5 className="graph-header">Calories Over Time</h5>
         <Label>Calories Over Time</Label>
         <LineChart width={400} height={300} data={calorieArray}>
           <Line type="monotone" dataKey="calories" stroke="#8884d8" />
@@ -378,7 +387,7 @@ class DogSummary extends Component {
 
         {/* Exercise over time graph */}
         <div>
-        <h5>Activity Over Time</h5>
+        <h5 className="graph-header">Activity Over Time</h5>
         <LineChart width={400} height={300} data={activityArray}>
           <Line type="monotone" dataKey="activity" stroke="#8884d8" />
           <CartesianGrid stroke="#ccc" />
@@ -388,9 +397,10 @@ class DogSummary extends Component {
         <Legend />
         </LineChart>
         </div>
-          </div>
 
        {/* Bar graph comparing activity levels to behavior */}
+       <div>
+       <h5 className="graph-header">Behavior versus Activity</h5>
         <BarChart
         width={500}
         height={300}
@@ -408,30 +418,41 @@ class DogSummary extends Component {
         <Bar yAxisId="left" dataKey="behavior" fill="#8884d8" />
         <Bar yAxisId="right" dataKey="activity" fill="#82ca9d" />
       </BarChart>
+      </div>
+      </div>
 
-        {/* Add new entry buttons */}
+        {/* Food and exercise entry section */}
+        <section id="entries">
+        <div className="summary-headers">
+        <div className="food-header">
+        <h3>Recent Food Intake</h3>
         <button onClick={() => this.props.history.push("/foods")}>
           Add Food Entry
         </button>
+        </div>
+        <div className="exercise-header">
+        <h3>Recent Activity</h3>
         <button onClick={() => this.props.history.push("/exercises")}>
           Add Exercise Entry
         </button>
-        <section id="entries">
-
+        </div>
+        </div>
+          <div className="summary-entries">
+          <div className="food-entries">
           {/* Loops over dates, prints headers/groups food entries together */}
           {foodEntriesByDate.map(date => {
             return (
-            <div><h3>
+            <div><h4>
             <Moment format="MM/DD/YYYY">{date[0].date}</Moment>
-          </h3>
-          <h4>Total Calories: {date.reduce((a, b) => a + (b.food.calories * b.serving), 0 )}</h4>
+          </h4>
+          <h5>Total Calories: {date.reduce((a, b) => a + (b.food.calories * b.serving), 0 )}</h5>
 
           {/* Prints out individual entry information */}
            {date.map(entry => {
             return (
               <div key={entry.id}>
-                <h4>{entry.food.name}</h4>
-                <h5>{entry.food.brand}</h5>
+                <h6>{entry.food.name}</h6>
+                <h6>{entry.food.brand}</h6>
                 <p>
                   Calories per serving: {entry.food.calories} <br />Servings:{" "}
                   {entry.serving} <br />
@@ -456,21 +477,25 @@ class DogSummary extends Component {
             </div>
           )})}
           </div>)
-          })})
+          })}
+          </div>
 
+
+
+        <div className="exercise-entries">
           {/* Separates exercise entries by date, prints headers and total time */}
           {exerciseEntriesByDate.map(date => {
             return (
-            <div><h3>
+            <div><h4>
             <Moment format="MM/DD/YYYY">{date[0].date}</Moment>
-          </h3>
-          <h4>Total time: {date.reduce((a, b) =>   a + b.time, 0 )} Minutes</h4>
+          </h4>
+          <h6>Total time: {date.reduce((a, b) =>   a + b.time, 0 )} Minutes</h6>
 
             {/* Prints individual exercise entry information */}
            {date.map(entry => {
             return (
               <div key={entry.id}>
-                <h4>{entry.exercise.name}</h4>
+                <h6>{entry.exercise.name}</h6>
                 <p>Time: {entry.time} Minutes</p>
                 <button onClick={() => this.handleModal(entry)}>
                   Edit Entry
@@ -491,6 +516,8 @@ class DogSummary extends Component {
               </div>
             );
           })}</div>)})}
+          </div>
+          </div>
         </section>
         <section id="entries" />
         {/* Conditionally displays edit modal */}
@@ -508,7 +535,7 @@ class DogSummary extends Component {
           ""
         )}
       </div>
-    );
+    )
   }
 }
 
