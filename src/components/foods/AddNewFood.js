@@ -8,7 +8,8 @@ class AddNewFood extends Component {
         brand: "",
         name: "",
         serving: "",
-        calories: ""
+        calories: "",
+        errorMessage: false
     }
 
     //Handles input changes
@@ -21,6 +22,7 @@ class AddNewFood extends Component {
     //Submits new food and returns to foods list
     addNewFood = evt => {
         evt.preventDefault()
+        if(!isNaN(parseInt(this.state.calories))){
         const newFood = {
             userId: this.state.userId,
             brand: this.state.brand,
@@ -30,7 +32,10 @@ class AddNewFood extends Component {
         }
         this.props.addNewFoodEntry("foods", newFood, "foods")
         this.props.history.push("/foods")
+    } else {
+        this.setState({errorMessage: true})
     }
+}
 
     //Renders new food form
     render(){
@@ -38,23 +43,24 @@ class AddNewFood extends Component {
         <div>
         <h1>Add New Food</h1>
         <Form className="food-form">
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group>
                 <Form.Label>Food Name</Form.Label>
                 <Form.Control type="text" placeholder="Food Name" onChange={this.handleFieldChange} id="name"/>
                 <Form.Text className="text-muted">
                 </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group>
                 <Form.Label>Brand</Form.Label>
                 <Form.Control type="text" onChange={this.handleFieldChange} placeholder="Brand" id="brand"/>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group>
                 <Form.Label>Serving Size</Form.Label>
                 <Form.Control type="text" placeholder="Serving" onChange={this.handleFieldChange} id="serving"/>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group>
                 <Form.Label>Calories per serving</Form.Label>
                 <Form.Control type="text" placeholder="Calories" onChange={this.handleFieldChange} id="calories"/>
+                {this.state.errorMessage ? <p>Please enter a number</p> : ""}
             </Form.Group>
             <Button variant="primary" type="submit" onClick={this.addNewFood}>
                 Add Food

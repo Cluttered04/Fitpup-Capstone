@@ -65,18 +65,16 @@ const calculator = {
     expandedRERCalculator: function(basicRER, active, neutered, age){
         let RER = basicRER
         let multiplier = 0
-        if(active === "true"){
-            multiplier = multiplier + 3.5
-        }
-        if (neutered === "true"){
-            multiplier = multiplier + 1.6
-        } else {
-            multiplier = multiplier + 1.8
-        }
-        if (age === "1"){
-            multiplier = multiplier + 3
-        } else if (age === "2"){
-            multiplier = multiplier + 2
+        if(age === "1"){
+            multiplier = 3
+        } else if(age === "2"){
+            multiplier =2
+        } else if(active){
+            multiplier = 3.5
+        } else if(!neutered){
+            multiplier = 1.6
+        } else if(neutered){
+            multiplier = 1.8
         }
         return RER * multiplier
     }

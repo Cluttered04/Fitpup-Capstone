@@ -9,7 +9,8 @@ class EditFoodForm extends Component {
         name: "",
         brand: "",
         serving:"",
-        calories: ""
+        calories: "",
+        errorMessage: false
         }
 
         //Handles input changes
@@ -22,6 +23,7 @@ class EditFoodForm extends Component {
         //"PUT" request to submit edited food and redirects back to food list
         editFood = evt => {
             evt.preventDefault()
+            if(!isNaN(parseInt(this.state.calories))){
             const updatedFood = {
                 userId: this.state.userId,
                 name: this.state.name,
@@ -33,6 +35,11 @@ class EditFoodForm extends Component {
 
             this.props.editAndRetrieveAll("foods", updatedFood, "foods")
             this.props.history.push("/foods")
+        } else {
+            this.setState({
+                errorMessage: true
+            })
+        }
         }
 
         //Retrieves food info to populate form fields and sets to state
@@ -56,21 +63,22 @@ class EditFoodForm extends Component {
             <div>
             <h1>Edit Food Details</h1>
             <Form className="food-form">
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group>
                 <Form.Label>Food Name</Form.Label>
                 <Form.Control type="text" value={this.state.name} onChange={this.handleFieldChange} placeholder="Food Name" id="name"/>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group>
                 <Form.Label>Brand</Form.Label>
                 <Form.Control type="text" onChange={this.handleFieldChange} placeholder="Brand" value={this.state.brand} id="brand"/>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group>
                 <Form.Label>Serving Size</Form.Label>
                 <Form.Control type="text" placeholder="Serving" value={this.state.serving} onChange={this.handleFieldChange} id="serving"/>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group>
                 <Form.Label>Calories per serving</Form.Label>
                 <Form.Control type="text" placeholder="Calories" value={this.state.calories} onChange={this.handleFieldChange} id="calories"/>
+                {this.state.errorMessage ? <p>Please enter a number</p> : ""}
             </Form.Group>
             <Button variant="primary" type="submit" onClick={this.editFood}>
                 Submit

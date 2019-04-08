@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import APIManager from "../../modules/APIManager";
 import Moment from "react-moment";
 import EditEntryModal from "./EditEntryModal";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, BarChart, Bar } from 'recharts';
 import calculator from "../calculator/Calculator"
 
 class DogSummary extends Component {
@@ -16,7 +16,10 @@ class DogSummary extends Component {
     weight: "",
     weightHistory: [],
     foodEntriesByDate: [],
-    exerciseEntriesByDate: []
+    exerciseEntriesByDate: [],
+    behavior: "",
+    behaviorHistory: [],
+    behaviorMessage: false
   };
 
   //handles edit entry modal
@@ -62,7 +65,7 @@ class DogSummary extends Component {
       });
   };
 
-  postAndRetrieveWeight = (
+  postAndRetrieveByDog = (
     collection,
     object,
     searchCollection,
@@ -110,6 +113,16 @@ class DogSummary extends Component {
       )
       .then(() =>
         APIManager.getSingleEntryById(
+          "behavior",
+          "dogId",
+          this.props.match.params.dogId
+        )
+      )
+      .then(behaviorEntry => {
+        newState.behaviorHistory = behaviorEntry
+      })
+      .then(() =>
+        APIManager.getSingleEntryById(
           "weight",
           "dogId",
           this.props.match.params.dogId
@@ -122,7 +135,7 @@ class DogSummary extends Component {
   }
 
   // Handles weight input changes
-  handleWeighIn = evt => {
+  handleFieldChange = evt => {
     evt.preventDefault();
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
@@ -139,7 +152,7 @@ class DogSummary extends Component {
         weight: parseInt(this.state.weight),
         date: today
       };
-      this.postAndRetrieveWeight(
+      this.postAndRetrieveByDog(
         "weight",
         weightEntry,
         "dogId",
@@ -152,6 +165,27 @@ class DogSummary extends Component {
       alert("Weight : Please enter a number");
     }
   };
+
+  //AddBehaviorEntry
+  addBehaviorEntry = evt => {
+    evt.preventDefault()
+    let today = new Date().toISOString();
+    const behaviorEntry = {
+      dogId: this.props.match.params.dogId,
+      date: today.slice(0, 10),
+      behavior: parseInt(this.state.behavior)
+    }
+    this.postAndRetrieveByDog(
+      "behavior",
+      behaviorEntry,
+      "dogId",
+      this.props.match.params.dogId,
+      "behaviorHistory"
+    )
+    this.setState({
+      behaviorMessage: true
+    })
+  }
 
 
 
@@ -216,6 +250,17 @@ class DogSummary extends Component {
         return calorieArray.sort((a, b) => b.date > a.date ? -1 : 1)
       })
 
+      //Slices dates on weight objects for better graph labelling
+      const weightArray = []
+      const weightOverTimer = this.state.weightHistory.sort((a, b) => (b.date > a.date ? -1 : 1)).map(weight => {
+        const weightObject = {
+          date: weight.date.slice(0, 10),
+          weight: weight.weight
+        }
+        weightArray.push(weightObject)
+        return weightArray
+      })
+
       //Array that calculates exercise time by date for graph
       const activityArray = []
       const activityOverTime = exerciseEntriesByDate.map(date => {
@@ -225,6 +270,22 @@ class DogSummary extends Component {
         }
         activityArray.push(newExerciseObject)
         return activityArray.sort((a, b) => b.date > a.date ? -1 : 1)
+      })
+
+      //Makes a new array combining matching total activity time and behavior entry for matching dates
+      const behaviorActivityArray = []
+      const behaviorActivityCorrelation = exerciseEntriesByDate.map(date => {
+        this.state.behaviorHistory.map(behavior => {
+          if(behavior.date === date[0].date) {
+            const behaviorObject = {
+            date: date[0].date,
+            behavior: behavior.behavior,
+            activity: date.reduce((a, b) =>   a + b.time, 0)
+          }
+          behaviorActivityArray.push(behaviorObject)
+          return behaviorActivityArray.sort((a, b) => b.date > a.date ? -1 : 1)
+        }
+        })
       })
 
 
@@ -248,7 +309,7 @@ class DogSummary extends Component {
           id="weight"
           ref="weight"
           placeholder="Weight in pounds"
-          onChange={this.handleWeighIn}
+          onChange={this.handleFieldChange}
         />
         <button onClick={this.addWeightEntry} value="weight">
           Weigh In
@@ -272,12 +333,26 @@ class DogSummary extends Component {
           <h3>{sortedWeightHistory.length > 0 ? `Estimated Calorie Needs per Day for Maintenance: ${Math.round(calculator.expandedRERCalculator(calculator.basicRERCalculator(sortedWeightHistory[0].weight), this.state.dogs.active, this.state.dogs.neutered, this.state.dogs.age))}` : "" }</h3>
         </div>
 
+        <div className="behavior">
+        <label htmlFor="dropdown">Behavior Today!</label><br/>
+            <select onChange={this.handleFieldChange} id="behavior">
+                <option>Energy Levels</option>
+                <option value="5">Very energetic/Unruly</option>
+                <option value="4">Energetic</option>
+                <option value="3">Normal</option>
+                <option value="2">Slightly below normal</option>
+                <option value="1">Lazy</option>
+            </select>
+            <button onClick={this.addBehaviorEntry}>Submit</button>
+            {this.state.behaviorMessage ? <p>Behavior Entry Submitted</p> : ""}
+        </div>
+
         <div className="graphs">
         {/* Weight over time graph */}
         <div>
         <h5>Weight Over Time</h5>
         <Label>Weight Over Time</Label>
-        <LineChart width={400} height={300} data={this.state.weightHistory.sort((a, b) => (b.date > a.date ? -1 : 1))}>
+        <LineChart width={400} height={300} data={weightArray}>
           <Line type="monotone" dataKey="weight" stroke="#8884d8" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="date" />
@@ -314,6 +389,25 @@ class DogSummary extends Component {
         </LineChart>
         </div>
           </div>
+
+       {/* Bar graph comparing activity levels to behavior */}
+        <BarChart
+        width={500}
+        height={300}
+        data={behaviorActivityArray}
+        margin={{
+          top: 20, right: 30, left: 20, bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="date" />
+        <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
+        <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+        <Tooltip />
+        <Legend />
+        <Bar yAxisId="left" dataKey="behavior" fill="#8884d8" />
+        <Bar yAxisId="right" dataKey="activity" fill="#82ca9d" />
+      </BarChart>
 
         {/* Add new entry buttons */}
         <button onClick={() => this.props.history.push("/foods")}>
