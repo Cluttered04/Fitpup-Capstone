@@ -42,7 +42,8 @@
       "breed": "",
       "age": "3",
       "active": "true",
-      "neutered": "true"
+      "neutered": "true",
+      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554735693/gnppflue46j0keoqg5me.jpg"
     },
     {
       "id": 4,
@@ -106,7 +107,7 @@
     {
       "id": 6,
       "userId": 3,
-      "name": "Fetch"
+      "name": "Fetch2"
     },
     {
       "userId": 3,
@@ -178,7 +179,7 @@
       "name": "Kibble",
       "brand": "Blue Buffalo",
       "serving": "2 Cup",
-      "calories": 200,
+      "calories": 210,
       "id": 10
     },
     {
@@ -250,6 +251,13 @@
       "foodId": 10,
       "serving": 1,
       "id": 5
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-10",
+      "id": 7,
+      "serving": 1,
+      "foodId": 12
     }
   ],
   "weight": [
@@ -288,6 +296,18 @@
       "weight": 40,
       "date": "2019-04-05T21:41:03.871Z",
       "id": 6
+    },
+    {
+      "dogId": "7",
+      "weight": 45,
+      "date": "2019-04-08T14:51:18.014Z",
+      "id": 7
+    },
+    {
+      "dogId": "7",
+      "weight": 19,
+      "date": "2019-04-08T14:51:22.508Z",
+      "id": 8
     }
   ],
   "behavior": []
