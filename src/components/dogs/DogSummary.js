@@ -16,7 +16,9 @@ class DogSummary extends Component {
     weight: "",
     weightHistory: [],
     foodEntriesByDate: [],
-    exerciseEntriesByDate: []
+    exerciseEntriesByDate: [],
+    behavior: "",
+    behaviorHistory: []
   };
 
   //handles edit entry modal
@@ -62,7 +64,7 @@ class DogSummary extends Component {
       });
   };
 
-  postAndRetrieveWeight = (
+  postAndRetrieveByDog = (
     collection,
     object,
     searchCollection,
@@ -110,6 +112,16 @@ class DogSummary extends Component {
       )
       .then(() =>
         APIManager.getSingleEntryById(
+          "behavior",
+          "dogId",
+          this.props.match.params.dogId
+        )
+      )
+      .then(behaviorEntry => {
+        newState.behaviorHistory = behaviorEntry
+      })
+      .then(() =>
+        APIManager.getSingleEntryById(
           "weight",
           "dogId",
           this.props.match.params.dogId
@@ -122,7 +134,7 @@ class DogSummary extends Component {
   }
 
   // Handles weight input changes
-  handleWeighIn = evt => {
+  handleFieldChange = evt => {
     evt.preventDefault();
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
@@ -139,7 +151,7 @@ class DogSummary extends Component {
         weight: parseInt(this.state.weight),
         date: today
       };
-      this.postAndRetrieveWeight(
+      this.postAndRetrieveByDog(
         "weight",
         weightEntry,
         "dogId",
@@ -152,6 +164,24 @@ class DogSummary extends Component {
       alert("Weight : Please enter a number");
     }
   };
+
+  //AddBehaviorEntry
+  addBehaviorEntry = evt => {
+    evt.preventDefault()
+    let today = new Date().toISOString();
+    const behaviorEntry = {
+      dogId: this.props.match.params.dogId,
+      date: today.slice(0, 10),
+      behavior: parseInt(this.state.behavior)
+    }
+    this.postAndRetrieveByDog(
+      "behavior",
+      behaviorEntry,
+      "dogId",
+      this.props.match.params.dogId,
+      "behaviorHistory"
+    )
+  }
 
 
 
@@ -248,7 +278,7 @@ class DogSummary extends Component {
           id="weight"
           ref="weight"
           placeholder="Weight in pounds"
-          onChange={this.handleWeighIn}
+          onChange={this.handleFieldChange}
         />
         <button onClick={this.addWeightEntry} value="weight">
           Weigh In
@@ -270,6 +300,19 @@ class DogSummary extends Component {
           {/* Calculates necessary resting calorie intake per day */}
         <div>
           <h3>{sortedWeightHistory.length > 0 ? `Estimated Calorie Needs per Day for Maintenance: ${Math.round(calculator.expandedRERCalculator(calculator.basicRERCalculator(sortedWeightHistory[0].weight), this.state.dogs.active, this.state.dogs.neutered, this.state.dogs.age))}` : "" }</h3>
+        </div>
+
+        <div className="behavior">
+        <label htmlFor="dropdown">Behavior Today!</label><br/>
+            <select onChange={this.handleFieldChange} id="behavior">
+                <option>Energy Levels</option>
+                <option value="5">Very energetic/Unruly</option>
+                <option value="4">Energetic</option>
+                <option value="3">Normal</option>
+                <option value="2">Slightly below normal</option>
+                <option value="1">Lazy</option>
+            </select>
+            <button onClick={this.addBehaviorEntry}>Submit</button>
         </div>
 
         <div className="graphs">

@@ -310,5 +310,18 @@
       "id": 8
     }
   ],
-  "behavior": []
+  "behavior": [
+    {
+      "dogId": 7,
+      "behavior": 1,
+      "date": "2019-04-08",
+      "id": 1
+    },
+    {
+      "dogId": "3",
+      "date": "2019-04-08",
+      "behavior": 4,
+      "id": 2
+    }
+  ]
 }
