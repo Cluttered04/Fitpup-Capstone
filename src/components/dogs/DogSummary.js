@@ -250,6 +250,17 @@ class DogSummary extends Component {
         return calorieArray.sort((a, b) => b.date > a.date ? -1 : 1)
       })
 
+      //Slices dates on weight objects for better graph labelling
+      const weightArray = []
+      const weightOverTimer = this.state.weightHistory.sort((a, b) => (b.date > a.date ? -1 : 1)).map(weight => {
+        const weightObject = {
+          date: weight.date.slice(0, 10),
+          weight: weight.weight
+        }
+        weightArray.push(weightObject)
+        return weightArray
+      })
+
       //Array that calculates exercise time by date for graph
       const activityArray = []
       const activityOverTime = exerciseEntriesByDate.map(date => {
@@ -261,6 +272,7 @@ class DogSummary extends Component {
         return activityArray.sort((a, b) => b.date > a.date ? -1 : 1)
       })
 
+      //Makes a new array combining matching total activity time and behavior entry for matching dates
       const behaviorActivityArray = []
       const behaviorActivityCorrelation = exerciseEntriesByDate.map(date => {
         this.state.behaviorHistory.map(behavior => {
@@ -340,7 +352,7 @@ class DogSummary extends Component {
         <div>
         <h5>Weight Over Time</h5>
         <Label>Weight Over Time</Label>
-        <LineChart width={400} height={300} data={this.state.weightHistory.sort((a, b) => (b.date > a.date ? -1 : 1))}>
+        <LineChart width={400} height={300} data={weightArray}>
           <Line type="monotone" dataKey="weight" stroke="#8884d8" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="date" />
@@ -378,7 +390,8 @@ class DogSummary extends Component {
         </div>
           </div>
 
-          <BarChart
+       {/* Bar graph comparing activity levels to behavior */}
+        <BarChart
         width={500}
         height={300}
         data={behaviorActivityArray}
