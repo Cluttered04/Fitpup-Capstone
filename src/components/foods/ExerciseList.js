@@ -51,10 +51,10 @@ class ExerciseList extends Component {
           Add New Exercise
         </button>
         </div>
+        <div className="food-list">
         {filteredExercises.map(exercise => {
           return (
             <div>
-              <div className="food-list">
                 {/* Maps through exercise list and returns cards */}
               <FoodExerciseCard
                 collection={exercise}
@@ -63,7 +63,7 @@ class ExerciseList extends Component {
                 deleteAndRetrieveAll={this.props.deleteAndRetrieveAll}
                 key={exercise.id}
               />
-              </div>
+
               {/* Conditionally renders modal on button click */}
               {this.state.showModal === true ? (
                 <AddEntryModal
@@ -79,7 +79,7 @@ class ExerciseList extends Component {
               )}
             </div>
           );
-        })}
+        })}</div>
 
       </div>
     );

@@ -47,7 +47,8 @@ class EditExerciseForm extends Component {
     render() {
         return(
             <div>
-            <Form>
+            <h1>Edit Exercise Details</h1>
+            <Form className="food-form">
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Exercise</Form.Label>
                 <Form.Control type="text" value={this.state.name} placeholder="Exercise Type" onChange={this.handleFieldChange} id="name"/>

@@ -239,7 +239,7 @@ class DogSummary extends Component {
       <div>
         <h1>{dog.name}</h1>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2qjTV1Vh1YMdM3hIkSB85WPbxlli89K7HUrvmLufKlatZLKr3"
+          src={dog.image ? dog.image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2qjTV1Vh1YMdM3hIkSB85WPbxlli89K7HUrvmLufKlatZLKr3"}
           alt="dog"
         />
         <br />

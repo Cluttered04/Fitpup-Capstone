@@ -54,12 +54,11 @@ class EditFoodForm extends Component {
     render() {
         return(
             <div>
-            <Form>
+            <h1>Edit Food Details</h1>
+            <Form className="food-form">
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Food Name</Form.Label>
                 <Form.Control type="text" value={this.state.name} onChange={this.handleFieldChange} placeholder="Food Name" id="name"/>
-                <Form.Text className="text-muted">{this.state.name}
-                </Form.Text>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
                 <Form.Label>Brand</Form.Label>

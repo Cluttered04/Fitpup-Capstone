@@ -29,9 +29,9 @@ class AddNewExercise extends Component {
     // Exercise form
     render(){
         return(
-            <div>
+        <div>
         <h1>Add New Exercise</h1>
-        <Form>
+        <Form className="food-form">
                 <Form.Group controlId="formBasicPassword">
                 <Form.Label>Exercise</Form.Label>
                 <Form.Control type="text" placeholder="i.e. Fetch" onChange={this.handleFieldChange} id="name"/>

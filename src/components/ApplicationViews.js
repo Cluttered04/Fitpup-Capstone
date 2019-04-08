@@ -14,6 +14,7 @@ import DogSummary from "./dogs/DogSummary"
 import Callback from "./Authentication/Callback";
 import Auth0Client from "./Authentication/Auth.js";
 import Info from "./home/Info"
+import ImageUploads from "./imageUploads/ImageUploads"
 
 class ApplicationViews extends Component {
   state = {
@@ -284,6 +285,12 @@ class ApplicationViews extends Component {
             return (
                 <DogSummary {...props} dogs={this.state.dogs} exerciseEntries={this.state.exerciseEntries} foodEntries={this.state.foodEntries} weight={this.state.weight} behavior={this.state.behavior} addNewEntry={this.addNewEntry} />
             )
+        }}/>
+
+        <Route exact path="/dogs/:dogId(\d+)/upload" render={props => {
+          return (
+            <ImageUploads {...props} dogs={this.state.dogs}/>
+          )
         }}/>
 
         <Route exact path="/callback" render={props => {

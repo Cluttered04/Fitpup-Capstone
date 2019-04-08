@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import APIManager from "../../modules/APIManager"
 import PropTypes from "prop-types"
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
+
+const CLOUDINARY_UPLOAD_PRESET = 'avgepfaf';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/doakhgbvc/upload';
 
 class DogEditForm extends Component {
   state = {
@@ -10,7 +15,8 @@ class DogEditForm extends Component {
     age: "",
     active: "",
     neutered: "",
-    userId: parseInt(sessionStorage.getItem("credentials"))
+    userId: parseInt(sessionStorage.getItem("credentials")),
+    uploadedFileCloudinaryUrl: ""
   };
 
   //Handles text input changes
@@ -42,6 +48,34 @@ class DogEditForm extends Component {
     });
   };
 
+  //Handles image drop
+  onImageDrop(files) {
+    this.setState({
+      uploadedFile: files[0]
+    });
+
+    this.handleImageUpload(files[0]);
+  }
+
+  //Handles image uploading
+  handleImageUpload(file) {
+    let upload = request.post(CLOUDINARY_UPLOAD_URL)
+                    .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                    .field('file', file);
+
+    upload.end((err, response) => {
+      if (err) {
+        console.error(err);
+      }
+
+      if (response.body.secure_url !== '') {
+        this.setState({
+          uploadedFileCloudinaryUrl: response.body.secure_url
+        });
+      }
+    });
+  }
+
 
 
   componentDidMount(){
@@ -53,7 +87,8 @@ class DogEditForm extends Component {
             breed: dog.breed,
             active: dog.active,
             neutered: dog.neutered,
-            age: dog.age
+            age: dog.age,
+            uploadedFileCloudinaryUrl: dog.image
         }))
   }
 
@@ -66,7 +101,8 @@ class DogEditForm extends Component {
           breed: this.state.breed,
           age: this.state.age,
           active: this.state.active,
-          neutered: this.state.neutered
+          neutered: this.state.neutered,
+          image: this.state.uploadedFileCloudinaryUrl
       }
       this.props.editEntry("dogs", updatedDog, "dogs")
       this.props.history.push("/")
@@ -76,7 +112,9 @@ class DogEditForm extends Component {
 
   render() {
     return (
-      <Form>
+      <div>
+        <h1>Edit Dog Details</h1>
+      <Form className="dog-form">
         <Form.Group as={Row}>
           <Form.Label column sm={2}>
             Dog Name
@@ -110,7 +148,6 @@ class DogEditForm extends Component {
         <fieldset>
           <Form.Group as={Row}>
             <Form.Label as="legend" column sm={2}>
-              Age
             </Form.Label>
             <Row sm={10}>
               <Form.Check
@@ -148,7 +185,6 @@ class DogEditForm extends Component {
         <fieldset>
           <Form.Group as={Row} controlId="formHorizontalCheck">
             <Form.Label as="legend" column sm={2}>
-              Neutered/Spay
             </Form.Label>
             <Form.Check
               type="radio"
@@ -174,7 +210,6 @@ class DogEditForm extends Component {
         <fieldset>
           <Form.Group as={Row} controlId="formHorizontalCheck">
             <Form.Label as="legend" column sm={2}>
-              Active/Inactive
             </Form.Label>
             <Form.Check
               type="radio"
@@ -205,6 +240,39 @@ class DogEditForm extends Component {
           </Col>
         </Form.Group>
       </Form>
+      <Dropzone
+          onDrop={this.onImageDrop.bind(this)}
+          accept="image/*"
+          multiple={false}>
+            {({getRootProps, getInputProps}) => {
+              return (
+                <div
+                  {...getRootProps()}
+                >
+                  <input {...getInputProps()} />
+                  <div className="boxed">
+                  {
+                  <p>Drag a picture of your dog here to upload!</p>
+                  }
+                  </div>
+                </div>
+             )
+            }}
+      </Dropzone>
+        <div>
+          <div className="FileUpload">
+            ...
+          </div>
+
+          <div>
+            {this.state.uploadedFileCloudinaryUrl === '' ? null :
+            <div>
+              <img src={this.state.uploadedFileCloudinaryUrl} />
+            </div>}
+          </div>
+        </div>
+  </div>
+
     );
   }
 }
