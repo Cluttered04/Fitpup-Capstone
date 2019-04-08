@@ -10,7 +10,7 @@ class FoodExerciseCard extends Component {
     render() {
         const foodStatus = this.props.match.path
         return(
-            <Card style={{ width: '12rem' }}>
+            <Card style={{ width: '12rem'}} className="food-card">
             <Card.Body>
                 <Card.Title  className="clickable" onClick={() => this.props.handleModal(this.props.collection)} value={this.props.collection.id}>{this.props.collection.name}</Card.Title>
                 <Card.Subtitle className="clickable" onClick={this.props.handleModal} className="mb-2 text-muted">{this.props.collection.brand ? this.props.collection.brand : ""}</Card.Subtitle>

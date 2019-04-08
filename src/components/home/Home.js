@@ -7,7 +7,7 @@ class Home extends Component {
     return (
       <div>
         <div className="home-buttons">
-          <button onClick={() => this.props.history.push("/foods")}>My Foods</button><button onClick={() => this.props.history.push("/exercises")}>My exercises</button></div>
+          <button className="exercises-btn" onClick={() => this.props.history.push("/foods")}>My Foods</button><button className="exercises-btn" onClick={() => this.props.history.push("/exercises")}>My exercises</button></div>
         <h1>My Dogs</h1>
           <div className="home">
           {this.props.dogs.map((dog) => {
@@ -16,7 +16,10 @@ class Home extends Component {
               )
           })}
           </div>
-          <button className="new-dog" onClick={() => this.props.history.push("/dogs/new")}>Add Another Dog</button>
+          <div className="new-dog" >
+          <button className="new-dog-btn"  onClick={() => this.props.history.push("/dogs/new")}>Add Another Dog</button>
+          </div>
+
       </div>
     );
   }
