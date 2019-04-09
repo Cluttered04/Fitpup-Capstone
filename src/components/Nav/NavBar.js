@@ -14,7 +14,7 @@ class NavBar extends Component {
 
     render(){
         return (
-        <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
+        <nav className="navbar navbar-light nav-orange flex-md-nowrap p-0 shadow">
         {!auth0Client.isAuthenticated() ? (
             <button className="btn btn-success" onClick={auth0Client.signIn}>
              Sign In

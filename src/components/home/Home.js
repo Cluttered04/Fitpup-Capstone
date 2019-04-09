@@ -6,9 +6,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div className="home-buttons">
-          <button className="exercises-btn" onClick={() => this.props.history.push("/foods")}>My Foods</button><button className="exercises-btn" onClick={() => this.props.history.push("/exercises")}>My exercises</button></div>
-        <h1>My Dogs</h1>
+        <div className="background-image-list">
+        <h1 className="h1-list">My Dogs</h1>
+
+        </div>
           <div className="home">
           {this.props.dogs.map((dog) => {
               return (

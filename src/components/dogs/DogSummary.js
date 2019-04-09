@@ -298,7 +298,7 @@ class DogSummary extends Component {
     return (
       // Dog info and weight input/button
       <div>
-        <h1>{dog.name}</h1>
+        <h1 className="dog-header">{dog.name}</h1>
         <img className="summary-image"
           src={dog.image ? dog.image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2qjTV1Vh1YMdM3hIkSB85WPbxlli89K7HUrvmLufKlatZLKr3"}
           alt="dog"
@@ -323,7 +323,7 @@ class DogSummary extends Component {
         <button onClick={this.addWeightEntry} value="weight">
           Weigh In
         </button>
-        <h5>Recent Weigh Ins</h5>
+        <h5 className="green">Recent Weigh Ins</h5>
         {/* Sorts weight history by date and displays three most recent weigh ins */}
         {sortedWeightHistory
           .slice(0, 3)
@@ -341,7 +341,7 @@ class DogSummary extends Component {
 
 
         <div className="behavior">
-        <h5>Behavior Today!</h5>
+        <h5 className="green">Behavior Today!</h5>
             <select onChange={this.handleFieldChange} id="behavior">
                 <option>Energy Levels</option>
                 <option value="5">Very energetic/Unruly</option>
@@ -437,20 +437,22 @@ class DogSummary extends Component {
         </button>
         </div>
         </div>
+
+          {/* Food and exercise entries */}
           <div className="summary-entries">
-          <div className="food-entries">
+          <div className={this.state.expandedFoodEntries.length > 0 ? "food-entries" : ""}>
           {/* Loops over dates, prints headers/groups food entries together */}
           {foodEntriesByDate.map(date => {
             return (
-            <div><h4>
-            <Moment format="MM/DD/YYYY">{date[0].date}</Moment>
+            <div className="entry-padding entry-border"><h4>
+            <Moment format="MM/DD/YYYY" className="green">{date[0].date}</Moment>
           </h4>
-          <h5>Total Calories: {date.reduce((a, b) => a + (b.food.calories * b.serving), 0 )}</h5>
+          <h5 className="orange">Total Calories: {date.reduce((a, b) => a + (b.food.calories * b.serving), 0 )}</h5>
 
           {/* Prints out individual entry information */}
            {date.map(entry => {
             return (
-              <div key={entry.id}>
+              <div className="entry-padding" key={entry.id}>
                 <h6>{entry.food.name}</h6>
                 <h6>{entry.food.brand}</h6>
                 <p>
@@ -481,20 +483,19 @@ class DogSummary extends Component {
           </div>
 
 
-
-        <div className="exercise-entries">
+        <div className={this.state.expandedExerciseEntries.length > 0 ? "exercise-entries" : ""}>
           {/* Separates exercise entries by date, prints headers and total time */}
           {exerciseEntriesByDate.map(date => {
             return (
-            <div><h4>
-            <Moment format="MM/DD/YYYY">{date[0].date}</Moment>
+            <div className="entry-padding entry-border" ><h4>
+            <Moment format="MM/DD/YYYY" className="green">{date[0].date}</Moment>
           </h4>
-          <h6>Total time: {date.reduce((a, b) =>   a + b.time, 0 )} Minutes</h6>
+          <h6 className="orange">Total time: {date.reduce((a, b) =>   a + b.time, 0 )} Minutes</h6>
 
             {/* Prints individual exercise entry information */}
            {date.map(entry => {
             return (
-              <div key={entry.id}>
+              <div key={entry.id} className="entry-padding">
                 <h6>{entry.exercise.name}</h6>
                 <p>Time: {entry.time} Minutes</p>
                 <button onClick={() => this.handleModal(entry)}>

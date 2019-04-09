@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import FoodExerciseCard from "./FoodExerciseCard";
 import AddEntryModal from "./AddEntryModal";
+import measuring from "../images/measuring-tape-image.jpg"
 
 class MyFoodsList extends Component {
   state = {
@@ -43,8 +44,13 @@ class MyFoodsList extends Component {
 
     return (
       <div>
-        <h1>My Foods</h1>
+         <div className="background-image-list">
+         {/* <img src={measuring} style={{ width: '100vw'}}/> */}
+
+        <h1 className="h1-list">My Foods</h1>
+        </div>
         {/* Search bar */}
+
         <div className="search-bar">
         <input
           id="search"

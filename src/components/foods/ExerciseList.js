@@ -39,7 +39,10 @@ class ExerciseList extends Component {
 
     return (
       <div>
-        <h1>My Exercises</h1>
+        <div className="background-image-list">
+
+        <h1 className="h1-list">My Exercises</h1>
+        </div>
         <div className="search-bar">
         <input
           id="search"
@@ -51,6 +54,7 @@ class ExerciseList extends Component {
           Add New Exercise
         </button>
         </div>
+
         <div className="food-list">
         {filteredExercises.map(exercise => {
           return (

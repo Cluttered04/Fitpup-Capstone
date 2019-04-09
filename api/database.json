@@ -36,16 +36,6 @@
       "id": 2
     },
     {
-      "id": 3,
-      "userId": 3,
-      "name": "Flip2",
-      "breed": "",
-      "age": "3",
-      "active": "true",
-      "neutered": "true",
-      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554735693/gnppflue46j0keoqg5me.jpg"
-    },
-    {
       "id": 4,
       "userId": 3,
       "name": "Whippers",
@@ -74,14 +64,14 @@
       "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554734628/q902rpugkpkohxmlii8x.jpg"
     },
     {
-      "name": "Clifford",
-      "breed": "Rhodesian",
+      "name": "Flip",
+      "breed": "Golden",
       "neutered": "false",
       "active": "true",
       "age": "2",
       "userId": 3,
-      "image": "",
-      "id": 8
+      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554816518/ej5rwi9d97zqdt3sklgt.jpg",
+      "id": 9
     }
   ],
   "exercises": [
@@ -278,6 +268,13 @@
       "exerciseId": 8,
       "time": 25,
       "id": 8
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-09",
+      "exerciseId": 6,
+      "time": 45,
+      "id": 9
     }
   ],
   "foodEntries": [
@@ -294,13 +291,6 @@
       "foodId": 10,
       "serving": 3,
       "id": 4
-    },
-    {
-      "dogId": 4,
-      "date": "2019-04-05",
-      "foodId": 10,
-      "serving": 1,
-      "id": 5
     },
     {
       "dogId": 7,
@@ -322,6 +312,41 @@
       "foodId": 1,
       "serving": 3,
       "id": 9
+    },
+    {
+      "dogId": 4,
+      "date": "2019-04-09",
+      "foodId": 1,
+      "serving": 2,
+      "id": 10
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-09",
+      "foodId": 12,
+      "serving": 3,
+      "id": 12
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-06",
+      "foodId": 14,
+      "serving": 2,
+      "id": 13
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-09",
+      "foodId": 15,
+      "serving": 2,
+      "id": 14
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-03",
+      "foodId": 14,
+      "serving": 2,
+      "id": 15
     }
   ],
   "weight": [
