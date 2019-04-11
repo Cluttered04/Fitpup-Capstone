@@ -36,15 +36,6 @@
       "id": 2
     },
     {
-      "id": 4,
-      "userId": 3,
-      "name": "Whippers",
-      "breed": "Lab",
-      "age": "2",
-      "active": "true",
-      "neutered": "true"
-    },
-    {
       "name": "Flip",
       "breed": "Greyhound",
       "neutered": "false",
@@ -72,6 +63,16 @@
       "userId": 3,
       "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554816518/ej5rwi9d97zqdt3sklgt.jpg",
       "id": 9
+    },
+    {
+      "id": 10,
+      "userId": 3,
+      "name": "Captain",
+      "breed": "Shepherd",
+      "age": "3",
+      "active": "false",
+      "neutered": "true",
+      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554987804/ficoqfueyvzxldhzirbe.jpg"
     }
   ],
   "exercises": [
@@ -174,7 +175,7 @@
       "userId": 3,
       "name": "Kibble",
       "brand": "Blue Buffalo",
-      "serving": "3 Cups",
+      "serving": "1 Cup",
       "calories": 210,
       "id": 10
     },
@@ -275,6 +276,13 @@
       "exerciseId": 6,
       "time": 45,
       "id": 9
+    },
+    {
+      "dogId": 10,
+      "date": "2019-04-11",
+      "id": 10,
+      "time": 30,
+      "exerciseId": 6
     }
   ],
   "foodEntries": [
@@ -409,6 +417,24 @@
       "weight": 40,
       "date": "2019-04-08T19:03:05.919Z",
       "id": 10
+    },
+    {
+      "dogId": "10",
+      "weight": 40,
+      "date": "2019-04-11T13:05:23.950Z",
+      "id": 11
+    },
+    {
+      "dogId": "10",
+      "weight": 39,
+      "date": "2019-04-11T13:05:29.720Z",
+      "id": 12
+    },
+    {
+      "dogId": "10",
+      "weight": 35,
+      "date": "2019-04-11T13:05:33.158Z",
+      "id": 13
     }
   ],
   "behavior": [
@@ -459,6 +485,12 @@
       "date": "2019-04-08",
       "behavior": 5,
       "id": 8
+    },
+    {
+      "dogId": "10",
+      "date": "2019-04-11",
+      "behavior": 5,
+      "id": 9
     }
   ]
 }
