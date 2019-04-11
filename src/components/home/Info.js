@@ -1,11 +1,13 @@
 import React, {Component} from "react"
+import FitPupLogo from "../images/Logo.png"
 
 class Info extends Component {
 
     render() {
         return(
             <div>
-            <h1>Please Sign in</h1>
+            <img className="logo" alt="logo" src={FitPupLogo}/>
+            <h1>Please Sign in!</h1>
             </div>
         )
 
