@@ -36,15 +36,6 @@
       "id": 2
     },
     {
-      "id": 4,
-      "userId": 3,
-      "name": "Whippers",
-      "breed": "Lab",
-      "age": "2",
-      "active": "true",
-      "neutered": "true"
-    },
-    {
       "name": "Flip",
       "breed": "Greyhound",
       "neutered": "false",
@@ -72,6 +63,16 @@
       "userId": 3,
       "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554816518/ej5rwi9d97zqdt3sklgt.jpg",
       "id": 9
+    },
+    {
+      "id": 10,
+      "userId": 3,
+      "name": "Skip",
+      "breed": "Poodle",
+      "age": "2",
+      "active": "true",
+      "neutered": "false",
+      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554996135/fmt73grealtpsalwpvsd.jpg"
     }
   ],
   "exercises": [
@@ -129,6 +130,11 @@
       "userId": 1,
       "name": "Pulling Sled",
       "id": 14
+    },
+    {
+      "id": 15,
+      "userId": 3,
+      "name": "Hunting"
     }
   ],
   "foods": [
@@ -190,10 +196,10 @@
     },
     {
       "userId": 3,
-      "brand": "Blue Buffalo",
       "name": "Kibble",
+      "brand": "Blue Buffalo",
       "serving": "1 Cup",
-      "calories": 245,
+      "calories": 300,
       "id": 11
     },
     {
@@ -579,6 +585,14 @@
       "serving": "1 Treat",
       "calories": 53,
       "id": 59
+    },
+    {
+      "userId": 3,
+      "brand": "Tyson",
+      "name": "True Chews - Beef",
+      "serving": "1 Treat",
+      "calories": 53,
+      "id": 60
     }
   ],
   "exerciseEntries": [
@@ -602,6 +616,13 @@
       "exerciseId": 3,
       "time": 60,
       "id": 11
+    },
+    {
+      "dogId": 10,
+      "date": "2019-04-11",
+      "id": 12,
+      "time": 40,
+      "exerciseId": 15
     }
   ],
   "foodEntries": [
@@ -646,6 +667,13 @@
       "foodId": 14,
       "serving": 2,
       "id": 15
+    },
+    {
+      "dogId": 10,
+      "date": "2019-04-11",
+      "id": 16,
+      "serving": 3,
+      "foodId": 10
     }
   ],
   "weight": [
@@ -708,6 +736,12 @@
       "weight": 40,
       "date": "2019-04-08T19:03:05.919Z",
       "id": 10
+    },
+    {
+      "dogId": "10",
+      "weight": 43,
+      "date": "2019-04-11T15:24:53.144Z",
+      "id": 11
     }
   ],
   "behavior": [
@@ -760,10 +794,10 @@
       "id": 8
     },
     {
-      "dogId": "7",
+      "dogId": "10",
       "date": "2019-04-11",
-      "behavior": 5,
-      "id": 9
+      "behavior": 3,
+      "id": 10
     }
   ]
 }
