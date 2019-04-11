@@ -7,7 +7,7 @@ class Auth {
       domain: AuthConfig.domain,
       audience: `https://${AuthConfig.domain}/userinfo`,
       clientID: AuthConfig.clientId,
-      redirectUri: 'https://fit-pup.herokuapp.com/callback',
+      redirectUri: 'http://localhost:3000/callback',
       responseType: 'id_token',
       scope: 'openid profile'
     });
@@ -59,7 +59,7 @@ class Auth {
 
   signOut() {
     this.auth0.logout({
-      returnTo: 'https://fit-pup.herokuapp.com/',
+      returnTo: 'http://localhost:3000',
       clientID: AuthConfig.clientId,
     });
   }
