@@ -4,7 +4,7 @@
   font-family: 'Poppins';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Roboto"
 }
 
 
@@ -146,7 +146,7 @@ input[type="radio"]{
 
 .dog-card{
   height: 60vh;
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Roboto";
   font-weight: bold;
 }
 
@@ -171,7 +171,7 @@ input[type="radio"]{
 
 
 button {
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Roboto";
   background-color:#f4b342;
 }
 
@@ -182,7 +182,7 @@ button {
 }
 
 div {
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Roboto";
 }
 
 .border {
@@ -209,10 +209,6 @@ div {
 }
 
 .background-image-list {
-  background-image: url("./components/images/measuring-tape-image.jpg");
-  background-repeat: no-repeat;
-  background-size: 30vw;
-  background-position: center;
   padding-top: 20px;
   height: 40vh;
   -webkit-text-stroke: 1px black;
@@ -221,6 +217,7 @@ div {
 .h1-list {
   padding-top: 60px;
   font-weight: bold;
+  font-family: "Roboto";
 }
 
 
