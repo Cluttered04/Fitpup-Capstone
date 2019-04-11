@@ -588,6 +588,20 @@
       "exerciseId": 2,
       "time": 45,
       "id": 9
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-09",
+      "exerciseId": 4,
+      "time": 40,
+      "id": 10
+    },
+    {
+      "dogId": 7,
+      "date": "2019-04-11",
+      "exerciseId": 3,
+      "time": 60,
+      "id": 11
     }
   ],
   "foodEntries": [
@@ -744,6 +758,12 @@
       "date": "2019-04-08",
       "behavior": 5,
       "id": 8
+    },
+    {
+      "dogId": "7",
+      "date": "2019-04-11",
+      "behavior": 5,
+      "id": 9
     }
   ]
 }
