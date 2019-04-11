@@ -67,12 +67,21 @@
     {
       "id": 10,
       "userId": 3,
+<<<<<<< HEAD
       "name": "Skip",
       "breed": "Poodle",
       "age": "2",
       "active": "true",
       "neutered": "false",
       "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554996135/fmt73grealtpsalwpvsd.jpg"
+=======
+      "name": "Captain",
+      "breed": "Shepherd",
+      "age": "3",
+      "active": "false",
+      "neutered": "true",
+      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554987804/ficoqfueyvzxldhzirbe.jpg"
+>>>>>>> master
     }
   ],
   "exercises": [
@@ -190,7 +199,7 @@
       "userId": 3,
       "name": "Kibble",
       "brand": "Blue Buffalo",
-      "serving": "3 Cups",
+      "serving": "1 Cup",
       "calories": 210,
       "id": 10
     },
@@ -291,6 +300,7 @@
       "id": 22
     },
     {
+<<<<<<< HEAD
       "userId": 1,
       "brand": "Greenies",
       "name": "Dental Dog Treats",
@@ -298,6 +308,23 @@
       "calories": 91,
       "id": 23
     },
+=======
+      "dogId": 7,
+      "date": "2019-04-09",
+      "exerciseId": 6,
+      "time": 45,
+      "id": 9
+    },
+    {
+      "dogId": 10,
+      "date": "2019-04-11",
+      "id": 10,
+      "time": 30,
+      "exerciseId": 6
+    }
+  ],
+  "foodEntries": [
+>>>>>>> master
     {
       "userId": 1,
       "brand": "Milkbone",
@@ -739,9 +766,27 @@
     },
     {
       "dogId": "10",
+<<<<<<< HEAD
       "weight": 43,
       "date": "2019-04-11T15:24:53.144Z",
       "id": 11
+=======
+      "weight": 40,
+      "date": "2019-04-11T13:05:23.950Z",
+      "id": 11
+    },
+    {
+      "dogId": "10",
+      "weight": 39,
+      "date": "2019-04-11T13:05:29.720Z",
+      "id": 12
+    },
+    {
+      "dogId": "10",
+      "weight": 35,
+      "date": "2019-04-11T13:05:33.158Z",
+      "id": 13
+>>>>>>> master
     }
   ],
   "behavior": [
@@ -796,8 +841,13 @@
     {
       "dogId": "10",
       "date": "2019-04-11",
+<<<<<<< HEAD
       "behavior": 3,
       "id": 10
+=======
+      "behavior": 5,
+      "id": 9
+>>>>>>> master
     }
   ]
 }
