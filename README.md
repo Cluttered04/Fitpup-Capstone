@@ -3,7 +3,14 @@ Fit pup - Your best friend's fitness app
 A calorie, weight, and exercise tracker for your furry friend
 
 ## To install
-Visit https://github.com/Cluttered04/Fitpup-Capstone and clone down a branch to your local directory then "checkout -b *name*" a new branch to test. Run the commands "npm install react", "npm install --save moment react-moment", "npm install react-bootstrap bootstrap", "npm install recharts", "npm install react react-dropzone superagent --save", and "npm install react-router-dom" to install the necessary node modules. Open a second terminal and run the command "json-server -p 5002 -w api/db.json" to run your json server. In your first termine run the "npm start" command to launch application in your browser.
+Visit https://github.com/Cluttered04/Fitpup-Capstone and clone down a branch to your local directory then "checkout -b *name*" a new branch to test. Run the commands "npm install react", "npm install --save moment react-moment", "npm install react-bootstrap bootstrap", "npm install recharts", "npm install react react-dropzone superagent --save", and "npm install react-router-dom" to install the necessary node modules.
+
+##To run
+Make an Auth0 account for authentication by visiting https://auth0.com/.
+Make an AuthConfig.js file in te authentication folder, copy the text from the SampleAuthConfig.js file into it, and replace the domain name and client id with the information in your new Auth0 account.
+
+Open a second terminal and run the command "json-server -p 5002 -w api/db.json" to run your json server. In your first terminal run the "npm start" command to launch application in your browser.
+
 
 ## Front page
 When the user visits the website, they will be greeted with a splash information page with a "Please sign in" message, and a green sign in button on the navbar.

@@ -24,7 +24,9 @@ code {
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 90vw;
 }
 
 #search {
@@ -237,4 +239,9 @@ h2 h3 {
   padding-top: 80px;
   font-weight: bold;
   text-decoration: underline;
+}
+
+.logo{
+  display: block;
+  margin: 0 auto;
 }
