@@ -36,124 +36,60 @@
       "id": 2
     },
     {
-      "name": "Flip",
-      "breed": "Greyhound",
-      "neutered": "false",
-      "active": "true",
-      "age": "2",
-      "userId": null,
-      "id": 6
-    },
-    {
-      "id": 7,
+      "id": 3,
       "userId": 3,
-      "name": "Rover",
-      "breed": "lab",
-      "age": "2",
-      "active": "true",
-      "neutered": "false",
-      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554734628/q902rpugkpkohxmlii8x.jpg"
-    },
-    {
-      "name": "Flip",
-      "breed": "Golden",
-      "neutered": "false",
-      "active": "true",
-      "age": "2",
-      "userId": 3,
-      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554816518/ej5rwi9d97zqdt3sklgt.jpg",
-      "id": 9
-    },
-    {
-      "id": 10,
-      "userId": 3,
-<<<<<<< HEAD
-      "name": "Skip",
-      "breed": "Poodle",
-      "age": "2",
-      "active": "true",
-      "neutered": "false",
-      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554996135/fmt73grealtpsalwpvsd.jpg"
-=======
       "name": "Captain",
       "breed": "Shepherd",
       "age": "3",
       "active": "false",
       "neutered": "true",
-      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1554987804/ficoqfueyvzxldhzirbe.jpg"
->>>>>>> master
-    }
-  ],
-  "exercises": [
-    {
-      "userId": 1,
-      "name": "Flirt Pole",
-      "id": 2
+      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1555004546/bawyeqjbevvhlwntg1s3.jpg"
     },
     {
-      "id": 3,
-      "userId": 1,
-      "name": "DockDiving"
-    },
-    {
-      "id": 4,
-      "userId": 1,
-      "name": "Agility"
-    },
-    {
-      "userId": 1,
-      "name": "Fetch",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "name": "Dock-diving",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "name": "Flyball",
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "name": "Running",
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "name": "Swimming",
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "name": "Hiking",
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "name": "Running beside bicycle",
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "name": "Pulling Sled",
-      "id": 14
-    },
-    {
-      "id": 15,
+      "id": 5,
       "userId": 3,
-      "name": "Hunting"
+      "name": "Skip",
+      "breed": "Lab",
+      "age": "2",
+      "active": "true",
+      "neutered": "true",
+      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1555007982/kmzk1yish6vqjwv5sac8.jpg"
+    },
+    {
+      "name": "Flip",
+      "breed": "Lab",
+      "neutered": "true",
+      "active": "false",
+      "age": "2",
+      "userId": 3,
+      "image": "https://res.cloudinary.com/doakhgbvc/image/upload/v1555075282/gnoe27jhgrhcr06ocu30.jpg",
+      "id": 6
     }
   ],
   "foods": [
     {
-      "id": 1,
       "userId": 1,
-      "name": "True Chews",
-      "brand": "Tyson Pet Products",
-      "serving": "one piece",
-      "calories": 47
+      "brand": "Nutro",
+      "name": "Crunchy Treats with Mixed Berries",
+      "serving": "1 Treat",
+      "calories": 5,
+      "id": 38
+    },
+    {
+      "userId": 1,
+      "brand": "Redbarn Naturals",
+      "name": "Bully Slices",
+      "serving": "1 Slice",
+      "calories": 66,
+      "id": 39
+    },
+    {
+      "userId": 1,
+      "brand": "DentaLife",
+      "name": "Large Dental Dog Treats",
+      "serving": "1 Treat",
+      "calories": 100,
+      "id": 40
     },
     {
       "userId": 2,
@@ -196,23 +132,7 @@
       "id": 9
     },
     {
-      "userId": 3,
-      "name": "Kibble",
-      "brand": "Blue Buffalo",
-      "serving": "1 Cup",
-      "calories": 210,
-      "id": 10
-    },
-    {
-      "userId": 3,
-      "name": "Kibble",
-      "brand": "Blue Buffalo",
-      "serving": "1 Cup",
-      "calories": 300,
-      "id": 11
-    },
-    {
-      "userId": 3,
+      "userId": 1,
       "brand": "Tricky Trainers",
       "name": "Treat",
       "serving": "10 treats",
@@ -244,12 +164,36 @@
       "id": 15
     },
     {
+      "id": 1,
       "userId": 1,
-      "brand": "Zuke's",
-      "name": "Minis",
-      "serving": "1 treat",
-      "calories": 2,
-      "id": 16
+      "name": "True Chews",
+      "brand": "Tyson Pet Products",
+      "serving": "one piece",
+      "calories": 47
+    },
+    {
+      "userId": 2,
+      "name": "Kibble",
+      "brand": "Purina One",
+      "serving": "2 Cups",
+      "calories": 245,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "name": "Kibble",
+      "brand": "Hills Science Diet",
+      "serving": "1 Cup",
+      "calories": 275,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "brand": "Purina Puppy",
+      "name": "Kibble",
+      "serving": ".5 Cups",
+      "calories": 150,
+      "id": 5
     },
     {
       "userId": 1,
@@ -300,7 +244,6 @@
       "id": 22
     },
     {
-<<<<<<< HEAD
       "userId": 1,
       "brand": "Greenies",
       "name": "Dental Dog Treats",
@@ -308,23 +251,97 @@
       "calories": 91,
       "id": 23
     },
-=======
-      "dogId": 7,
-      "date": "2019-04-09",
-      "exerciseId": 6,
-      "time": 45,
+    {
+      "userId": 3,
+      "brand": "Blue Buffalo",
+      "name": "Kibble",
+      "serving": "1 Cup",
+      "calories": 290,
+      "id": 41
+    },
+    {
+      "userId": 3,
+      "brand": "Blue Buffalo",
+      "name": "Kibble",
+      "serving": "1 Cup",
+      "calories": 290,
+      "id": 42
+    },
+    {
+      "userId": 3,
+      "brand": "Zukes",
+      "name": "Minis",
+      "serving": "1 Treat",
+      "calories": 3,
+      "id": 43
+    },
+    {
+      "userId": 3,
+      "brand": "Zukes",
+      "name": "Minis",
+      "serving": "1 Treats",
+      "calories": 3,
+      "id": 44
+    }
+  ],
+  "exercises": [
+    {
+      "userId": 1,
+      "name": "Flirt Pole",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "name": "DockDiving"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "name": "Agility"
+    },
+    {
+      "userId": 1,
+      "name": "Fetch",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "name": "Flyball",
       "id": 9
     },
     {
-      "dogId": 10,
-      "date": "2019-04-11",
-      "id": 10,
-      "time": 30,
-      "exerciseId": 6
+      "userId": 1,
+      "name": "Running",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "name": "Swimming",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "name": "Hiking",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "name": "Running beside bicycle",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "name": "Pulling Sled",
+      "id": 14
+    },
+    {
+      "id": 15,
+      "userId": 3,
+      "name": "Hunting"
     }
   ],
   "foodEntries": [
->>>>>>> master
     {
       "userId": 1,
       "brand": "Milkbone",
@@ -423,8 +440,8 @@
     },
     {
       "userId": 1,
-      "brand": "Tylee's",
-      "name": "Chicken Jerky Dog Treats",
+      "brand": "Pet Botanics",
+      "name": "Training Reward",
       "serving": "1 Treat",
       "calories": 13,
       "id": 36
@@ -438,72 +455,6 @@
       "id": 37
     },
     {
-      "userId": 1,
-      "brand": "Nutro",
-      "name": "Crunchy Treats with Mixed Berries",
-      "serving": "1 Treat",
-      "calories": 5,
-      "id": 38
-    },
-    {
-      "userId": 1,
-      "brand": "Redbarn Naturals",
-      "name": "Bully Slices",
-      "serving": "1 Slice",
-      "calories": 66,
-      "id": 39
-    },
-    {
-      "userId": 1,
-      "brand": "DentaLife",
-      "name": "Large Dental Dog Treats",
-      "serving": "1 Treat",
-      "calories": 100,
-      "id": 40
-    },
-    {
-      "userId": 1,
-      "brand": "Fruitables",
-      "name": "Crunchy Dog Treats",
-      "serving": "1 Treat",
-      "calories": 8,
-      "id": 41
-    },
-    {
-      "userId": 1,
-      "brand": "Waggin Train",
-      "name": "Chicken Jerky Tenders",
-      "serving": "1 Treat",
-      "calories": 45,
-      "id": 42
-    },
-    {
-      "userId": 1,
-      "brand": "Purina Pro Plan",
-      "name": "Gentle Snackers",
-      "serving": "1 Treat",
-      "calories": 14,
-      "id": 43
-    },
-    {
-      "userId": 1,
-      "brand": "Old Mother Hubbard",
-      "name": "Original Assortment Biscuits",
-      "serving": "1 Treat",
-      "calories": 33,
-      "id": 44
-    },
-    {
-      "userId": 1,
-      "brand": "American Journey",
-      "name": "Grain Free Jerky",
-      "serving": "1 Treat",
-      "calories": 20,
-      "id": 45
-    },
-    {
-      "userId": 1,
-      "brand": "Royal Canin",
       "name": "Hydrolyzed Protein Canine Dog Treats",
       "serving": "1 Treat",
       "calories": 6,
@@ -511,11 +462,107 @@
     },
     {
       "userId": 1,
-      "brand": "Full Moon",
-      "name": "Chicken Jerky Dog Treats",
+      "brand": "American Journey",
+      "name": "Crunchy Biscuits",
       "serving": "1 Treat",
-      "calories": 49,
-      "id": 47
+      "calories": 13,
+      "id": 18
+    },
+    {
+      "userId": 1,
+      "brand": "American Journey",
+      "name": "Grain Free Kibble",
+      "serving": "1 Cup",
+      "calories": 390,
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "brand": "Blue Buffalo",
+      "name": "Grain Free Chicken Recipe",
+      "serving": "1 C",
+      "calories": 409,
+      "id": 20
+    },
+    {
+      "userId": 1,
+      "brand": "Blue Buffalo",
+      "name": "Health Bar Treats",
+      "serving": "1 Bar",
+      "calories": 64,
+      "id": 21
+    },
+    {
+      "userId": 1,
+      "brand": "MilkBone",
+      "name": "Soft and Chewy",
+      "serving": "1 Treat",
+      "calories": 24,
+      "id": 22
+    },
+    {
+      "userId": 1,
+      "brand": "Greenies",
+      "name": "Dental Dog Treats",
+      "serving": "1 Treat",
+      "calories": 91,
+      "id": 23
+    },
+    {
+      "userId": 1,
+      "brand": "Milkbone",
+      "name": "Large Biscuit",
+      "serving": "1 Treat",
+      "calories": 125,
+      "id": 24
+    },
+    {
+      "userId": 1,
+      "brand": "Greenies",
+      "name": "Pill Pockets",
+      "serving": "1 Treat",
+      "calories": 23,
+      "id": 25
+    },
+    {
+      "userId": 1,
+      "brand": "Merrick",
+      "name": "Power Bites",
+      "serving": "1 Treat",
+      "calories": 5,
+      "id": 26
+    },
+    {
+      "userId": 1,
+      "brand": "Milo's Kitchen",
+      "name": "Chicken Meatballs",
+      "serving": "1 Treat",
+      "calories": 27,
+      "id": 27
+    },
+    {
+      "userId": 1,
+      "brand": "Bones and Chews",
+      "name": "Grain Free Jerky",
+      "serving": "1 Treat",
+      "calories": 62,
+      "id": 28
+    },
+    {
+      "userId": 1,
+      "brand": "Wellness",
+      "name": "Soft Puppy Bites",
+      "serving": "1 Treat",
+      "calories": 4,
+      "id": 29
+    },
+    {
+      "userId": 1,
+      "brand": "Blue Buffalo",
+      "name": "Blue Bits Training Treats",
+      "serving": "1 Treat",
+      "calories": 3,
+      "id": 30
     },
     {
       "userId": 1,
@@ -527,327 +574,425 @@
     },
     {
       "userId": 1,
-      "brand": "Charlee Bear",
-      "name": "Natural Bear Crunch Bacon",
+      "brand": "Pupperoni",
+      "name": "Original Flavor Beef Dog Treats",
       "serving": "1 Treat",
-      "calories": 2,
-      "id": 49
+      "calories": 28,
+      "id": 31
     },
     {
       "userId": 1,
-      "brand": "Hill's Science Diet",
-      "name": "Prescription Diet Dog Treats",
+      "brand": "Smart Bones",
+      "name": "Mini Peanut Butter Chew Bones",
+      "serving": "1 Chew",
+      "calories": 45,
+      "id": 32
+    },
+    {
+      "userId": 1,
+      "brand": "Nutrish",
+      "name": "Burger Bites",
       "serving": "1 Treat",
-      "calories": 15,
+      "calories": 19,
+      "id": 33
+    },
+    {
+      "userId": 1,
+      "brand": "Triumph",
+      "name": "Grain Free Sweet Potato Jerky",
+      "serving": "1 Treat",
+      "calories": 45,
+      "id": 34
+    },
+    {
+      "userId": 1,
+      "brand": "Kong",
+      "name": "Stuff'n Easy Peanut Butter",
+      "serving": "1 Tsp",
+      "calories": 5,
+      "id": 35
+    },
+    {
+      "userId": 1,
+      "brand": "Tylee's",
+      "name": "Chicken Jerky Dog Treats",
+      "serving": "1 Treat",
+      "calories": 13,
+      "id": 36
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-04",
+      "id": 49,
+      "serving": 2,
+      "foodId": 40
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-05",
+      "foodId": 1,
+      "serving": 3,
       "id": 50
     },
     {
-      "userId": 1,
-      "brand": "Purina Alpo",
-      "name": "T-Bonz Porterhouse Flavor",
-      "serving": "1 Treat",
-      "calories": 34,
+      "dogId": 3,
+      "date": "2019-04-05",
+      "foodId": 38,
+      "serving": 15,
       "id": 51
     },
     {
-      "userId": 1,
-      "brand": "Halo",
-      "name": "Liv-A-Littles Grain Free Freeze-Dried Dog Treats",
-      "serving": "1 Treat",
-      "calories": 8,
-      "id": 52
+      "dogId": 3,
+      "date": "2019-04-06",
+      "id": 52,
+      "serving": 2,
+      "foodId": 19
     },
     {
-      "userId": 1,
-      "brand": "PureBites",
-      "name": "Chicken Breast Freeze-Dried Raw",
-      "serving": "1 Treat",
-      "calories": 3,
-      "id": 53
+      "dogId": 3,
+      "date": "2019-04-07",
+      "id": 53,
+      "serving": 2,
+      "foodId": 20
     },
     {
-      "userId": 1,
-      "brand": "Ark Naturals",
-      "name": "Brushless Toothpaste Small Dental Dog Chews",
-      "serving": "1 Treat",
-      "calories": 50,
-      "id": 54
+      "dogId": 3,
+      "date": "2019-04-08",
+      "id": 54,
+      "serving": 10,
+      "foodId": 21
     },
     {
-      "userId": 1,
-      "brand": "Wellness",
-      "name": "Grain Free Marrow Roasts",
-      "serving": "1 Treat",
-      "calories": 11,
-      "id": 55
+      "dogId": 3,
+      "date": "2019-04-08",
+      "id": 55,
+      "serving": 2,
+      "foodId": 23
     },
     {
-      "userId": 1,
-      "brand": "Bil-Jac",
-      "name": "Little-Jacs Small Dog Liver Training Treats",
-      "serving": "1 Treat",
-      "calories": 3,
-      "id": 56
+      "dogId": 3,
+      "date": "2019-04-10",
+      "id": 57,
+      "serving": 20,
+      "foodId": 17
     },
     {
-      "userId": 1,
-      "brand": "Merrick",
-      "name": "Grammy's Pot Pie",
-      "serving": "1 Treat",
-      "calories": 16,
-      "id": 57
-    },
-    {
-      "userId": 1,
-      "brand": "Pedigree",
-      "name": "MarroBone Beef Flavor Biscuits",
-      "serving": "1 Treat",
-      "calories": 37,
+      "dogId": 3,
+      "date": "2019-04-11",
+      "foodId": 40,
+      "serving": 3,
       "id": 58
     },
     {
-      "userId": 1,
-      "brand": "Pedrigree",
-      "name": "Mini Jumbone",
-      "serving": "1 Treat",
-      "calories": 53,
+      "dogId": 3,
+      "date": "2019-04-11",
+      "foodId": 39,
+      "serving": 3,
       "id": 59
     },
     {
-      "userId": 3,
-      "brand": "Tyson",
-      "name": "True Chews - Beef",
-      "serving": "1 Treat",
-      "calories": 53,
+      "dogId": 5,
+      "date": "2019-04-11",
+      "foodId": 39,
+      "serving": 1,
       "id": 60
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-11",
+      "foodId": 39,
+      "serving": 2,
+      "id": 61
+    },
+    {
+      "dogId": 5,
+      "date": "2019-04-11",
+      "foodId": 40,
+      "serving": 2,
+      "id": 62
+    },
+    {
+      "dogId": 5,
+      "date": "2019-04-10",
+      "foodId": 40,
+      "serving": 2,
+      "id": 63
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-12",
+      "foodId": 40,
+      "serving": 2,
+      "id": 64
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-10",
+      "id": 65,
+      "serving": 2,
+      "foodId": 39
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-12",
+      "foodId": 40,
+      "serving": 1,
+      "id": 66
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-23",
+      "foodId": 14,
+      "serving": 2,
+      "id": 67
     }
   ],
   "exerciseEntries": [
     {
-      "dogId": 7,
-      "date": "2019-04-09",
-      "exerciseId": 2,
-      "time": 45,
-      "id": 9
-    },
-    {
-      "dogId": 7,
-      "date": "2019-04-09",
-      "exerciseId": 4,
-      "time": 40,
-      "id": 10
-    },
-    {
-      "dogId": 7,
-      "date": "2019-04-11",
+      "id": 1,
+      "dogId": 2,
       "exerciseId": 3,
-      "time": 60,
-      "id": 11
+      "time": 45
     },
-    {
-      "dogId": 10,
-      "date": "2019-04-11",
-      "id": 12,
-      "time": 40,
-      "exerciseId": 15
-    }
-  ],
-  "foodEntries": [
     {
       "dogId": 3,
       "date": "2019-04-04",
-      "foodId": 1,
-      "serving": 1,
+      "exerciseId": 9,
+      "time": 34,
+      "id": 2
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-05",
+      "exerciseId": 3,
+      "time": 25,
       "id": 3
     },
     {
-      "dogId": 4,
-      "date": "2019-04-09",
-      "foodId": 1,
-      "serving": 2,
-      "id": 10
+      "dogId": 3,
+      "date": "2019-04-07",
+      "exerciseId": 10,
+      "time": 60,
+      "id": 4
     },
     {
-      "dogId": 7,
+      "dogId": 3,
+      "date": "2019-04-08",
+      "exerciseId": 12,
+      "time": 120,
+      "id": 5
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-10",
+      "id": 6,
+      "time": 60,
+      "exerciseId": 14
+    },
+    {
+      "dogId": 3,
       "date": "2019-04-09",
-      "foodId": 12,
-      "serving": 3,
+      "exerciseId": 13,
+      "time": 15,
+      "id": 7
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-11",
+      "id": 8,
+      "time": 250,
+      "exerciseId": 15
+    },
+    {
+      "dogId": 5,
+      "date": "2019-04-11",
+      "exerciseId": 4,
+      "time": 65,
+      "id": 11
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-11",
+      "exerciseId": 3,
+      "time": 25,
       "id": 12
     },
     {
-      "dogId": 7,
-      "date": "2019-04-06",
-      "foodId": 14,
-      "serving": 2,
+      "dogId": 5,
+      "date": "2019-04-10",
+      "exerciseId": 3,
+      "time": 60,
       "id": 13
     },
     {
-      "dogId": 7,
-      "date": "2019-04-09",
-      "foodId": 15,
-      "serving": 2,
+      "dogId": 5,
+      "date": "2019-04-11",
+      "exerciseId": 3,
+      "time": 60,
       "id": 14
     },
     {
-      "dogId": 7,
-      "date": "2019-04-03",
-      "foodId": 14,
-      "serving": 2,
+      "dogId": 3,
+      "date": "2019-04-10",
+      "exerciseId": 4,
+      "time": 60,
       "id": 15
     },
     {
-      "dogId": 10,
-      "date": "2019-04-11",
-      "id": 16,
-      "serving": 3,
-      "foodId": 10
+      "dogId": 3,
+      "date": "2019-04-22",
+      "exerciseId": 9,
+      "time": 35,
+      "id": 16
+    },
+    {
+      "dogId": 3,
+      "date": "2019-04-23",
+      "exerciseId": 2,
+      "time": 60,
+      "id": 17
     }
   ],
   "weight": [
     {
-      "dogId": "3",
-      "weight": 25,
-      "date": "2019-04-05T15:45:32.776Z",
-      "id": 1
+      "id": 1,
+      "dogId": 2,
+      "date": "2019-04-04",
+      "weight": 27
     },
     {
       "dogId": "3",
-      "weight": 24,
-      "date": "2019-04-05T15:45:40.564Z",
+      "weight": 35,
+      "date": "2019-04-04T17:51:03.416Z",
       "id": 2
     },
     {
       "dogId": "3",
-      "weight": 23,
-      "date": "2019-04-05T15:45:45.888Z",
+      "weight": 34,
+      "date": "2019-04-05T17:51:07.151Z",
       "id": 3
     },
     {
       "dogId": "3",
-      "weight": 25,
-      "date": "2019-04-05T19:10:02.386Z",
+      "weight": 33,
+      "date": "2019-04-06T17:51:09.758Z",
       "id": 4
     },
     {
       "dogId": "3",
-      "weight": 30,
-      "date": "2019-04-05T19:10:07.549Z",
+      "weight": 35,
+      "date": "2019-04-07T17:51:11.996Z",
       "id": 5
     },
     {
       "dogId": "3",
-      "weight": 40,
-      "date": "2019-04-05T21:41:03.871Z",
+      "weight": 32,
+      "date": "2019-04-08T17:51:14.259Z",
       "id": 6
     },
     {
-      "dogId": "7",
-      "weight": 45,
-      "date": "2019-04-07T14:51:18.014Z",
+      "dogId": "3",
+      "weight": 36,
+      "date": "2019-04-03T17:51:17.333Z",
       "id": 7
     },
     {
-      "dogId": "7",
-      "weight": 19,
-      "date": "2019-04-06T14:51:22.508Z",
+      "dogId": "3",
+      "weight": 36,
+      "date": "2019-04-02T18:20:55.915Z",
       "id": 8
     },
     {
       "dogId": "3",
-      "weight": 45,
-      "date": "2019-04-08T15:59:36.735Z",
+      "weight": 35,
+      "date": "2019-04-01T18:25:51.371Z",
       "id": 9
     },
     {
-      "dogId": "7",
-      "weight": 40,
-      "date": "2019-04-08T19:03:05.919Z",
+      "dogId": "3",
+      "weight": 36,
+      "date": "2019-04-11T18:31:11.102Z",
       "id": 10
     },
     {
-      "dogId": "10",
-<<<<<<< HEAD
-      "weight": 43,
-      "date": "2019-04-11T15:24:53.144Z",
-      "id": 11
-=======
-      "weight": 40,
-      "date": "2019-04-11T13:05:23.950Z",
-      "id": 11
-    },
-    {
-      "dogId": "10",
+      "dogId": "3",
       "weight": 39,
-      "date": "2019-04-11T13:05:29.720Z",
-      "id": 12
-    },
-    {
-      "dogId": "10",
-      "weight": 35,
-      "date": "2019-04-11T13:05:33.158Z",
-      "id": 13
->>>>>>> master
+      "date": "2019-04-12T13:23:02.543Z",
+      "id": 11
     }
   ],
   "behavior": [
     {
-      "dogId": 7,
-      "behavior": 1,
-      "date": "2019-04-07",
-      "id": 1
+      "id": 1,
+      "dogId": 2,
+      "date": "2019-04-04",
+      "behavior": 1
     },
     {
       "dogId": "3",
-      "date": "2019-04-06",
+      "date": "2019-04-04",
       "behavior": 4,
       "id": 2
     },
     {
-      "dogId": "7",
+      "dogId": "3",
       "date": "2019-04-05",
-      "behavior": 5,
+      "behavior": 2,
       "id": 3
     },
     {
-      "dogId": "7",
-      "date": "2019-04-08",
-      "behavior": 2,
+      "dogId": "3",
+      "date": "2019-04-06",
+      "behavior": 1,
       "id": 4
     },
     {
-      "dogId": "7",
-      "date": "2019-04-08",
+      "dogId": "3",
+      "date": "2019-04-07",
       "behavior": 5,
       "id": 5
     },
     {
       "dogId": "3",
       "date": "2019-04-08",
-      "behavior": 5,
+      "behavior": 4,
       "id": 6
     },
     {
       "dogId": "3",
-      "date": "2019-04-08",
-      "behavior": 4,
+      "date": "2019-04-09",
+      "behavior": 5,
       "id": 7
     },
     {
       "dogId": "3",
-      "date": "2019-04-08",
-      "behavior": 5,
+      "date": "2019-04-10",
+      "behavior": 3,
       "id": 8
     },
     {
-      "dogId": "10",
+      "dogId": "3",
       "date": "2019-04-11",
-<<<<<<< HEAD
-      "behavior": 3,
-      "id": 10
-=======
-      "behavior": 5,
+      "behavior": 4,
       "id": 9
->>>>>>> master
+    },
+    {
+      "dogId": "3",
+      "date": "2019-04-11",
+      "behavior": 1,
+      "id": 10
+    },
+    {
+      "dogId": "3",
+      "date": "2019-04-11",
+      "behavior": 4,
+      "id": 11
+    },
+    {
+      "dogId": "3",
+      "date": "2019-04-12",
+      "behavior": 5,
+      "id": 12
     }
   ]
 }
